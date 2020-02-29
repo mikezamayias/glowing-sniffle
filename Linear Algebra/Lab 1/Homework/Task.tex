@@ -1,0 +1,207 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{inconsolata}
+\usepackage{listings}
+\usepackage[margin=2cm]{geometry}
+\usepackage[LGR, T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[greek, english]{babel}
+\usepackage{alphabeta}
+\usepackage{amsfonts, amsmath, amssymb}
+\usepackage{fixltx2e}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage{xcolor}
+
+\definecolor{codeblue}{RGB}{44,133,217}
+\definecolor{codegray}{RGB}{138,150,150}
+\definecolor{codepurple}{RGB}{0.58,0,0.82}
+\definecolor{backcolour}{RGB}{255,255,255}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegray},
+    keywordstyle=\color{codeblue},
+    numberstyle=\color{codegray}\ttfamily\bfseries,
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\small\bfseries,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=true,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{\fill}
+        \huge{\textbf{Αριθμητική Γραμμική Άλγεβρα}}
+        \vspace*{\fill}
+        \vfill
+        \normalsize\textbf{Ζαμάγιας Μιχάλης\\}
+        \small\textbf{Εαρινό Εξάμηνο, 2020\\}
+        \vfill
+    \end{center}
+\end{titlepage}
+
+\tableofcontents
+
+\newpage\section{Εργαστήρια}
+
+\newpage\subsection{Εργαστήριο 1 - Πίνακες}
+\subsubsection{Σημειώσεις}
+Ένας πίνακας $A_{mxn}$, έχει \textit{\textbf{n} στήλες} και
+\textit{\textbf{m} γραμμές}:
+\begin{equation*}
+    A_{mxn} = \begin{pmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{m1} & a_{m2} & \cdots & a_{mn}
+    \end{pmatrix}
+\end{equation*}
+\textbf{Είδη πινάκων}:
+\begin{itemize}
+    \item τετραγωνικός, όπου $m = n$
+    \item μη τετραγωνικός, όπου $m \neq n$
+\end{itemize}
+\textit{Σημείωση}: Μόνο οι τετραγωνικοί πίνακες έχουν διαγώνιους. Η κύρια διαγώνιος
+είναι εκείνη όπου $i = j$, με $i \in n$ και $j \in m$. Για δευτερεύουσα την
+διαγώνιο ισχύει ότι $i+j=(m*n)+1$.\\
+\textbf{Μορφές τετραγωνικών πινάκων}, έστω πίνακας
+$
+    A_{2x2}=
+    \begin{pmatrix}
+        \alpha & \beta  \\
+        \gamma & \delta
+    \end{pmatrix}
+$:
+\begin{itemize}
+    \item Άνω τετραγωνικός:
+          $A^{'} = \begin{pmatrix}
+                  \alpha & \beta  \\
+                  0      & \delta
+              \end{pmatrix}$
+    \item Κάτω τετραγωνικός:
+          $A^{'} = \begin{pmatrix}
+                  \alpha & 0      \\
+                  \gamma & \delta
+              \end{pmatrix}$
+    \item Ταυτοτικός:
+          $A^{'} = I = \begin{pmatrix}
+                  1 & 0 \\
+                  0 & 1
+              \end{pmatrix}$
+    \item Μοναδιαίος:
+          $A^{'} = \begin{pmatrix}
+                  1 & 1 \\
+                  1 & 1
+              \end{pmatrix}$
+    \item Μηδενικός:
+          $A^{'} = \begin{pmatrix}
+                  0 & 0 \\
+                  0 & 0
+              \end{pmatrix}$
+    \item Συμμετρικός:
+          $A^{'} = \begin{pmatrix}
+                  \alpha & \beta  \\
+                  \beta  & \delta
+              \end{pmatrix}$
+          ή
+          $A^{'} = \begin{pmatrix}
+                  \alpha & \gamma \\
+                  \gamma & \delta
+              \end{pmatrix}$
+    \item Αντιστρέψιμος:
+          $A^{-1} = \begin{pmatrix}
+                  \alpha & \beta  \\
+                  \gamma & \delta
+              \end{pmatrix}^{-1} =
+              \frac{1}{\alpha\delta-\beta\gamma}\begin{pmatrix}
+                  \delta  & -\beta \\
+                  -\gamma & \alpha
+              \end{pmatrix}$
+\end{itemize}
+
+
+\newpage\subsubsection{Πρώτη Εργαστηριακή Άσκηση}
+\textbf{Δίνεται ο πίνακας
+$A =
+    \begin{pmatrix}
+        4 & 1 \\
+        2 & 1
+    \end{pmatrix}$
+.
+Βρείτε τον
+$Α^{-1}$ και αποδείξτε ότι
+$A*A^{-1}=Ι$,
+με κώδικα και με χέρι.}
+
+\begin{itemize}
+    \item \textit{Με κώδικα}:
+          \lstinputlisting[language=Octave]{task.m}
+    \item \textit{Με χέρι}:\\
+          Από θεωρία είναι:
+          \begin{equation*}
+              A^{-1} = \frac{1}{\alpha\delta-\beta\gamma}
+              \begin{pmatrix}
+                  \delta  & -\beta \\
+                  -\gamma & \alpha
+              \end{pmatrix}
+          \end{equation*}
+          Άρα έχουμε:
+          \begin{equation*}
+              \begin{split}
+                  A*A^{-1}&=
+                  \begin{pmatrix}
+                      4 & 1 \\
+                      2 & 1
+                  \end{pmatrix}
+                  \frac{1}{4*1-2*1}
+                  \begin{pmatrix}
+                      1  & -1 \\
+                      -2 & 4
+                  \end{pmatrix} \implies \\
+                  A*A^{-1}&=
+                  \frac{1}{2}
+                  \begin{pmatrix}
+                      4 & 1 \\
+                      2 & 1
+                  \end{pmatrix}\begin{pmatrix}
+                      1  & -1 \\
+                      -2 & 4
+                  \end{pmatrix} \implies \\
+                  A*A^{-1}&=
+                  \frac{1}{2}
+                  \begin{pmatrix}
+                      (4*1+1*-2) & (4*-1+1*4) \\
+                      (2*1+1*-2) & (2*-1+1*4)
+                  \end{pmatrix} \implies \\
+                  A*A^{-1}&=
+                  \frac{1}{2}
+                  \begin{pmatrix}
+                      2 & 0 \\
+                      0 & 2
+                  \end{pmatrix} \implies \\
+                  A*A^{-1}&=
+                  \begin{pmatrix}
+                      1 & 0 \\
+                      0 & 1
+                  \end{pmatrix} \implies \\
+                  A*A^{-1}&=I
+              \end{split}
+          \end{equation*}
+          \vfill
+\end{itemize}
+
+
+
+
+\end{document}
