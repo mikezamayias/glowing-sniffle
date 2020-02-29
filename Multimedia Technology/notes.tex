@@ -1,0 +1,277 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{inconsolata}
+\usepackage{listings}
+\usepackage[margin=2cm]{geometry}
+\usepackage[LGR, T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[greek,english]{babel}
+\usepackage{alphabeta}
+\usepackage{amsfonts, amsmath, amssymb}
+\usepackage{fixltx2e}
+\usepackage{subfig}
+\usepackage{float}
+
+
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{\fill}
+        \huge\textbf{Σημειώσεις Τεχνολογία Πολυμέσων\\}
+        \vspace*{\fill}
+        \vfill
+        \normalsize\textbf{Ζαμάγιας Μιχάλης\\}
+        \small\textbf{Ιανουάριος 2020\\}
+        \vfill
+    \end{center}
+\end{titlepage}
+
+\tableofcontents
+
+\newpage\section{Ψηφιοποίηση}
+\subsection{Τα 3 στάδια}
+Η μετατροπή ενός αναλογικού σήματος σε ψηφιακό, δηλαδή η
+μετατροπή μιας συνεχούς συνάρτησης σε μια σειρά διακριτών
+τιμών, γίνεται ως εξής:
+\begin{enumerate}
+    \item Δειγματοληψία (sampling)
+    \item Κβάντωση (quantization)
+    \item Κωδικοποίηση (coding)
+\end{enumerate}
+\begin{itemize}
+    \item Η παλμωδική διαμόρφωση (pulse-code modulation)
+          αναφέρεται σε σήμα στο οποίο έχει γίνει δειγματοληψία,
+          κβάντωση και κωδικοποίηση.
+\end{itemize}
+
+\newpage\section{Δειγματοληψία (sampling)}
+\subsection{Καταγραφή Δειγμάτων}
+Το σήμα καταγράφεται σε τακτά χρονικά διαστήματα, δημιουργώντας
+μια σειρά δειγμάτων (samples) που προσεγγίζει την μορφή του
+αναλογικού σήματος.
+\subsection{Συχνότητα Δειγματολήψιας}
+Τα περισσότερα σήματα είναι περιορισμένου εύρους ζώνης, δηλαδή
+υπάρχει μια συχνότητα αποκοπής $f_{n}$ πάνω από την οποία η
+ενέργεια του σήματος είναι πρακτικά μηδέν.
+\subsection{Συχνότητα Nyquist}
+Η ελάχιστη συχνότητα δειγματοληψίας (sampling frequency) $f_{s}$
+είναι διπλάσια από την συχνότητα αποκοπής του σήματος $f_{n}$.
+
+\newpage\section{Κβάντωση (quantization)}
+\subsection{Ορισμός}
+Η δημιουργία κατάλληλης κλίμακας διακριτών δειγμάτων για το
+είδος των δεδομένων που έχουμε.
+\subsection{Μέγεθος Δείγματος}
+Το πλήθος των διαθέσιμων δειγμάτων για την αναπάρασταση του
+αρχικού μεγέθους. \textit{Επηρεάζει}:
+\begin{itemize}
+    \item Το μέγεθος του σφάλματος κβάντωσης (quantization error).
+    \item Τη μνήμη που απαιτείται για την αποθήκευση μιας
+          ψηφιοποιημένης τιμής.
+\end{itemize}
+\subsection{Σφάλμα Κβάντωσης}
+\begin{itemize}
+    \item Είναι το σφάλμα στρογγυλοποίησης που εισάγει η διαδικασία κβάντωσης.
+    \item Η συνολική αρμονική παραμόρφωση (Total Harmonic Distortion / THD) ενός
+          σήματος ήχου μετρά την συνεισφορά των αρμονικών (πέρα της βασικής συχνότητας)
+          στην έντασ του σήματος, και συνεπώς επηρεάζει την πιστότητα στην εγγραφή /
+          αναπαραγωγή του ήχου:\\
+          \begin{center}
+              $THD = \frac{\sum harmonic powers}{fundemental frequency power}$
+          \end{center}
+\end{itemize}
+
+
+\newpage\section{Κωδικοποίηση}
+
+\subsection{Delta}
+\begin{itemize}
+    \item Καταγράφεται η διαφορά της τιμής κάθε δεδομένου μετά από το αρχικό δεδομένο.
+    \item Είναι αποδοτική όταν οι τιμές μεταβάλλονται με ομαλό τρόπο ώστε η διαφορά μεταξύ
+    2 διαδοχικών τιμών να είναι μικρή.
+    \item Μειώνει το πλάτος του καταγραφόμενου σήματος.
+    \item Μετατρέπει τα δεδομένα σε μορφή κατάλληλη για εφαρμογή Huffman ή RLE.
+\end{itemize}
+\subsection{Huffman}
+\begin{itemize}
+    \item Σκοπός είναι να αντικατασταθούν:
+    \begin{itemize}
+        \item οι πιο συχνές εμφανίσεις με μικρότερα σύμβολα λιγότερων bit
+        \item οι λιγότερο συχνές εμφανίσεις με μεγαλύτερα σύμβολα περισσότερων bit
+    \end{itemize}
+    \item \textit{Αλγόριθμος}:
+    \begin{enumerate}
+        \item Εντοπίστε τα δύο λιγότερο πιθανά σύμβολα και συνδυάστε τα σε ένα νέο σύμβολο με 
+        πιθανότητα εμφάνισης το άθροισμα των επιμέρους συμβόλων.
+        \item Επαναλάβετε το 1ο βήμα έως ότου απομείνει ένα μόνο σύμβολο με πιθανότητα 1.
+        \item Στο δέντρο που σχηματίζεται σημειώστε "0" για κάθε αριστερό κλαδί και "1" για κάθε
+        δεξί.
+        \item Ο κώδικας Huffman για κάθε αρχικό σύμβολο είναιι η ακολουθία (path) των "0" και "1"
+        που οδηγεί σε αυτό, αρχίζοντας από την ρίζα με πιθανότητα 1.
+    \end{enumerate}
+\end{itemize}
+\subsection{RLE (Run-Length-Encoding)}
+Γίνεται αντικατάσταση της κάθε ακολουθίας ενός συγκεκριμένου
+συμβόλου από 2 σύμβολα, ως εξής:
+\begin{enumerate}
+    \item Τον αριθμό εμφάνισης του συμβόλου στην συγκεκριμένη
+          ακολουθία.
+    \item Το ίδιο το σύμβολο.
+\end{enumerate}
+Η κωδικοποίηση μπορεί να εφαρμοστεί σε όσα σύμβολα θέλουμε.
+\subsection{PCM (Pulse Code Modulation)}
+\begin{itemize}
+    \item Απλή και ευρεία χρήση.
+    \item Χρησιμοποιεί γραμμική κβάντωση.
+    \item Αποθηκεύει ένας προς ένα τα δείγματα σε ψηφιακή μορφή.
+    \item Δεν εφαρμόζει συμπίεση, τα αρχεία είναι μεγάλα σε μέγεθος.
+    \item Η ποιότητα αναπαραγωγής εξαρτάται μόνο από:
+    \begin{itemize}
+        \item την ποιότητα δειγματοληψίας,
+        \item την διαδικασία κβάντωσης.
+    \end{itemize}
+\end{itemize}
+\subsection{Delta Modulation}
+
+
+\newpage\section{MPEG Audio Compression}
+\begin{itemize}
+    \item Διαθέτει 3 επίπεδα συμπίεσης, όπου κάθε επόμενο επίπεδο:
+    \begin{itemize}
+        \item Καταλαβαίνει τα προηγούμενα επίπεδα,
+        \item Υλοποιεί περισσότερη πολυπλοκότητα του ψυχοακουστικού μοντέλου με αποτέλεσμα
+        να εφαρμόζει:
+        \begin{itemize}
+            \item Καλύτερη συμπίεσης για την ίδια ποιότητα ήχου, ή
+            \item Καλύτερη ποιότητα για τον ίδιο ρυθμό μετάδος.
+        \end{itemize}
+    \end{itemize}
+    \item Το μεγαλύτερο τμήμα της πολυπλοκότητας βρίσκεται στη μεριά του endoder και όχι του
+    decoder.
+    \item Layers
+    \begin{itemize}
+        \item MPEG-1 Layer 1
+        \begin{itemize}
+            \item Εφαρμογή:
+            \begin{enumerate}
+                \item Στο σύστημα συμπίεσης της ψηφιακής κασέτας DAT της Philips
+            \end{enumerate}
+            \item Συμπίεση 4:1
+            \item Ηχητική ποιότητα: μέτρια
+            \item Ρυθμός μετάδοσης: 192 ή 256 kbps/κανάλι
+        \end{itemize}
+        \item MPEG-1 Layer 2
+        \begin{itemize}
+            \item Εφαρμογή:
+            \begin{enumerate}
+                \item Στο ραδιόφωνο DAB
+                \item Στο σύστημα DVB της ψηφιακής δορυφορικής τηλεόρασης
+                \item Στον ήχο CD και DVD
+            \end{enumerate}
+            \item Συμπίεση 6:1 έως 8:1
+            \item Ηχητική ποιότητα: εφάμιλλη του CD
+            \item Ρυθμός μετάδοσης: 96 ή 128 kbps/κανάλι
+        \end{itemize}
+        \item MPEG-1 Layer 3
+        \begin{itemize}
+            \item Εφαρμογή:
+            \begin{enumerate}
+                \item Μεταφορά και φόρτωση μέσω δικτύου
+                \item Ανάκληση και αναπαραγωγή από σκληρό δίσκο
+            \end{enumerate}
+            \item Συμπίεση 12:1
+            \item Ηχητική ποιότητα: εφάμιλλη του CD
+            \item Ρυθμός μετάδοσης: 64 kbps/κανάλι
+        \end{itemize}
+    \end{itemize}
+    \item Βασικός Αλγόριθμος
+    \begin{itemize}
+        \item Encoder
+        \begin{enumerate}
+            \item Audio (PCM) input
+            \item Time to frequency transformation, Psychoacoustic modeling
+            \item Bit allocation, quantizing and coding
+            \item Bitstream formating
+            \item Endocded bitstream
+        \end{enumerate}
+        \item Decoder
+        \begin{enumerate}
+            \item Endocded bitstream
+            \item Bitstream unpacking
+            \item Frequency sample reconstruction
+            \item Frequency to time transformation
+            \item Decoded PCM audio
+        \end{enumerate}
+    \end{itemize}
+    \item Audio Layers
+    \begin{itemize}
+        \item Layers 1 and 2
+        \begin{enumerate}
+            \item PCM audio signal
+            \item Filter bank: 32 subbands, Psychoacoustic model on top of 1024-point FFT
+            \item Linear quantizer, Side-information coding on top of Linear quantizer
+            \item Bitstream formating
+            \item Coded audio signal
+        \end{enumerate}
+        \item Audio Layer 3
+        \begin{enumerate}
+            \item PCM audio signal
+            \item Filter bank: 32 subbands, Psychoacoustic model on top of 1024-point FFT
+            \item M-DCT
+            \item Nonuniform quantization
+            \item Side-information coding and Huffman coding
+            \item Bitstream formating
+            \item Coded audio signal
+        \end{enumerate}
+    \end{itemize}
+    \item MP3
+    \begin{enumerate}
+        \item Βήμα 1
+        \begin{enumerate}
+            \item Το ψηφιοποιημένο σήμα σε μορφή PCM περνά από μια τράπεζα φίλτρων που του
+            διαιρεί σε 32 μπάντες συχντήτων ίσου πλάτους.
+            \item Layer 1
+            \begin{itemize}
+                \item Κάθε φίλτρο ομαδοποιεί 1 ομάδα των 12 δειγμάτων ανά ζώνη
+                \item Για τις 32 ζώνες έχουμε 1*12*32=384 δείγματα
+                \item Το μέγεθος ενός δείγματος είναι 15 bits
+            \end{itemize}
+            \item Layers 2 and 3
+            \begin{itemize}
+                \item Κάθε φίλτρο ομαδοποιεί 3 ομάδες των 12 δειγμάτων ανά ζώνη
+                \item Για τις 32 ζώνες έχουμε 3*12*32=1152 δείγματα
+                \item Το μέγεθος ενός δείγματος είναι 16 bits
+            \end{itemize}
+            \item Τα φίλτρα και τα αντίστροφά τους είναι lossy, όμως το σφάλμα που εισάγεται
+            είναι πολύ μικρό και μη αντιλυπτό.
+        \end{enumerate}
+        \item Βήμα 2
+        \begin{itemize}
+            \item Το φάσμα συχνοτήτων υποδιαιρείται περαιτέρω για καλύτερη φασματική
+            διακριτότητα
+            \item Εφαρμόζεται τροποποιημένος διακριτός μετασχηματισμός συνημτόνου (MDCT) για να
+            αντισταθμιστούν σφάλματα που εισάγουν τα τετράγωνα φίλτρα της τράπεζας φίλτρων:
+            \begin{center}
+                $X(m)=\sum_{k=0}^{n-1} {f(k)x(k)\cos[{\frac{\pi}{2n}(2k+1+\frac{n}{2})(2m+1)}]}$, $m=0...\frac{n}{2}-1$
+            \end{center}
+        \end{itemize}
+        \item Βήμα 3
+        \item Βήμα 4
+    \end{enumerate}
+\end{itemize}
+
+\newpage\section{Μην ξεχάσεις}
+\subsection{Στάδια συμπίεσης JMPEG}
+\subsection{Αντικειμενικά και υποκειμενικά χαρακτηριστικά ήχου}
+\subsection{Διαπλασιακή συμπίεσης}
+\subsection{Τα βήματα της συμπίεσης κατά MPEG}
+\subsection{Καμπύλες ίσης ακουστικότητας}
+\begin{itemize}
+    \item Δείχνουν την σχέση έντασης (P) - συχνότητας (f) που ο μέσος ακροατής εκλαμβάνει
+    ως ίδιας ακουστικότητας.
+    \item Είναι κανονικοιποιημένες ώστε η ένταση να είναι ίδια με την ακουστικότητα σε
+    συχνότητα 1 kHz.
+\end{itemize}
+
+\end{document}
