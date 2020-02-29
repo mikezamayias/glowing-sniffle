@@ -1,4 +1,3 @@
 # glowing-sniffle
 
-a repo to for my uni code.
-sorted by subject.
+A repo to for my school code; sorted by subject.
