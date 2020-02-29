@@ -1,0 +1,242 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{inconsolata}
+\usepackage{listings}
+\usepackage[margin=2cm]{geometry}
+\usepackage[LGR, T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[greek,english]{babel}
+\usepackage{alphabeta}
+\usepackage{amsfonts, amsmath, amssymb}
+\usepackage{fixltx2e}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage{fancyvrb}
+
+\lstdefinestyle{mystyle}{
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4
+}
+\lstset{style=mystyle}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{\fill}
+        \huge\textbf{Ανάλυση Αλγορίθμων\\}
+        \vspace*{\fill}
+        \vfill
+        \normalsize\textbf{Ζαμάγιας Μιχάλης\\}
+        \small\textbf{Φεβρουάριος 2020\\}
+        \vfill
+    \end{center}
+\end{titlepage}
+
+\tableofcontents
+
+
+\newpage
+\section{Ανάλυση}
+\begin{itemize}
+    \item Ρυθμοί αύξησης συναρτήσεων, ταξινομημένα από γρήγορο σε αργό:
+    \begin{enumerate}
+        \item Σταθεροί όροι \\
+        π.χ.:    $64$, $1000$
+        \item Λογαριθμικές συναρτήσεις \\
+        π.χ.:    $\log_8n$, $\log_2n$
+        \item Γραμμικές συναρτήσεις \\
+        π.χ.:    $4n$, $100n$
+        \item Γραμμοαριθμικές συναρτήσεις \\
+        π.χ.:    $n\log_8n$, $n\log_2n$
+        \item Πολυωνυμικές συναρτήσεις \\
+        π.χ.:    $8n^2$, $6n^3$
+        \item Εκθετικές συναρτήσεις \\
+        π.χ.:    $8^2n$, $6^3n$
+    \end{enumerate}
+    \item Ποια είναι η ασυμπτωτική σχέση μεταξύ των συναρτήσεων $n^k$ και $c^n$; Υποθέστε
+    ότι $k >= 1$ και $c > 1$ σταθερές. Επιλέξτε τις σωστές απαντήσεις.
+    \begin{enumerate}
+        \item $n^k$ is $\mathcal{O}(c^n)$ \textbf{Σωστή}
+        \item $n^k$ is $\Omega(c^n)$ \textbf{Λάθος}
+        \item $n^k$ is $\Theta(c^n)$ \textbf{Λάθος}
+    \end{enumerate}        
+    \item Ποια είναι η ασυμπτωτική σχέση μεταξύ των συναρτήσεων $log_2n$ και $log_8n$; 
+    Επιλέξτε τις σωστές απαντήσεις.
+    \begin{enumerate}
+        \item $log_2n$ is $\mathcal{O}(log_8n)$ \textbf{Σωστή}
+        \item $log_2n$ is $\Omega(log_8n)$ \textbf{Σωστή}
+        \item $log_2n$ is $\Theta(log_8n)$ \textbf{Σωστή}
+    \end{enumerate}            
+\end{itemize}
+
+\newpage
+\section{Αλγόριθμοι}
+\subsection{Αναζήτησης}
+\subsubsection{Δυαδική \textbf{(Binary)} - Επαναλυπτικός Αλγόριθμος}
+\begin{lstlisting}[language=c]
+    int iterativeBinarySearch(int pin[], int low, int high, int num)
+    {
+        int mid;
+        while (low <= high)
+        {
+            mid = (low + high) / 2;
+            if (pin[mid] == num)
+            {
+                return mid;
+            }
+            if (pin[mid] < num)
+            {
+                low = mid + 1;
+            }
+            else
+            {
+                high = mid - 1;
+            }
+        }
+        return -1;
+    }
+\end{lstlisting}
+
+\subsubsection{Δυαδική \textbf{(Binary)} - Αναδρομικός Αλγόριθμος}
+\begin{lstlisting}[language=c]
+    int recursiveBinarySearch(int pin[], int low, int high, int num)
+    {
+        int mid;
+        if (low <= high)
+        {
+            mid = (low + high) / 2;
+            if (pin[mid] == num)
+            {
+                return mid;
+            }
+            if (pin[mid] < num)
+            {
+                return recursiveBinarySearch(pin, mid+1, high, num)
+            }
+            else
+            {
+                return recursiveBinarySearch(pin, low, mid-1, num)
+            }
+        }
+        return -1;
+    }
+\end{lstlisting}
+
+\newpage
+\subsection{Ταξινόμησης}
+\subsubsection{Επιλογή \textbf{(Selection)} - Επαναλυπτικός Αλγόριθμος}
+\begin{lstlisting}[language=c]
+    void selectionSort(int pin[], int size)
+    {
+        int i, j, minPos, temp;
+        for (i = 0; i <= size; j++)
+        {
+            minPos = i;
+            for (j = i + 1; j <= size; j++)
+            {
+                if (pin[minPos] > pin[j])
+                {
+                    minPos = j;
+                }
+            }
+            if (minPos != i)
+            {
+                temp = pin[i];
+                pin[i] = pin[minPos];
+                pin[minPos] = temp;
+            }
+        }
+    }
+\end{lstlisting}
+
+\subsubsection{Εισαγωγή \textbf{(Insertion)} - Επαναλυπτικός Αλγόριθμος}
+\begin{lstlisting}[language=c]
+    void insertionSort(int pin[], int size)
+    {
+        int i, j, value;
+        for (i = 1; i <= size; i++)
+        {
+            value = pin[i];
+            j = i - 1;
+            while (j >= 0 && pin[j] > value)
+            {
+                pin[j+1] = pin[j];
+                j--;
+            }
+            pin[j+1] = value;
+        }
+    }
+\end{lstlisting}
+
+\newpage
+\subsubsection{Αντιμετάθεση \textbf{(Bubble)} - Επαναλυπτικός Αλγόριθμος}
+\begin{lstlisting}[language=c]
+    void bubbleSort(int pin[], int size)
+    {
+        int i, j, temp;
+        for (i = 1; i <= size; i++)
+        {
+            for (j = size; j >= i; j--)
+            {
+                if (pin[j] < pin[j-1])
+                {
+                    temp = pin[j];
+                    pin[j] = pin[j-1];
+                    pin[j-1] = temp;
+                }
+            }
+        }
+    }
+\end{lstlisting}
+
+\subsubsection{Συγχώνευση \textbf{(Merge)} - Αναδρομικός Αλγόριθμος}
+\begin{lstlisting}[language=c]
+    void mergeSort(int pin[], int low, int high)
+    {
+        int mid;
+        if (low < high)
+        {
+            mid = (low + high) / 2;
+            mergeSort(pin, low, mid);
+            mergeSort(pin, mid+1, high);
+            merge(pin, low, mid, mid+1, high);
+        }
+    }
+\end{lstlisting}
+
+\subsubsection{Ταχεία Ταξινόμηση \textbf{(QuickSort)} - Αναδρομικός Αλγόριθμος}
+\begin{lstlisting}[language=c]
+    void quickSort(int pin[], int low, int high)
+    {
+        int pivot;
+        if (low < high)
+        {
+            pivot = partition(pin, low, high);
+            quickSort(pin, low, pivot-1);
+            quickSort(pin, pivot+1, high);
+        }
+    }
+\end{lstlisting}
+
+\newpage
+\section{Γράφοι}
+\subsection{Διάσχιση}
+\subsubsection{BFS}
+\subsubsection{DFS}
+\subsection{Τοπολογική Αναζήτηση}
+\subsection{Ελάχιστα Συνδετικά Δέντρα (MST)}
+\subsubsection{Prim}
+\subsubsection{Kruskal}
+
+
+\end{document}
