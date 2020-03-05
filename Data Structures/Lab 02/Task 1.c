@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
 
 #define Rows 4
 #define Columns 5
@@ -7,20 +9,17 @@
 int randomIntGenerator();
 int better(int grades[][Columns]);
 void print2dArray(int grades[][Columns]);
+void populate2dArray(int grades[][Columns]);
 
 int main()
 {
+    srand(time(NULL));
+
     int grades[Rows][Columns];
     int column, row, max;
 
-    //  populate grades array with random ints from 0 to 10
-    for (row = 0; row < Rows; row++)
-    {
-        for (column = 0; column < Columns; column++)
-        {
-            grades[row][column] = randomIntGenerator();
-        }
-    }
+    populate2dArray(grades);
+    print2dArray(grades);
 
     max = better(grades);
     printf("grades max:\t%i\n", max);
@@ -35,12 +34,13 @@ int randomIntGenerator()
 
 int better(int grades[][Columns])
 {
-    int rows, columns, max = grades[rows][columns];
+    int rows, columns;
     rows = columns = 0;
+    int max = grades[rows][columns];
 
-    for (columns = 1; columns < Columns; columns++)
+    for (rows; rows < Rows; rows++)
     {
-        for (rows; rows < Rows; rows++)
+        for (columns = 1; columns < Columns; columns++)
         {
             if (grades[rows][columns] > max)
             {
@@ -59,6 +59,17 @@ void print2dArray(int grades[][Columns])
         for (int column = 0; column < Columns; column++)
         {
             printf("grades[%i][%i]) = %i\n", row, column, grades[row][column]);
+        }
+    }
+}
+
+void populate2dArray(int grades[][Columns])
+{
+    for (int row = 0; row < Rows; row++)
+    {
+        for (int column = 0; column < Columns; column++)
+        {
+            grades[row][column] = randomIntGenerator();
         }
     }
 }
