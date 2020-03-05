@@ -34,6 +34,28 @@ int randomIntGenerator()
     return rand() % 11; //  11 as it's a unit more than 10
 }
 
+void populate2dArray(int grades[][Columns])
+{
+    for (int row = 0; row < Rows; row++)
+    {
+        for (int column = 0; column < Columns; column++)
+        {
+            grades[row][column] = randomIntGenerator();
+        }
+    }
+}
+
+void print2dArray(int grades[][Columns])
+{
+    for (int row = 0; row < Rows; row++)
+    {
+        for (int column = 0; column < Columns; column++)
+        {
+            printf("grades[%i][%i] = %i\n", row, column, grades[row][column]);
+        }
+    }
+}
+
 int better(int grades[][Columns])
 {
     int rows, columns;
@@ -74,26 +96,4 @@ void better2(int grades[][Columns], int max)
         }
     }
     printf("Row:\t%i\nColumn:\t%i\n", rows, columns);
-}
-
-void print2dArray(int grades[][Columns])
-{
-    for (int row = 0; row < Rows; row++)
-    {
-        for (int column = 0; column < Columns; column++)
-        {
-            printf("grades[%i][%i] = %i\n", row, column, grades[row][column]);
-        }
-    }
-}
-
-void populate2dArray(int grades[][Columns])
-{
-    for (int row = 0; row < Rows; row++)
-    {
-        for (int column = 0; column < Columns; column++)
-        {
-            grades[row][column] = randomIntGenerator();
-        }
-    }
 }
