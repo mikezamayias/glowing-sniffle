@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include <time.h>
 
-
 #define Rows 4
 #define Columns 5
 
 int randomIntGenerator();
 int better(int grades[][Columns]);
+void better2(int grades[][Columns], int max);
 void print2dArray(int grades[][Columns]);
 void populate2dArray(int grades[][Columns]);
 
@@ -23,6 +23,8 @@ int main()
 
     max = better(grades);
     printf("grades max:\t%i\n", max);
+    
+    //  better2(grades, max);
 
     return 0;
 }
@@ -52,13 +54,35 @@ int better(int grades[][Columns])
     return max;
 }
 
+void better2(int grades[][Columns], int max)
+{
+    int rows, columns, check = 0;
+
+    for (rows = 0; rows < Rows; rows++)
+    {
+        for (columns = 0; columns < Columns; columns++)
+        {
+            if (max == grades[rows][columns])
+            {
+                check = 1;
+                break;
+            }
+        } 
+        if (check == 1)
+        {
+            break;
+        }
+    }
+    printf("Row:\t%i\nColumn:\t%i\n", rows, columns);
+}
+
 void print2dArray(int grades[][Columns])
 {
     for (int row = 0; row < Rows; row++)
     {
         for (int column = 0; column < Columns; column++)
         {
-            printf("grades[%i][%i]) = %i\n", row, column, grades[row][column]);
+            printf("grades[%i][%i] = %i\n", row, column, grades[row][column]);
         }
     }
 }
