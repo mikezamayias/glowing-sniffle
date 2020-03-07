@@ -162,5 +162,26 @@ int checkTriangularity(int pinax[DimensionSize][DimensionSize])
 
 int checkSymmetry(int pinax[DimensionSize][DimensionSize])
 {
+    int row, column;
+    int elementPairCounter, symmetryPairCounter;
+    elementPairCounter = symmetryPairCounter = 0;
+
+    for (row = 0; row < DimensionSize; row++)
+    {
+        for (column = 0; column < DimensionSize; column++)
+        {
+            elementPairCounter++;
+            if (pinax[row][column] == pinax[column][row])
+            {
+                symmetryPairCounter++;
+            }
+        }
+    }
+    
+    if (elementPairCounter == symmetryPairCounter)
+    {
+        return 1;
+    }
+
     return 0;
 }
