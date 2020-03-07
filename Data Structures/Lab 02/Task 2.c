@@ -5,6 +5,8 @@
 #define Students 2
 #define NameLength 10
 
+void sortStudentNames(char students[][NameLength]);
+
 int main()
 {
     int studentCounter;
@@ -19,19 +21,38 @@ int main()
     printf("\nGiven names, unsorted\n");
     for (studentCounter = 0; studentCounter < Students; studentCounter++)
     {
-        printf("%s", students[studentCounter]);
+        printf("%i.\t%s", studentCounter, students[studentCounter]);
     }
+
+    //  sort student names
+    sortStudentNames(students);
 
     printf("\nGiven names, sorted:\n");
     for (studentCounter = 0; studentCounter < Students; studentCounter++)
     {
-        printf("%s", students[studentCounter]);
+        printf("%i.\t%s", studentCounter, students[studentCounter]);
     }
 
     return 0;
 }
 
-void studentsSort(char students[][NameLength])
+void sortStudentNames(char students[][NameLength])
 {
-    
+    int studentCounter, check;
+    char tempStudent[NameLength];
+
+    for (studentCounter = 0; studentCounter < Students; studentCounter++)
+    {
+        check = strcmp(students[studentCounter], students[studentCounter + 1]);
+        if (check > 0)
+        {
+            strcpy(tempStudent, students[studentCounter]);
+            strcpy(students[studentCounter], students[studentCounter + 1]);
+            strcpy(students[studentCounter + 1], tempStudent);
+        }
+        if (studentCounter + 1 == Students)
+        {
+            break;
+        }
+    }
 }
