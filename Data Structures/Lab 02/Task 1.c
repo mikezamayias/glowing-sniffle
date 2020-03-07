@@ -6,10 +6,10 @@
 #define Columns 5
 
 int randomIntGenerator();
-int better(int grades[][Columns]);
-void better2(int grades[][Columns], int max);
 void print2dArray(int grades[][Columns]);
 void populate2dArray(int grades[][Columns]);
+int better(int grades[][Columns]);
+void better2(int grades[][Columns], int max);
 
 int main()
 {
