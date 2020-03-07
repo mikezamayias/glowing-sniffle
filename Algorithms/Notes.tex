@@ -214,6 +214,7 @@
     }
 \end{lstlisting}
 
+\newpage
 \subsubsection{Ταχεία Ταξινόμηση \textbf{(QuickSort)} - Αναδρομικός Αλγόριθμος}
 \begin{lstlisting}[language=c]
     void quickSort(int pin[], int low, int high)
@@ -225,6 +226,31 @@
             quickSort(pin, low, pivot-1);
             quickSort(pin, pivot+1, high);
         }
+    }
+
+    int partition(int pin[], int low, int high)
+    {
+        int pivot, smallerPos, i, tmp;
+        
+        pivot = pin[high];
+        smallerPos = low - 1;
+        
+        for (i = low; i <= high - 1; i++)
+        {
+            if (pin[i] <= pivot)
+            {
+                smallerPos++;
+                tmp = pin[smallerPos];
+                pin[smallerPos] = pin[i];
+                pin[i] = tmp;
+            }
+        }        
+
+        tmp = pin[smallerPos + 1];
+        pin[smallerPos + 1] = pin[high];
+        pin[high] = tmp;
+        
+        return (smallerPos + 1);
     }
 \end{lstlisting}
 
