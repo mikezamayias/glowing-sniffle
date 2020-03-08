@@ -1,0 +1,104 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{inconsolata}
+%\renewcommand*\familydefault{\ttdefault} %% Only if the base font of the document is to be typewriter style
+\usepackage[LGR, T1]{fontenc}
+\usepackage{listings}
+\usepackage[margin=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[greek, english]{babel}
+\usepackage{alphabeta}
+\usepackage{amsfonts, amsmath, amssymb}
+\usepackage{fixltx2e}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{type1cm, type1ec}
+
+
+\definecolor{codeblue}{RGB}{44,133,217}
+\definecolor{codegray}{RGB}{138,150,150}
+\definecolor{codepurple}{RGB}{0.58,0,0.82}
+\definecolor{backcolour}{RGB}{220,220,220}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegray},
+    keywordstyle=\color{codeblue},
+    numberstyle=\color{codegray}\ttfamily\bfseries,
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\small\bfseries,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=true,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{\fill}
+        \huge{\textbf{Αρχιτεκτονική Υπολογιστών}}
+        \vfill
+        Εργαστήριο 2
+        \vfill
+        \vspace*{\fill}
+        \vfill
+        \normalsize\textbf{Ζαμάγιας Μιχάλης\\tp5000\\}
+        \small\textbf{\today}
+        \vfill
+    \end{center}
+\end{titlepage}
+
+
+
+\section{Άσκηση 1}
+
+Δίνεται ο παρακάτω κώδικας:
+\begin{lstlisting}
+.text
+.globl main
+main:
+    addi $16, $0, 20
+    addi $17, $0, 10
+    beq $16, $17, label1
+    sub $18, $17, $16
+    j label2
+label1:
+    sub $18, $16, $17
+label2:
+    j main
+\end{lstlisting}
+
+\begin{enumerate}
+    \item \begin{itemize}
+              \item Εκτελέστε το πρόγραμμα και γράψτε την τιμή του
+                    καταχωρητή \textbf{\$18} (σε δεκαεξαδικό).\\
+                    \textbf{Απάντηση:} \texttt{fffffff6}
+              \item Ποιες γραμμές κώδικα εκτελέστηκαν;\\
+                    \textbf{Απάντηση:} Όλες εκτός των γραμμών 9 και 10.
+          \end{itemize}
+    \item \begin{itemize}
+              \item Γράψτε ποια θα είναι η νέα τιμή του καταχωρητή \textbf{\$18} (σε δεκαεξαδικό) αν ο παραπάνω κωδικάς αλλάξει ως εξής:
+                    \begin{lstlisting}[firstnumber=4]
+addi $16, $0, 10
+addi $17, $0, 10
+\end{lstlisting}
+                    \textbf{Απάντηση:} \texttt{0}
+              \item Ποιες γραμμές κώδικα εκτελέστηκαν;\\
+                    \textbf{Απάντηση:} Όλες.
+          \end{itemize}
+\end{enumerate}
+
+\newpage
+\section{Άσκηση 2}
+
+
+\end{document}
