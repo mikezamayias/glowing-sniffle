@@ -10,3 +10,5 @@ target:
     add		$16, $16, $17		# $16 = $16 + $17
     addi	$17, $17, 1			# $17 = $17 + 1
     bne		$17, $18, target	# if $17 != $18 then target
+    j		main				# jump to main
+    
