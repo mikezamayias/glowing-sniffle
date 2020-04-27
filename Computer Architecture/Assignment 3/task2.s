@@ -90,7 +90,11 @@ main:
     la		$4, str_nl
     syscall
 
-    #   calc a div b
+    #   calc a div b, a mod b
+    div		$16, $17			# $16 / $17
+    mflo	$21					# $21 = floor($16 / $17) 
+    mfhi	$22					# $22 = $16 mod $17 
+    
         
     #   print prompt for a div b
     addi	$2, $0, 4			# $2 = $0 + 4
@@ -99,16 +103,14 @@ main:
 
     #   print a div b
     addi	$2, $0, 1			# $2 = $0 + 1
-    add		$4, $0, $20		    # $4 = $0 + $20
+    add		$4, $0, $21		    # $4 = $0 + $21
     syscall
 
     #   print new line
     addi	$2, $0, 4			# $2 = $0 + 4
     la		$4, str_nl
     syscall
-
-    #   calc a mod b
-        
+     
     #   print prompt for a div b
     addi	$2, $0, 4			# $2 = $0 + 4
     la		$4, str_mod
@@ -116,7 +118,7 @@ main:
 
     #   print a mod b
     addi	$2, $0, 1			# $2 = $0 + 1
-    add		$4, $0, $20		    # $4 = $0 + $20
+    add		$4, $0, $22		    # $4 = $0 + $22
     syscall
 
     #   print new line
