@@ -1,9 +1,9 @@
 .data   #   initialization of data memmory with needed strings
-    str_a: .asciiz "a="
-    str_b: .asciiz "b="
-    str_add: .asciiz "a + b ="
-    str_sub: .asciiz "a - b ="
-    str_prod: .asciiz "a * b ="
+    str_a: .asciiz "a = "
+    str_b: .asciiz "b = "
+    str_add: .asciiz "a + b = "
+    str_sub: .asciiz "a - b = "
+    str_prod: .asciiz "a * b = "
     str_nl: .asciiz "\n"
 
 .text
