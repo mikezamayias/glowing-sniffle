@@ -55,7 +55,7 @@ main:
     la		$4, str_sub
     syscall
 
-    #   print a+b
+    #   print a-b
     addi	$2, $0, 1			# $2 = $0 + 1
     add		$4, $0, $19		    # $4 = $0 + $19
     syscall
