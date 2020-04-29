@@ -6,20 +6,37 @@
     maximum: .asciiz " is the maximum"
     no_minimum: .asciiz "There is no minimum."
     no_maximum: .asciiz "There is no maximum."
+    repeat_prompt: .asciiz "Run again or stop (use 1 or 0 respectively):"
     str_nl: .asciiz "\n"
 .text
 .globl main
 main:
     jal		input_nums			# jump to input_nums and save position to $ra
-    #   vars on $21, $22 and $23
+    #   vars on $21, $22. later used in min_num and max_num
     addi	$21, $21, 0			# $21 = $21 + 0
     addi	$22, $22, 1			# $22 = $22 + 1
-    sub	    $23, $21, $22		# $23 = $21 - $22
     jal		min_num				# jump to min_num and save position to $ra
     jal		max_num				# jump to max_num and save position to $ra
-    j		main				# jump to main
-#    li		$v0, 10		        # $v0 = 10
-#    syscall
+while:
+    #   print repeat prompt
+    addi	$2, $0, 4			# $2 = $0 + 4
+    la      $4, repeat_prompt
+    syscall
+    #   read answer in $23
+    addi	$2, $0, 5			# $2 = $0 + 5
+    syscall
+    add		$23, $2, $0         # $23 = $2 + $0
+    #   check input
+    bgt		$23, $22, while	# if $23 > $22 then while
+    blt		$23, $21, while	# if $23 < $21 then while
+    beq		$23, $22, exit_while	# if $23 == $22 then exit_while
+    beq		$23, $21, exit_while	# if $23 == $21 then exit_while
+exit_while:
+    beq		$23, $22, main	# if $23 == $22 then main
+    bne		$23, $21, exit	# if $23 != $21 then exit
+exit:
+    li		$v0, 10		        # $v0 = 10
+    syscall
 input_nums:
     #   print prompt to read A
     addi	$2, $0, 4			# $2 = $0 + 4
