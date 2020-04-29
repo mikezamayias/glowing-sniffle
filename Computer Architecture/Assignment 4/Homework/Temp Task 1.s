@@ -13,7 +13,7 @@ main:
     addi	$2, $0, 4			# $2 = $0 + 4
     la		$4, int_A
     syscall
-    
+
     #   read A to register 16
     addi	$2, $0, 5			# $2 = $0 + 5
     syscall
@@ -23,7 +23,7 @@ main:
     addi	$2, $0, 4			# $2 = $0 + 4
     la		$4, int_B
     syscall
-    
+
     #   read B to register 17
     addi	$2, $0, 5			# $2 = $0 + 5
     syscall

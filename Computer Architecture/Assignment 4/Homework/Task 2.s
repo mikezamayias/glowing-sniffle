@@ -11,12 +11,12 @@ main:
     addi	$2, $0, 4			# $2 = $0 + 4
     la		$4, int_a
     syscall
-    
+
     #   read A on $16
     addi	$2, $0, 5			# $2 = $0 + 5
     syscall
     add		$16, $2, $0 		# $16 = $2 + $0
-  
+
     #   if 0 greater than A, go to raise
     bgt		$0, $16, raise_error  	# if $0 > $16 then raise
 
@@ -29,11 +29,11 @@ for:
     #   add 1 to counter
     addi	$17, $17, 1			# $17 = $17 + 1
     beq		$17, $16, end_for	# if $17 == $16 then end_for
-    
+
     #   calc counter div mod 2
     div		$17, $18			# $17 / $18
-    mflo	$0					# $0 = floor($17 / $18) 
-    mfhi	$21					# $21 = $17 mod $18 
+    mflo	$0					# $0 = floor($17 / $18)
+    mfhi	$21					# $21 = $17 mod $18
     bne		$21, $0, for    	# if $21 != $0 then for
 
     #   print prompt next even integer
@@ -52,7 +52,7 @@ for:
     syscall
 
     bne		$17, $16, for	    # if $17 != $16 then for
-    
+
 end_for:
     j		main				# jump to main
 

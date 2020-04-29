@@ -19,25 +19,25 @@ main:
     addi	$2, $0, 4			# $2 = $0 + 4
     la		$4, str_a
     syscall
-    
+
     #   read a
     addi	$2, $0, 5			# $2 = $0 + 5
     syscall
     add		$16, $2, $0 		# $16 = $2 + $0
-    
+
     #   print prompt for b
     addi	$2, $0, 4			# $2 = $0 + 4
     la		$4, str_b
     syscall
-    
+
     #   read b
     addi	$2, $0, 5			# $2 = $0 + 5
     syscall
     add		$17, $2, $0 		# $17 = $2 + $0
-        
+
     #   calc a + b
     add		$18, $16, $17		# $18 = $16 + $17
-    
+
     #   print prompt for a + b
     addi	$2, $0, 4			# $2 = $0 + 4
     la		$4, str_add
@@ -55,7 +55,7 @@ main:
 
     #   calc a - b
     sub		$19, $16, $17		# $19 = $16 - $17
-        
+
     #   print prompt for a - b
     addi	$2, $0, 4			# $2 = $0 + 4
     la		$4, str_sub
@@ -74,7 +74,7 @@ main:
     #   calc a * b
     mult	$16, $17			# $16 * $17 = Hi and Lo registers
     mflo	$20					# copy Lo to $20
-        
+
     #   print prompt for a * b
     addi	$2, $0, 4			# $2 = $0 + 4
     la		$4, str_prod
@@ -92,10 +92,10 @@ main:
 
     #   calc a div b, a mod b
     div		$16, $17			# $16 / $17
-    mflo	$21					# $21 = floor($16 / $17) 
-    mfhi	$22					# $22 = $16 mod $17 
-    
-        
+    mflo	$21					# $21 = floor($16 / $17)
+    mfhi	$22					# $22 = $16 mod $17
+
+
     #   print prompt for a div b
     addi	$2, $0, 4			# $2 = $0 + 4
     la		$4, str_div
@@ -110,7 +110,7 @@ main:
     addi	$2, $0, 4			# $2 = $0 + 4
     la		$4, str_nl
     syscall
-     
+
     #   print prompt for a div b
     addi	$2, $0, 4			# $2 = $0 + 4
     la		$4, str_mod
