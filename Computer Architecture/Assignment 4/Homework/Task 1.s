@@ -13,7 +13,7 @@ main:
     addi	$2, $0, 4			# $2 = $0 + 4
     la		$4, int_a
     syscall
-    
+
     #   read A to $16
     addi	$2, $0, 5			# $2 = $0 + 5
     syscall
@@ -23,7 +23,7 @@ main:
     addi	$2, $0, 4			# $2 = $0 + 4
     la		$4, int_b
     syscall
-    
+
     #   read B to $17
     addi	$2, $0, 5			# $2 = $0 + 5
     syscall
@@ -31,7 +31,7 @@ main:
 
     #   A and B are not equal
     bne		$16, $17, not_equal 	# if $16 != $17 then not_equal
-    
+
     #   print "A and B are equal"
     addi	$2, $0, 4			# $2 = $0 + 4
     la		$4, a_equals_b
@@ -78,4 +78,3 @@ A_smaller:
     syscall
 
     j		main    				# jump to main
-    
