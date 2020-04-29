@@ -33,7 +33,7 @@ while:
     beq		$23, $21, exit_while	# if $23 == $21 then exit_while
 exit_while:
     beq		$23, $22, main	# if $23 == $22 then main
-    bne		$23, $21, exit	# if $23 != $21 then exit
+    beq		$23, $21, exit	# if $23 == $21 then exit
 exit:
     li		$v0, 10		        # $v0 = 10
     syscall
