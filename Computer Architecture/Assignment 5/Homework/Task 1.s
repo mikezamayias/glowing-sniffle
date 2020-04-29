@@ -83,6 +83,51 @@ exit_while:
     la      $4, str_nl
     syscall
 
-    
+    # add 1 to B to achieve closed interval
+    addi	$17, $17, 1			# $17 = $17 + 1
+
+    # initialize counter on $19
+    addi	$19, $19, 0			# $19 = $19 + 0
+
+for:
+    # mulitply
+    mult	$16, $19			# $16 * $17 = Hi and Lo registers
+    mflo	$18					# copy Lo to $18
+
+    #   print counter
+    addi	$2, $0, 1			# $2 = $0 + 1
+    add		$4, $0, $19		    # $4 = $0 + $19
+    syscall
+
+    #   print *
+    addi	$2, $0, 4			# $2 = $0 + 4
+    la      $4, sym_prod
+    syscall
+
+    #   print A
+    addi	$2, $0, 1			# $2 = $0 + 1
+    add		$4, $0, $16		    # $4 = $0 + $16
+    syscall
+
+    #   print =
+    addi	$2, $0, 4			# $2 = $0 + 4
+    la      $4, sym_eq
+    syscall
+
+    #   print product
+    addi	$2, $0, 1			# $2 = $0 + 1
+    add		$4, $0, $18		    # $4 = $0 + $18
+    syscall
+
+    #   print new line
+    addi	$2, $0, 4			# $2 = $0 + 4
+    la      $4, str_nl
+    syscall
+
+    # increment counter by 1
+    addi	$19, $19, 1			# $19 = $19 + 1
+
+    # check
+    blt		$19, $17, for	# if $19 < $17 then for
 
 j		main				# jump to main
