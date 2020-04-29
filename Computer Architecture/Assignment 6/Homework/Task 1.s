@@ -65,7 +65,7 @@ input_nums:
     # return
     jr		$ra					# jump to $ra
 min_num:
-#   reset $19 and $20 just in case
+    #   reset $19 and $20 just in case
     and     $19, $21, $22
     and     $20, $22, $22
     #   if there isnt min, then print min_error
