@@ -6,12 +6,14 @@
 \usepackage[utf8]{inputenc}
 \usepackage[greek, english]{babel}
 \usepackage{alphabeta}
-\usepackage{amsfonts, amsmath, amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{fixltx2e}
 \usepackage{subfig}
 \usepackage{float}
 \usepackage{xcolor}
-\usepackage{lstinputlisting}
+\usepackage{listings}
 \definecolor{codeblue}{RGB}{44,133,217}
 \definecolor{codegray}{RGB}{138,150,150}
 \definecolor{codepurple}{RGB}{0.58,0,0.82}
@@ -73,8 +75,7 @@ $
 $
 . Εδώ ${\mu}$ είναι το τελευταίο ψηφίο του αριθμού μητρώου σας.
 \subsection{Λύση}
-Συμπεριλαμβάνω κάθε κώδικα ξεχωριστά από αυτό το αρχείο, εδώ δείχνω αποσπάσματα.
-Ακολουθεί αμέσως ο αλγόριθμος σε Octave για τον πίνακα
+Ακολουθεί το αποτέλεσμα για τον πίνακα
 $
     A=\begin{pmatrix}
         1 & 2 \\
@@ -82,6 +83,34 @@ $
     \end{pmatrix}
 $
 :
+\lstinputlisting[firstline=2, lastline=48]{"Task 1.txt"}
+Ο πίνακας
+$
+    A=\begin{pmatrix}
+        1   & \mu \\
+        \mu & 1
+    \end{pmatrix}
+$
+για μένα είναι ο ταυτοτικός, επειδή έχω 5000 για αριθμό μητρώου. Δίνει το εξής αποτέλεσμα:
+\lstinputlisting[firstline=55, lastline=91]{"Task 1.txt"}
+Όπως παρατηρείται στην γραμμή 31, το σύστημα φαίνεται να μην δίνει λύσεις. Όμως, βάσει θεωρίας:
+\begin{equation}
+    \begin{split}
+        A - \lambda I &= 0 \\
+        A &= \lambda I \\
+        I &= \lambda I \\
+        \lambda & =\frac{I}{I} \\
+        \lambda & =1
+    \end{split}
+\end{equation}
+έχουμε εύκολα ότι η ιδιοτιμή του ταυτοτικού  πίνακα Α ισούται με 1, κι έχουμε:
+\begin{equation}
+    \begin{split}
+        A v &= \lambda v \\
+        I v&= 1 v \\
+    \end{split}
+\end{equation}
+Άρα, κάθε διάνυσμα είναι ιδιοδιάνυσμα του Α.
 \newpage\section{Άσκηση 2}
 \subsection{Εκφώνηση}
 Σκοπός της άσκησης είναι να δούμε την δράση ενός συμμετρικού πίνακα A πανω στα διανύσματα θέσης (σημεία)
