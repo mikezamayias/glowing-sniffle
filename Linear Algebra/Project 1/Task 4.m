@@ -40,4 +40,3 @@ grid on;
 box on;
 axis([axis_low, axis_high, axis_low, axis_high], "square");
 print(fig2,'-dpngalpha', '-r300', '4ii.png');
-pause
