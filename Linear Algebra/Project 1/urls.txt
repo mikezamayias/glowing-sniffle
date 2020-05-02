@@ -1,0 +1,14 @@
+https://textbooks.math.gatech.edu/ila/characteristic-polynomial.html
+https://math.tntech.edu/machida/MATH_GO/Matrix_Algebra/thispage.pdf
+https://www.vcalc.com/wiki/SavannahBergen/Characteristic+Polynomial+of+a+2x2+Matrix
+http://mitran-lab.amath.unc.edu/courses/MATH547/lessons/old/Lesson23.pdf
+https://octave.org/doc/v4.0.1/Miscellaneous-Functions.html
+https://octave.org/doc/v4.2.1/Finding-Roots.html
+https://octave.org/doc/v4.0.1/Utility-Functions.html
+https://www.mathworks.com/help/symbolic/substitute-variables-in-symbolic-expressions.html
+https://octave.sourceforge.io/symbolic/function/@sym/subs.html
+https://math.stackexchange.com/questions/1663915/what-are-the-eigenvectors-of-4-times-the-identity-matrix
+https://math.stackexchange.com/questions/1704935/how-to-calculate-eigenvectors-from-an-identity-matrix-with-eigenvalue-1
+https://www.mathsisfun.com/algebra/eigenvalue.html
+http://ais.informatik.uni-freiburg.de/teaching/ws11/robotics2/pdfs/rob2-03-octave.pdf
+https://www.youtube.com/watch?v=kJIUbtSowRg
