@@ -23,7 +23,7 @@ fig1 = figure();
 hold on
 plot(circle(:,1), circle(:,2), "linewidth", 2, "color", [0 0.4470 0.7410]);
 hold on
-plot(ellipse(:,1), ellipse(:,2), "linewidth", 2, "color", [0.9290 0.6940 0.1250]);
+plot(ellipse(:,1), ellipse(:,2), "linewidth", 2, "color", [0.6350 0.0780 0.1840]);
 grid on;
 box on;
 axis([axis_low, axis_high, axis_low, axis_high], "square");
@@ -37,7 +37,7 @@ fig2 = figure();
 hold on
 plot(circle(:,1), circle(:,2), "linewidth", 2, "color", [0 0.4470 0.7410]);
 hold on
-plot(ellipse(:,1), ellipse(:,2), "linewidth", 2, "color", [0.9290 0.6940 0.1250]);
+plot(ellipse(:,1), ellipse(:,2), "linewidth", 2, "color", [0.6350 0.0780 0.1840]);
 grid on;
 box on;
 axis([axis_low, axis_high, axis_low, axis_high], "square");
