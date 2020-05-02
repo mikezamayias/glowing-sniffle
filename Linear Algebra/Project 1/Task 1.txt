@@ -18,7 +18,7 @@ AsubxI = (sym 2×2 matrix)
 
 detAsubxI = (sym)
 
-         2
+         2    
   (1 - x)  - 4
 
 eigenvalues =
@@ -46,7 +46,7 @@ B = (sym 2×2 matrix)
   ⎢     ⎥
   ⎣0   0⎦
 
-k1 = (sym) k₂
+k1 = (sym) 0
 Eigenvector2 =
 
    1
@@ -57,12 +57,6 @@ A =
    1   0
    0   1
 
-xI = (sym 2×2 matrix)
-
-  ⎡x  0⎤
-  ⎢    ⎥
-  ⎣0  x⎦
-
 AsubxI = (sym 2×2 matrix)
 
   ⎡1 - x    0  ⎤
@@ -72,7 +66,7 @@ AsubxI = (sym 2×2 matrix)
 detAsubxI = (sym)
 
          2
-  (1 - x)
+  (1 - x) 
 
 eigenvalues =  1
 Using eigenvalue x = 1:

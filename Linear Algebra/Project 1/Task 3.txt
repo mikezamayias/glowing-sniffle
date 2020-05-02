@@ -1,5 +1,5 @@
 Symbolic pkg v2.9.0: Python communication link active, SymPy v1.5.1.
-B = (sym 2×1 matrix)
+temp_matrix = (sym 2×1 matrix)
 
   ⎡x⎤
   ⎢ ⎥
