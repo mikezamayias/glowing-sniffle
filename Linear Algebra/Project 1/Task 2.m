@@ -26,7 +26,7 @@ quiver(0, 0, Ax1(1), Ax1(2), "linewidth", 2, "color", [0.8500 0.3250 0.0980])
 grid on;
 box on;
 axis ([axis_low, axis_high, axis_low, axis_high], "square");
-print(fig1,'-dpngalpha', '-r100', 'x1.png');
+print(fig1,'-dpngalpha', '-r300', 'x1.png');
 
 fig2 = figure();
 #   subplot(1, 2, 2);
@@ -41,6 +41,6 @@ quiver(0, 0, Ax2(1), Ax2(2), "linewidth", 2, "color", [0.9290 0.6940 0.1250])
 grid on;
 box on;
 axis ([axis_low, axis_high, axis_low, axis_high], "square");
-print(fig2,'-dpngalpha', '-r100', 'x2.png');
+print(fig2,'-dpngalpha', '-r300', 'x2.png');
 
-#print(fig,'-dpngalpha', '-r100', 'x.png');
+#print(fig,'-dpngalpha', '-r300', 'x.png');
