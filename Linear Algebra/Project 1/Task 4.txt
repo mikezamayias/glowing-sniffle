@@ -1,0 +1,20 @@
+eigvec_i1 =
+
+   1
+  -1
+
+eigvec_i2 =
+
+   3
+   3
+
+eigvec_ii1 =
+
+   1
+   0
+
+eigvec_ii2 =
+
+   0
+   1
+

@@ -13,7 +13,6 @@ eigvec_i1 = abs(-1)*[1; -1]
 eigvec_i2 = abs(3)*[1; 1]
 eigvec_ii1 = 1*[1; 0]
 eigvec_ii2 = 1*[0; 1]
-exit
 %   fig1 = figure();
 fig = figure();
 subplot(1, 2, 1);
