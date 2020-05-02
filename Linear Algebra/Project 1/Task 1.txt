@@ -18,7 +18,7 @@ AsubxI = (sym 2×2 matrix)
 
 detAsubxI = (sym)
 
-         2    
+         2
   (1 - x)  - 4
 
 eigenvalues =
@@ -72,7 +72,7 @@ AsubxI = (sym 2×2 matrix)
 detAsubxI = (sym)
 
          2
-  (1 - x) 
+  (1 - x)
 
 eigenvalues =  1
 Using eigenvalue x = 1:
