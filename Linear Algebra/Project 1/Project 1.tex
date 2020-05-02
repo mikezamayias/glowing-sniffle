@@ -14,6 +14,7 @@
 \usepackage{float}
 \usepackage{xcolor}
 \usepackage{listings}
+\usepackage{graphicx}
 \definecolor{codeblue}{RGB}{44,133,217}
 \definecolor{codegray}{RGB}{138,150,150}
 \definecolor{codepurple}{RGB}{0.58,0,0.82}
@@ -173,6 +174,45 @@ $
 $
 . Ποια είναι η σχέση των μετασχηματισμένων διανυσμάτων με τον πίνακα Α;
 \subsection{Απάντηση}
+Έξοδος προγράμματος:
+\lstinputlisting[firstline=1, lastline=25]{"Task 2.txt"}
+Τα γραφήματα:
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{x1.png}
+    \caption{Με μπλέ το αρχικό διάνυσμα
+    $
+        \begin{pmatrix}
+            1 \\
+            0
+        \end{pmatrix}
+    $
+    και με πορτοκαλί ο μετασχηματισμός του,
+    $
+        \text{A} \begin{pmatrix}
+            1 \\
+            0
+        \end{pmatrix}
+    $.}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{x2.png}
+    \caption{Με γαλάζιο το αρχικό διάνυσμα
+    $
+        \begin{pmatrix}
+            0 \\
+            1
+        \end{pmatrix}
+    $
+    και με κίτρινο ο μετασχηματισμός του,
+    $
+        \text{A} \begin{pmatrix}
+            0 \\
+            1
+        \end{pmatrix}
+    $.}
+\end{figure}
 \newpage\section{Άσκηση 3}
 \subsection{Εκφώνηση}
 Σκοπός της άσκησης είναι να δούμε πως δρα ένας συμμετρικός πίνακας Α σε μία καμπύλη στο επίπεδο.
