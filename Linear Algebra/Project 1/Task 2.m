@@ -2,16 +2,13 @@ clc;
 clear all;
 close all;
 clf;
-
 axis_low = -0.5;
 axis_high = 2.5;
-
 A = [1, 2; 2, 1]
 x1 = [1; 0]
 x2 = [0; 1]
 Ax1 = A*x1
 Ax2 = A*x2
-
 #fig = figure();
 fig1 = figure();
 #   subplot(1, 2, 1);
@@ -27,7 +24,6 @@ grid on;
 box on;
 axis([axis_low, axis_high, axis_low, axis_high], "square");
 print(fig1,'-dpngalpha', '-r300', 'x1.png');
-
 fig2 = figure();
 #   subplot(1, 2, 2);
 hold on
@@ -42,5 +38,4 @@ grid on;
 box on;
 axis([axis_low, axis_high, axis_low, axis_high], "square");
 print(fig2,'-dpngalpha', '-r300', 'x2.png');
-
 #print(fig,'-dpngalpha', '-r300', 'x.png');
