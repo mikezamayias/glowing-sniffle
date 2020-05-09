@@ -10,15 +10,38 @@
 .text
 .globl main
 main:
-    #   initialize vars $s0, $s1, $s2
-    addi	$s0, $s0, 3			# $s0 = $s0 + 3
-    addi	$s1, $s1, 4			# $s1 = $s1 + 4
-    addi	$s2, $s2, 5			# $s2 = $s2 + 5
+    #   $s0 = A
+    #   $s1 = B
+    #   $s2 = C
+    # print prompt for A
+    addi	$2, $0, 4			# $2 = $0 + 4
+    la		$4, num_a
+    syscall
+    #   read A
+    addi	$2, $0, 5			# $2 = $0 + 5
+    syscall
+    add		$s0, $2, $0         # $s0 = $2 + $0
+    # print prompt for B
+    addi	$2, $0, 4			# $2 = $0 + 4
+    la		$4, num_b
+    syscall
+    #   read B
+    addi	$2, $0, 5			# $2 = $0 + 5
+    syscall
+    add		$s1, $2, $0         # $s1 = $2 + $0
+    # print prompt for C
+    addi	$2, $0, 4			# $2 = $0 + 4
+    la		$4, num_c
+    syscall
+    #   read C
+    addi	$2, $0, 5			# $2 = $0 + 5
+    syscall
+    add		$s2, $2, $0         # $s2 = $2 + $0
     #   begin comparisons
-    # $s3 = first_largest
-    # $s4 = second_largest
-    # $s5 = temp
-    # $s6 = minimum
+    #   $s3 = first_largest
+    #   $s4 = second_largest
+    #   $s5 = temp
+    #   $s6 = minimum
     bgt		$s0, $s1, ab	    # if $s0 > $s1 then ab
 ab_end:
     ble		$s0, $s1, n_ab   	# if $s0 <= $s1 then n_ab
@@ -31,18 +54,18 @@ n_ct_end:
     ble		$s4, $s3, n_slfl	# if $s4 <= $s3 then n_slfl
     #   continue program
 n_slfl:
-    # jal		print_stuff			# jump to print_stuff and save position to $ra
     addi	$a0, $s3, 0			# $a0 = $s3 + 0
     addi	$a1, $s4, 0			# $a1 = $s4 + 0
     addi	$a2, $s6, 0			# $a2 = $s6 + 0
     jal		calculation			# jump to calculation and save position to $ra
+    add		$s5, $v0, $0		# $s5 = $v1 + $0
     # print prompt final message
     addi	$2, $0, 4			# $2 = $0 + 4
     la		$4, final_message
     syscall
     # print maximum produced output
     addi	$2, $0, 1			# $2 = $0 + 1
-    add		$4, $0, $v1	    	# $4 = $0 + $v1
+    add		$4, $0, $s5	    	# $4 = $0 + $s5
     syscall
     # print new line
     addi	$2, $0, 4			# $2 = $0 + 4
@@ -75,43 +98,5 @@ slfl:
 calculation:
     mult	$a0, $a1			# $a0 * $a1 = Hi and Lo registers
     mflo	$a0					# copy Lo to $a0
-    sub		$v1, $a0, $a2		# $v1 = $a0 - $a2
-    jr		$ra					# jump to $ra
-print_stuff:
-    # print prompt for first largest number
-    addi	$2, $0, 4			# $2 = $0 + 4
-    la		$4, largest_0
-    syscall
-    # print first largest number
-    addi	$2, $0, 1			# $2 = $0 + 1
-    add		$4, $0, $s3	    	# $4 = $0 + $s3
-    syscall
-    # print new line
-    addi	$2, $0, 4			# $2 = $0 + 4
-    la      $4, str_nl
-    syscall
-    # print prompt for second largest number
-    addi	$2, $0, 4			# $2 = $0 + 4
-    la		$4, largest_1
-    syscall
-    # print second largest number
-    addi	$2, $0, 1			# $2 = $0 + 1
-    add		$4, $0, $s4		    # $4 = $0 + $s4
-    syscall
-    # print new line
-    addi	$2, $0, 4			# $2 = $0 + 4
-    la      $4, str_nl
-    syscall
-    # print prompt for minimum number
-    addi	$2, $0, 4			# $2 = $0 + 4
-    la		$4, minimum
-    syscall
-    # print minimum number
-    addi	$2, $0, 1			# $2 = $0 + 1
-    add		$4, $0, $s6		    # $4 = $0 + $s6
-    syscall
-    # print new line
-    addi	$2, $0, 4			# $2 = $0 + 4
-    la      $4, str_nl
-    syscall
+    sub		$v0, $a0, $a2		# $v0 = $a0 - $a2
     jr		$ra					# jump to $ra
