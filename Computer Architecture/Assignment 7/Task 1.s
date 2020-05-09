@@ -2,86 +2,84 @@
     num_a: .asciiz "Input number A: "
     num_b: .asciiz "Input number B: "
     num_c: .asciiz "Input number C: "
-    bigger_0: .asciiz "First bigger number: "
-    bigger_1: .asciiz "Second bigger number: "
-    pr_end: .asciiz "Program end."
+    largest_0: .asciiz "First largest number: "
+    largest_1: .asciiz "Second largest number: "
+    minimum: .asciiz "Minimum number: "
     str_nl: .asciiz "\n"
 .text
 .globl main
 main:
-    addi	$19, $19, $0			# first bigger
-    addi	$20, $20, $0			# second bigger
-    addi	$21, $21, $0			# temp
-    addi	$22, $22, $0			# smaller
-    # print prompt to read A
-    addi	$2, $0, 4			    # $2 = $0 + 4
-    la      $4, num_a
+    #   initialize vars $s0, $s1, $s2
+    addi	$s0, $s0, 3			# $s0 = $s0 + 3
+    addi	$s1, $s1, 4			# $s1 = $s1 + 4
+    addi	$s2, $s2, 5			# $s2 = $s2 + 5
+    #   begin comparisons
+    bgt		$s0, $s1, ab	    # if $s0 > $s1 then ab
+    ble		$s0, $s1, n_ab   	# if $s0 <= $s1 then n_ab
+    bgt		$s2, $s5, ct	    # if $s2 > $s5 then ct
+    ble		$s2, $s5, n_ct   	# if $s2 <= $s5 then n_ct
+return:
+    bge		$s4, $s3, slfl  	# if $s4 >= $s3 then slfl
+    blt		$s4, $s3, n_slfl	# if $s4 < $s3 then n_slfl
+    #   continue program
+n_slfl:
+    # print prompt for first largest number
+    addi	$2, $0, 4			# $2 = $0 + 4
+    la		$4, largest_0
     syscall
-    # read A in $16
-    addi	$2, $0, 5			    # $2 = $0 + 5
-    syscall
-    add		$16, $2, $0             # $16 = $2 + $0
-    # print prompt to read B
-    addi	$2, $0, 4			    # $2 = $0 + 4
-    la      $4, num_b
-    syscall
-    # read B in $17
-    addi	$2, $0, 5			    # $2 = $0 + 5
-    syscall
-    add		$17, $2, $0             # $17 = $2 + $0
-    # print prompt to read C
-    addi	$2, $0, 4			    # $2 = $0 + 4
-    la      $4, num_c
-    syscall
-    # read C in $18
-    addi	$2, $0, 5			    # $2 = $0 + 5
-    syscall
-    add		$18, $2, $0             # $18 = $2 + $0
-    #   compare vars
-    bgt		$16, $17, ab            # if $16 > $1a then ab
-    ble		$16, $17, not_ab	    # if $16 <= $17 then not_ab
-    bgt		$18, $21, ct	        # if $18 > $21 then ct
-    ble		$18, $21, not_ct	    # if $18 <= $21 then not_ct
-    # print first bigger message
-    addi	$2, $0, 4			    # $2 = $0 + 4
-    la		$4, bigger_0
-    syscall
-    # print first bigger number
-    addi	$2, $0, 1			    # $2 = $0 + 1
-    add		$4, $0, $v0		        # $4 = $0 + $v0
+    # print first largest number
+    addi	$2, $0, 1			# $2 = $0 + 1
+    add		$4, $0, $s3	    	# $4 = $0 + $s3
     syscall
     # print new line
-    addi	$2, $0, 4			    # $2 = $0 + 4
+    addi	$2, $0, 4			# $2 = $0 + 4
     la      $4, str_nl
     syscall
-    # print second bigger message
-    addi	$2, $0, 4			    # $2 = $0 + 4
-    la		$4, bigger_0
+    # print prompt for second largest number
+    addi	$2, $0, 4			# $2 = $0 + 4
+    la		$4, largest_1
     syscall
-    # print second bigger number
-    addi	$2, $0, 1			    # $2 = $0 + 1
-    add		$4, $0, $v1		        # $4 = $0 + $v1
+    # print second largest number
+    addi	$2, $0, 1			# $2 = $0 + 1
+    add		$4, $0, $s4		    # $4 = $0 + $s4
     syscall
     # print new line
-    addi	$2, $0, 4			    # $2 = $0 + 4
+    addi	$2, $0, 4			# $2 = $0 + 4
     la      $4, str_nl
     syscall
-    # print program end
-    addi	$2, $0, 4			    # $2 = $0 + 4
-    la		$4, pr_end
+    # print prompt for minimum number
+    addi	$2, $0, 4			# $2 = $0 + 4
+    la		$4, minimum
     syscall
-    # end program
-    li		$v0, 10		            # $v0 = 10
+    # print minimum number
+    addi	$2, $0, 1			# $2 = $0 + 1
+    add		$4, $0, $s6		    # $4 = $0 + $s6
+    syscall
+    # print new line
+    addi	$2, $0, 4			# $2 = $0 + 4
+    la      $4, str_nl
+    syscall
+    #   terminate program
+    li		$v0, 10	        	# $v0 = 10
     syscall
 ab:
-    add		$19, $19, $16		    # first_bigger = A
-    add		$21, $21, $17		    # temp = B
-not_ab:
-    add		$19, $19, $17		    # first_bigger = B
-    add		$21, $21, $16		    # temp = A
+    add		$s3, $s0, $0		# $s3 = $s0 + $0    - first_largest = A
+    add		$s5, $s1, $0		# $s5 = $s1 + $0    - temp = B
+    j		return				# jump to return
+n_ab:
+    add		$s3, $s1, $0		# $s3 = $s1 + $0    - first_largest = B
+    add		$s5, $s0, $0		# $s5 = $s0 + $0    - temp = A
+    j		return				# jump to return
 ct:
-    addi	$20, $20, $18		    # second_bigger = C
-    add		$22, $22, $21		    # smaller = temp
-not_ct:
-    add		$20, $20, $21		    # second_bigger = temp
-    add		$22, $22, $18		    # smaller = C
+    add		$s4, $s2, $0		# $s4 = $s2 + $0    - second_largest = C
+    add		$s6, $s5, $0		# $s6 = $s5 + $0    - smaller = temp
+    j		return				# jump to return
+n_ct:
+    add		$s4, $s5, $0		# $s4 = $s5 + $0    - second_largest = temp
+    add		$s6, $s2, $0		# $s6 = $s2 + $0    - smaller = C
+    j		return				# jump to return
+slfl:
+    add		$s5, $0, $s4		# $s5 = $0 + $s4    - temp = second_largest
+    add		$s4, $0, $s3		# $s4 = $0 + $s3    - second_largest = first_largest
+    add		$s3, $0, $s5		# $s3 = $0 + $s5    - first_largest = temp
+    j		n_slfl				# jump to n_slfl
