@@ -1,0 +1,18 @@
+slt:    set on less than
+    syntax:     slt $d, $s, $t
+    operation:  if $s < $t then $d = 1 else $d =0
+sgt:    set on greater than
+    syntax:     sgt $d, $s, $t
+    operation:  if $s > $t then $d = 1 else $d =0
+and:    bitwise and
+    syntax:     and     $d, $s, $t
+    operation:  $d = $s & $t
+andi:   bitwise and immediate
+    syntax:     andi    $t, $s, imm
+    operation:  $t = $s & imm
+xor:    bitwise exlusive or
+    syntax:     xor     $d, $s, $t
+    operation:  $d = $s ^ $t
+xori:   bitwise exlusive or immediate
+    syntax:     xori    $t, $s, imm
+    operation:  $t = $s ^ imm
