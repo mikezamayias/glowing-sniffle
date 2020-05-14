@@ -16,7 +16,6 @@ main:
     addi	$s3, $s3, 19     			# $s3 = $s3 + 5
     #   store four at $s4
     addi	$s4, $zero, 4		    	# $s4 = $zero + 4
-    
 while:
     #   temp var at $s1 for printing index
     div		$s1, $s0, $s4
@@ -59,7 +58,40 @@ while:
     ble		$s0, $s3, while	            # if $s0 <= $s3 then while
     bgt		$s0, $s3, exit_while	    # if $s0 > $s3 then exit_while
 exit_while:
+    #   print message 1
+    addi	$v0, $zero, 4			    # $v0 = $zero + 4
+    la      $a0, message_1
+    syscall
+    #   print new line
+    addi	$v0, $zero, 4			    # $v0 = $zero + 4
+    la		$a0, str_nl
+    syscall
+    #   read user input at $s3
+    addi	$v0, $zero, 5			    # $v0 = $zero + 5
+    syscall
+    add		$s3 $v0, $zero	    	    # $s3 = $v0 + $zero
+    #   multiply $s3 with 4 and store product at $s3
+    mult	$s3, $s4			        # $s3 * $s4 = Hi and Lo registers
+    mflo	$s3					        # copy Lo to $s3
+    #   substract 4
+    sub		$s3, $s3, $s4       		# $s3 = $s3 - $s4
+    #   load retrieved word
+    lw		$s4, matr_A($s3)
+    #   print message 2
+    addi	$v0, $zero, 4			    # $v0 = $zero + 4
+    la      $a0, message_2
+    syscall
+    #   print retireved item
+    addi	$v0, $zero, 1			    # $v0 = $zero + 1
+    add		$a0, $zero, $s4		        # $a0 = $zero + $s4
+    syscall
+    #   print new line
+    addi	$v0, $zero, 4			    # $v0 = $zero + 4
+    la		$a0, str_nl
+    syscall
     #   terminate program
     li		$v0, 10	              	    # $v0 = 10
     syscall
-    
+####    #   return to exit_while
+####    j		exit_while                  # jump to exit_while
+
