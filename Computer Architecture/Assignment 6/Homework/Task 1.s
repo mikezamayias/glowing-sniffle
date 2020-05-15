@@ -14,7 +14,7 @@
 main:
     jal		input_nums			# jump to input_nums and save position to $ra
     jal		min_num				# jump to min_num and save position to $ra
-    jal		max_num				# jump to max_num and save position to $ra
+    #   jal		max_num				# jump to max_num and save position to $ra
     #   vars used in condition checking
     add		$21, $zero, $zero	        # $21 = $zero + $zero           #   $21 = 0
     addi	$22, $zero, 1			    # $22 = $zero + 1               #   $22 = 1
@@ -66,35 +66,44 @@ input_nums:
     # return
     jr		$ra					# jump to $ra
 min_num:
-    #   initialize $19, $20
-    addi	$19, $zero, 0   			# $19 = $zero + 0
-    addi	$20, $zero, 1   			# $20 = $zero + 1
-    #   check if there is no minimum
-    and     $19, $16, $17               # if $16 == $17 then $19 = 1
-    and     $20, $17, $18               # if $17 == $18 then $20 = 1
-    beq		$19, $20, min_error	        # if $19 == $20 then min_error
-    #   re-initialize $19, $20
-    addi	$19, $zero, 0   			# $19 = $zero + 0
-    addi	$20, $zero, 1   			# $20 = $zero + 1
-    #   check if a is minimum
-    slt     $19,               # if then $19 = 1
-    slt     $20,               # if then $20 = 1
-    beq		$19, $20, a_min             # if $19 == $20 then a_min
-    #   re-initialize $19, $20
-    addi	$19, $zero, 0   			# $19 = $zero + 0
-    addi	$20, $zero, 1   			# $20 = $zero + 1
-    #   check if b is minimum
-    slt     $19,               # if then $19 = 1
-    slt     $20,               # if then $20 = 1
-    beq		$19, $20, b_min             # if $19 == $20 then b_min
-    #   re-initialize $19, $20
-    addi	$19, $zero, 0   			# $19 = $zero + 0
-    addi	$20, $zero, 1   			# $20 = $zero + 1
-    #   check if c is minimum
-    slt     $19,               # if then $19 = 1
-    slt     $20,               # if then $20 = 1
-    beq		$19, $20, c_min             # if $19 == $20 then c_min
-    a_min:
+    #   if a != b and b != c and c != a then
+    #       if a < b and a < c then a minimum
+    #       if b < a and b < c then b minimum
+    #       if c < a and c < a then c minimum
+    #   if a == b or b == c or c == a then
+    #       no minimum
+    #       if a == b then
+    #           if c < a then c minimum
+    #           if a < c then a minimum
+    #       if b == c then
+    #           if a < b then a minimum
+    #           if b < a then b minimum
+    #       if c == a then
+    #           if b < c then b minimum
+    #           if c < b then c minimum
+    and     $19, $16, $17           # $19 = $16 && $17
+    and     $20, $17, $18           # $20 = $17 && $18
+    and     $21, $16, $18           # $21 = $16 && $18
+    and     $22, $19, $20           # $22 = $19 && $20
+    and     $23, $20, $21           # $23 = $20 && $21
+    beq		$22, $23, no_equals     # if $22 == $23 then no_equals
+    #   bne		$22, $23, min_error	    # if $22 != $23 then min_error
+    no_equals:
+        #   check equality
+        beq		$19, $20, min_error 	# if $19 == $20 then min_error
+        #   check a minimum
+        blt		$16, $17, a_min_check	# if $16 < $17 then a_min_check
+        a_min_check:
+            blt		$16, $18, a_min_is	# if $16 < $18 then a_min_is
+        #   check b minimum
+        blt		$17, $16, b_min_check	# if $17 < $16 then b_min_check
+        b_min_check:
+            blt		$17, $18, b_min_is	# if $17 < $18 then b_min_is
+        #   check c minimum
+        blt		$18, $16, c_min_check	# if $18 < $16 then c_min_check
+        c_min_check:
+            blt		$18, $17, c_min_is	# if $18 < $17 then c_min_is
+    a_min_is:
         #   print a
         addi	$2, $0, 1			# $2 = $0 + 1
         add		$4, $0, $16		    # $4 = $0 + $16
@@ -109,7 +118,7 @@ min_num:
         syscall
         # return
         jr		$ra					# jump to $ra
-    b_min:
+    b_min_is:
         #   print b
         addi	$2, $0, 1			# $2 = $0 + 1
         add		$4, $0, $17		    # $4 = $0 + $17
@@ -124,7 +133,7 @@ min_num:
         syscall
         # return
         jr		$ra					# jump to $ra
-    c_min:
+    c_min_is:
         #   print c
         addi	$2, $0, 1			# $2 = $0 + 1
         add		$4, $0, $18		    # $4 = $0 + $18
@@ -138,7 +147,7 @@ min_num:
         la      $4, str_nl
         syscall
         # return
-        jr		$ra					# jump to $ra
+        jr		$ra					# jump to $ra   
     min_error:
         #   print no minimum
         addi	$2, $0, 4			# $2 = $0 + 4
@@ -149,36 +158,8 @@ min_num:
         la      $4, str_nl
         syscall
         # return
-        jr		$ra					# jump to $ra
+        jr		$ra					# jump to $ra     
 max_num:
-    #   initialize $19, $20
-    addi	$19, $zero, 0   			# $19 = $zero + 0
-    addi	$20, $zero, 1   			# $20 = $zero + 1
-    #   check if there is no maximum
-    and     $19,               # if then $19 = 1
-    and     $20,               # if then $20 = 1
-    beq		$19, $20, max_error	        # if $19 == $20 then max_error
-    #   re-initialize $19, $20
-    addi	$19, $zero, 0   			# $19 = $zero + 0
-    addi	$20, $zero, 1   			# $20 = $zero + 1
-    #   check if a is maximum
-    sgt     $19,               # if then $19 = 1
-    sgt     $20,               # if then $20 = 1
-    beq		$19, $20, a_max             # if $19 == $20 then a_max
-    #   re-initialize $19, $20
-    addi	$19, $zero, 0   			# $19 = $zero + 0
-    addi	$20, $zero, 1   			# $20 = $zero + 1
-    #   check if b is maximum
-    sgt     $19,                # if then $19 = 1
-    sgt     $20,                # if then $20 = 1
-    beq		$19, $20, b_max             # if $19 == $20 then b_max
-    #   re-initialize $19, $20
-    addi	$19, $zero, 0   			# $19 = $zero + 0
-    addi	$20, $zero, 1   			# $20 = $zero + 1
-    #   check if c is maximum
-    sgt     $19,                # if then $19 = 1
-    sgt     $20,                # if then $20 = 1
-    beq		$19, $20, c_max             # if $19 == $20 then c_max
     a_max:
         #   print a
         addi	$2, $0, 1			# $2 = $0 + 1
