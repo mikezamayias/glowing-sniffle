@@ -1,7 +1,7 @@
 .data
-    int_a: .asciiz "Enter *not negative* integer A: "      #   A at $16
-    int_b: .asciiz "Enter *not negative* integer B: "      #   B at $17
-    int_c: .asciiz "Enter *not negative* integer C: "      #   C at $18
+    int_a: .asciiz "Enter integer A: "      #   A at $16
+    int_b: .asciiz "Enter integer B: "      #   B at $17
+    int_c: .asciiz "Enter integer C: "      #   C at $18
     minimum: .asciiz " is minimum."
     maximum: .asciiz " is maximum."
     no_minimum: .asciiz "There is no minimum."
@@ -69,62 +69,72 @@ min_num:
     beq		$17, $18, min_bc_eq	    # if $17 == $18 then min_bc_eq
     beq		$16, $18, min_ac_eq	    # if $16 == $18 then min_ac_eq
     min_no_eq:
-        #   set 1 at $19
-        addi	$19, $zero, 1		# $19 = $zero + 1
-        #   counter at $23
-        addi	$23, $zero, 0		# $23 = $zero + 0
-        #   set $16 at $20
-        add		$20, $zero, $16		# $20 = $zero + $16
-        #   set $17 at $21
-        add		$21, $zero, $17		# $21 = $zero + $17
-        #   set $18 at $22
-        add		$22, $zero, $18		# $22 = $zero + $18
-        #   subtract $19 from $20, $21, $22
-        sub		$20, $20, $19		# $20 = $20 - $19
-        sub		$21, $21, $19		# $21 = $21 - $19
-        sub		$22, $22, $19		# $22 = $22 - $19
-        #   add $19 to $23
-        add		$23, $23, $19		# $23 = $23 + $19
-        #   check condition
-        beq		$20, $zero, min_exit_while	# if $20 == $zero then min_exit_while
-        beq		$21, $zero, min_exit_while	# if $21 == $zero then min_exit_while
-        beq		$22, $zero, min_exit_while	# if $22 == $zero then min_exit_while
-        min_while:
-            #   check condition
-            beq		$20, $zero, min_exit_while	# if $20 == $zero then min_exit_while
-            beq		$21, $zero, min_exit_while	# if $21 == $zero then min_exit_while
-            beq		$22, $zero, min_exit_while	# if $22 == $zero then min_exit_while
-            #   subtract $19 from $20, $21, $22
-            sub		$20, $20, $19		# $20 = $20 - $19
-            sub		$21, $21, $19		# $21 = $21 - $19
-            sub		$22, $22, $19		# $22 = $22 - $19
-            #   add $19 to $23
-            add		$23, $23, $19		# $23 = $23 + $19
-            j		min_exit_while				# jump to min_exit_while
-        min_exit_while:
-            #   print counter
-            addi	$2, $0, 1			# $2 = $0 + 1
-            add		$4, $0, $23		    # $4 = $0 + $23
-            syscall
-            #   print minimum
-            addi	$2, $0, 4			# $2 = $0 + 4
-            la      $4, minimum
-            syscall
-            #   print new line
-            addi	$2, $0, 4			# $2 = $0 + 4
-            la      $4, str_nl
-            syscall
-            # return
-            jr		$ra					# jump to $ra
+        blt		$16, $17, a_ls_b	# if $16 < $17 then a_ls_b
+        blt		$17, $18, b_ls_c	# if $17 < $18 then b_ls_c
+        blt		$18, $16, c_ls_a	# if $18 < $16 then c_ls_a
+        a_ls_b:
+            blt		$16, $18, a_min	# if $16 < $18 then a_min
+        b_ls_c:
+            blt		$17, $16, b_min	# if $17 < $16 then b_min
+        c_ls_a:
+            blt		$18, $17, c_min	# if $18 < $17 then c_min
     min_ab_eq:
-        bne		$17, $18, min_no_eq	# if $17 != $18 then min_no_eq    
         beq		$17, $18, min_error	# if $17 == $18 then min_error
+        blt		$17, $18, b_min	    # if $17 < $18 then b_min
+        blt		$18, $17, c_min	    # if $18 < $17 then c_min
     min_bc_eq:
-        bne		$16, $17, min_no_eq	# if $16 != $17 then min_no_eq
         beq		$16, $17, min_error	# if $16 == $17 then min_error
+        blt		$16, $18, a_min	    # if $16 < $18 then a_min
+        blt		$18, $16, c_min	    # if $18 < $16 then c_min
     min_ac_eq:
-        bne		$17, $16, min_no_eq	# if $17 != $16 then min_no_eq
         beq		$17, $16, min_error	# if $17 == $16 then min_error
+        blt		$17, $16, b_min	    # if $17 < $16 then b_min
+        blt		$16, $17, a_min	    # if $16 < $17 then a_min
+    a_min:
+        #   print $16
+        addi	$2, $0, 1			# $2 = $0 + 1
+        add		$4, $0, $16		    # $4 = $0 + $16
+        syscall
+        #   print minimum
+        addi	$2, $0, 4			# $2 = $0 + 4
+        la      $4, minimum
+        syscall
+        #   print new line
+        addi	$2, $0, 4			# $2 = $0 + 4
+        la      $4, str_nl
+        syscall
+        # return
+        jr		$ra					# jump to $ra
+    b_min:
+        #   print $17
+        addi	$2, $0, 1			# $2 = $0 + 1
+        add		$4, $0, $17		    # $4 = $0 + $17
+        syscall
+        #   print minimum
+        addi	$2, $0, 4			# $2 = $0 + 4
+        la      $4, minimum
+        syscall
+        #   print new line
+        addi	$2, $0, 4			# $2 = $0 + 4
+        la      $4, str_nl
+        syscall
+        # return
+        jr		$ra					# jump to $ra
+    c_min:
+        #   print $18
+        addi	$2, $0, 1			# $2 = $0 + 1
+        add		$4, $0, $18		    # $4 = $0 + $18
+        syscall
+        #   print minimum
+        addi	$2, $0, 4			# $2 = $0 + 4
+        la      $4, minimum
+        syscall
+        #   print new line
+        addi	$2, $0, 4			# $2 = $0 + 4
+        la      $4, str_nl
+        syscall
+        # return
+        jr		$ra					# jump to $ra
     min_error:
         #   print no minimum
         addi	$2, $0, 4			# $2 = $0 + 4
