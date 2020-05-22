@@ -1,81 +1,21 @@
-.vscode/tasks.json
-Linear Algebra/Lab 1/.vscode/settings.json
-Linear Algebra/Lab 1/Homework/Task.aux
-Linear Algebra/Lab 1/Homework/Task.fdb_latexmk
-Linear Algebra/Lab 1/Homework/Task.fls
-Linear Algebra/Lab 1/Homework/Task.log
-Linear Algebra/Lab 1/Homewzork/Task.pdf
-Linear Algebra/Lab 1/Homework/Task.synctex.gz
-Linear Algebra/Lab 1/Homework/Task.toc
-Data Structures/Lab 02/a.out
-Computer Architecture/.vscode/launch.json
-Data Structures/.vscode/launch.json
-Data Structures/.vscode/tasks.json
-Algorithms/Notes.aux
-Algorithms/Notes.fdb_latexmk
-Algorithms/Notes.fls
-Algorithms/Notes.log
-Algorithms/Notes.pdf
-Algorithms/Notes.synctex.gz
-Algorithms/Notes.toc
-Computer Architecture/Lab 2/Homework/assignment.aux
-Computer Architecture/Lab 2/Homework/assignment.fdb_latexmk
-Computer Architecture/Lab 2/Homework/assignment.fls
-Computer Architecture/Lab 2/Homework/assignment.log
-Computer Architecture/Lab 2/Homework/assignment.pdf
-Computer Architecture/Lab 2/Homework/assignment.synctex.gz
-Computer Architecture/Lab 2/Homework/Erg_02.pdf
-Computer Architecture/Lab 2/Homework/erg02_student-tp5000.zip
-Computer Architecture/Assignment 3/capture01.png
-Computer Architecture/Assignment 3/capture2.png
-Computer Architecture/Assignment 3/Homework/capture01.png
-Computer Architecture/Assignment 3/Homework/capture2.png
-Computer Architecture/Assignment 5/Homework/b_less_than_0.png
-Computer Architecture/Assignment 5/Homework/b_greater_than_0.png.png
-Computer Architecture/Assignment 2/Homework/assignment.aux
-Computer Architecture/Assignment 2/Homework/assignment.fdb_latexmk
-Computer Architecture/Assignment 2/Homework/assignment.fls
-Computer Architecture/Assignment 2/Homework/assignment.log
-Computer Architecture/Assignment 2/Homework/assignment.synctex.gz
-Computer Architecture/Assignment 2/Homework/assignment.pdf
-Linear Algebra/Lab 1/Homework/Task.pdf
-Linear Algebra/Project 1/project1.aux
-Linear Algebra/Project 1/project1.fdb_latexmk
-Linear Algebra/Project 1/project1.fls
-Linear Algebra/Project 1/project1.log
-Linear Algebra/Project 1/project1.synctex.gz
-Linear Algebra/Project 1/project1.toc
-Linear Algebra/Project 1/Original_script_1.m
-Linear Algebra/Project 1/Original_script_2.m
-Linear Algebra/Project 1/project1.synctex(busy)
-Linear Algebra/Project 1/task1.m
-Linear Algebra/Project 1/Project 1.aux
-Linear Algebra/Project 1/Project 1.fdb_latexmk
-Linear Algebra/Project 1/Project 1.fls
-Linear Algebra/Project 1/Project 1.log
-Linear Algebra/Project 1/Project 1.pdf
-Linear Algebra/Project 1/Project 1.synctex.gz
-Linear Algebra/Project 1/Project 1.toc
 .vscode/settings.json
-Linear Algebra/Project 1/x1.ps
-Linear Algebra/Project 1/x2.ps
-Linear Algebra/Project 1/x.png
-Linear Algebra/Project 1/Project 1.dvi
-Linear Algebra/Project 1/Project 1.bbl
-Linear Algebra/Project 1/Project 1.blg
-Linear Algebra/Project 1/rename.py
-Linear Algebra/Project 1/Project 1.xdv
-Computer Architecture/Assignment 7/Erg_07.pdf
-Computer Architecture/Assignment 7/Ppoint_Erg_07.pdf
-Computer Science Teaching/FiraMono-Bold.otf
-Computer Science Teaching/FiraMono-Regular.otf
-Computer Science Teaching/FiraSans-Book.otf
-Computer Science Teaching/project.aux
-Computer Science Teaching/project.fdb_latexmk
-Computer Science Teaching/project.fls
-Computer Science Teaching/project.log
-Computer Science Teaching/project.md
-Computer Science Teaching/project.out
-Computer Science Teaching/project.pdf
-Computer Science Teaching/project.synctex.gz
-Computer Science Teaching/project.toc
+Past Semesters/Algorithms/Notes.aux
+Past Semesters/Algorithms/Notes.fdb_latexmk
+Past Semesters/Algorithms/Notes.fls
+Past Semesters/Algorithms/Notes.log
+Past Semesters/Algorithms/Notes.synctex.gz
+Past Semesters/Algorithms/Notes.toc
+Current Semester/Computer Science Teaching/FiraMono-Bold.otf
+Current Semester/Computer Science Teaching/FiraMono-Regular.otf
+Current Semester/Computer Science Teaching/FiraSans-Book.otf
+Current Semester/Computer Science Teaching/project.aux
+Current Semester/Computer Science Teaching/project.fdb_latexmk
+Current Semester/Computer Science Teaching/project.fls
+Current Semester/Computer Science Teaching/project.log
+Current Semester/Computer Science Teaching/project.md
+Current Semester/Computer Science Teaching/project.out
+Current Semester/Computer Science Teaching/project.synctex.gz
+Current Semester/Computer Science Teaching/project.toc
+Current Semester/Computer Architecture/Assignment 8/temp.py
+Current Semester/Computer Architecture/Assignment 7/temp.py
+Current Semester/Computer Architecture/renm.py
