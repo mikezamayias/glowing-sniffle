@@ -1,5 +1,5 @@
 \documentclass[a4paper,14pt]{extreport}
-\usepackage[margin=2cm]{geometry}
+\usepackage[margin=2cm,includeheadfoot]{geometry}
 \usepackage{fontspec}
 \usepackage[utf8x]{inputenc}
 \usepackage[english,greek]{babel}
@@ -7,9 +7,13 @@
 \usepackage{listings}
 \usepackage[hyphens]{url} 
 \usepackage{hyperref}
+\usepackage{titlesec}
 \usepackage{systeme}
 \usepackage{amsmath}
 \usepackage{fancyhdr}
+
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries}{}{0pt}{\Huge}
 
 \setlength{\parskip}{0cm}
 \setlength{\parindent}{1cm}
@@ -40,6 +44,8 @@
 }
 \lstset{style=mystyle}
 
+\pagenumbering{arabic}
+
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{
@@ -48,6 +54,8 @@
 \lhead{
     Αριθμητική Γραμμική Άλγεβρα
 }
+\cfoot{\thepage}
+
         
 \begin{document}
 
@@ -55,7 +63,9 @@
 \author{Μιχαήλ Ανάργυρος Ζαμάγιας}
 \date{\today}
 \maketitle
+\newpage
 
+\tableofcontents
 
 \chapter{Άσκηση 1}
 \section{Εκφώνηση}
@@ -72,6 +82,7 @@
     }
 \end{align*}
 
+\newpage
 \section{Απάντηση}
 
 \chapter{Άσκηση 2}
@@ -88,6 +99,7 @@
     }
 \end{align*}
 
+\newpage
 \section{Απάντηση}
 
 \chapter{Άσκηση 3}
@@ -101,6 +113,7 @@
     }
 \end{align*}
 
+\newpage
 \section{Απάντηση}
 
 \chapter{Άσκηση 4}
@@ -115,6 +128,7 @@
 \end{align*}
 
 
+\newpage
 \section{Απάντηση}
 
 \end{document}
