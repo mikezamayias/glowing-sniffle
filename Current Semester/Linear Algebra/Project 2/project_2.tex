@@ -38,7 +38,7 @@
 \lstdefinestyle{mystyle}{
     language=Octave,
     backgroundcolor=\color{white},   
-    commentstyle=\color{lightgray},
+    commentstyle=\color{teal},
     keywordstyle=\color{blue},
     numberstyle=\color{gray}\ttfamily,
     stringstyle=\color{orange},
@@ -167,7 +167,7 @@
     \end{aligned}\label{eq:14}
 \end{equation}
 
-Η έξοδος του προγράμματός μου:
+Η έξοδος του προγράμματός μου για τα συστήματα \eqref{eq:13} και \eqref{eq:14}:
 \VerbatimInput{task1.txt}
 
 \newpage
@@ -175,7 +175,7 @@
 \lstinputlisting{task1.m}
 
 \newpage
-Η function\_task1 συνάρτηση:
+Η συνάρτηση \textit{function\_task1}:
 \lstinputlisting{function_task1.m}
 
 \chapter{Άσκηση 2}
@@ -197,6 +197,25 @@
 \newpage
 \section{Απάντηση}
 
+Ο πίνακας \eqref{21} γράφεται ως \eqref{22} για $\mu = 0$.
+
+\begin{equation}
+    \begin{aligned}
+        A = \begin{pmatrix}
+            1  & 2 & 1 \\
+            2  & 1 & 0 \\
+            -1 & 1 & 0
+        \end{pmatrix}\label{22}
+    \end{aligned}
+\end{equation}
+
+Η έξοδος του προγράμματός μου για τον πίνακα \eqref{22}:
+\VerbatimInput{task2.txt}
+
+Το πρόγραμμα:
+\lstinputlisting{task2.m}
+
+
 \chapter{Άσκηση 3}
 \section{Εκφώνηση}
 
@@ -204,15 +223,24 @@
 
 \begin{equation}
     \begin{aligned}
-        u & = 3i - 4j + 5k \\
-        v & = 2i - 3j + k  \\
-        w & = i - j + \mu
+        u & = 3i - 4j + 5k  \\
+        v & = 2i - 3j + k   \\
+        w & = i - j + \mu k
     \end{aligned}\label{31}
 \end{equation}
 
 \newpage
 \section{Απάντηση}
 
+Το σύστημα διανυσμάτων \eqref{31} γράφεται ως \eqref{32} για $\mu = 0$.
+
+\begin{equation}
+    \begin{aligned}
+        u & = 3i - 4j + 5k \\
+        v & = 2i - 3j + k  \\
+        w & = i - j + 0k
+    \end{aligned}\label{32}
+\end{equation}
 
 \chapter{Άσκηση 4}
 \section{Εκφώνηση}
@@ -235,6 +263,11 @@
 
 \section{Βιβλία}
 \section{Video}
+\begin{itemize}
+    \item \href{https://www.youtube.com/watch?v=cJg2AuSFdjw}{Inverse Matrix Using Gauss-Jordan}
+    \item \href{https://youtu.be/X5rDjbp0t6s}{Solving a 3x3 System Using Cramer's Rule}
+    \item \href{https://youtu.be/0vB1sgebS9c}{Εύρεση αντίστροφου πίνακα με μέθοδο Gauss}
+\end{itemize}
 \section{Σύνδεσμοι}
 \begin{itemize}
     \item \href{http://sites.science.oregonstate.edu/math/home/programs/undergrad/CalculusQuestStudyGuides/vcalc/system/system.html}{Systems of Linear Equations}
@@ -242,6 +275,7 @@
     \item \href{http://www-h.eng.cam.ac.uk/help/programs/octave/tutorial/}{11. Solving Ax = b, Matrix division and the slash operator}
     \item \href{https://onlinemschool.com/math/assistance/equation/gaus/}{Gaussian elimination calculator}
     \item \href{http://www.matrixlab-examples.com/cramers-rule.html}{Cramer's Rule}
+    \item \href{https://pt.overleaf.com/learn/latex/Code_listing}{Inserting code in a \LaTeX document}
 \end{itemize}
 \section{Χρήσιμα αρχεία}
 
