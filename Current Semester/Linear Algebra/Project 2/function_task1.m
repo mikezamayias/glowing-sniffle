@@ -1,14 +1,23 @@
 function function_task1(A, b)
+    #   calulcate A's determinant
     det_A = det(A);
+    #   add empty line
     disp("");
+    #   check if the system has a unique non-trivial solution
+    #   check if A's determinant is non-zero
     if (det_A != 0)
         disp("The system has a unique non-trivial solution:")
+        #   calculate system's unique non-trivial solution
+        #   using Gaussian elimination
         Axb_roots = A\b;
+        #   diplay solution
         x = Axb_roots(1)
         y = Axb_roots(2)
         z = Axb_roots(3)
     else
+        #   get the size of b matrix
         n = size(b)(1);
+        #   calculate Cramer's determinants for the system
         x_up = A;
         y_up = A;
         z_up = A;
@@ -23,9 +32,13 @@ function function_task1(A, b)
         for i = 1 : n
             z_up(i, 3) = b(i);
         end
-        det_z = det(z_up)/det_A;     
+        det_z = det(z_up)/det_A;
+        #   check if all of Cramer's determinants are equal to zero,
+        #   then the system has infinite solutions
         if (det_x == 0 && det_y == 0 && det_z == 0)
             disp("The system has infinite solutions.")
+        #   if not all of Cramer's determinants are equal to zero,
+        #   then the system has no non-trivial solutions
         else
             disp("The system has no non-trivial solutions.")
         endif
