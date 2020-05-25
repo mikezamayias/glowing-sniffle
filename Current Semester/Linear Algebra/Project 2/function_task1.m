@@ -10,6 +10,8 @@ function function_task1(A, b)
         #   calculate system's unique non-trivial solution
         #   using Gaussian elimination
         Axb_roots = A\b;
+        #   convert negative zeros to zeros (-0 to 0)
+        Axb_roots(Axb_roots == 0) = 0;
         #   diplay solution
         x = Axb_roots(1)
         y = Axb_roots(2)
