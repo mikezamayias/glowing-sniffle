@@ -2,7 +2,7 @@ function function_task1(A, b)
     det_A = det(A);
     disp("");
     if (det_A != 0)
-        disp("Το σύστημα έχει μοναδική λύση.")
+        disp("The system has a unique non-trivial solution:")
         Axb_roots = A\b;
         x = Axb_roots(1)
         y = Axb_roots(2)
@@ -25,9 +25,9 @@ function function_task1(A, b)
         end
         det_z = det(z_up)/det_A;     
         if (det_x == 0 && det_y == 0 && det_z == 0)
-            disp("Το σύστημα είναι αόριστο.")
+            disp("The system has infinite solutions.")
         else
-            disp("Το σύστημα είναι αδύνατο.")
+            disp("The system has no non-trivial solutions.")
         endif
     endif
 end

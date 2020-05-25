@@ -7,7 +7,7 @@ b =
    3
    2
 
-Το σύστημα έχει μοναδική λύση.
+The system has a unique non-trivial solution:
 x = -2.0000
 y = -2.5000
 z =  9.5000
@@ -22,7 +22,7 @@ b =
    0
    2
 
-Το σύστημα έχει μοναδική λύση.
+The system has a unique non-trivial solution:
 x =  0.50000
 y = -0.25000
 z =  3.2500
