@@ -12,7 +12,7 @@ disp(A);
 disp("b =");
 disp(b);
 #   run first task's logic
-function_task1(A, b)
+[x, y, z] = function_task1(A, b)
 
 #   add new line to seperate outputs
 disp("\n")
@@ -27,4 +27,4 @@ disp(A);
 disp("b =");
 disp(b);
 #   run first task's logic
-function_task1(A, b)
+[x, y, z] = function_task1(A, b)

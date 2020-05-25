@@ -1,4 +1,4 @@
-function function_task1(A, b)
+function [x, y, z] = function_task1(A, b)
     #   calulcate A's determinant
     det_A = det(A);
     #   add empty line
@@ -13,9 +13,9 @@ function function_task1(A, b)
         #   convert negative zeros to zeros (-0 to 0)
         Axb_roots(Axb_roots == 0) = 0;
         #   diplay solution
-        x = Axb_roots(1)
-        y = Axb_roots(2)
-        z = Axb_roots(3)
+        x = Axb_roots(1);
+        y = Axb_roots(2);
+        z = Axb_roots(3);
     else
         #   get the size of b matrix
         n = size(b)(1);
