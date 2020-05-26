@@ -1,4 +1,4 @@
-\documentclass[14pt]{extreport}
+\documentclass[12pt]{extreport}
 \usepackage[margin=2cm,includeheadfoot,a4paper]{geometry}
 \usepackage{fontspec}
 %\usepackage[utf8x]{inputenc}
@@ -20,9 +20,6 @@
 
 \titleformat{\chapter}[display]
   {\normalfont\bfseries}{}{0pt}{\Huge}
-
-\titleformat{\subsubsection}
-  {\normalfont\bfseries}{}{0pt}{\normalsize}
 
 \setlength{\parskip}{0cm}
 \setlength{\parindent}{1cm}
@@ -74,14 +71,6 @@
 \rhead{Project 2}
 \lhead{Αριθμητική Γραμμική Άλγεβρα}
 \cfoot{\thepage}
-
-\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}
-{
-    fontsize=\footnotesize,
-    frame=lines,
-    framesep=0.1cm,
-    rulecolor=\color{black}
-}
 
 \newcommand\rowop[1]{\scriptstyle\smash{\xrightarrow[\vphantom{#1}]{\mkern-4mu#1\mkern-4mu}}}
 
@@ -192,7 +181,7 @@
 \end{equation}
 
 Η έξοδος του προγράμματός μου για τα συστήματα \eqref{eq:13} και \eqref{eq:14}:
-\VerbatimInput{task1.txt}
+\lstinputlisting[language={}]{task1.txt}
 
 \newpage
 Το κύριο πρόγραμμα:
@@ -236,7 +225,7 @@
 \end{equation}
 
 Η έξοδος του προγράμματός μου για τον πίνακα \eqref{22}:
-\VerbatimInput{task2.txt}
+\lstinputlisting[language={}]{task2.txt}
 
 Το πρόγραμμα:
 \lstinputlisting{task2.m}
@@ -278,7 +267,7 @@
     \end{aligned}\label{33}
 \end{equation}
 
-Και για  να είναι γραμμικώς ανεξάρτητα τα $\bar{u}$, $\bar{v}$, $\bar{w}$ πρέπει να ισχύει $\lambda_{1}=0$, $\lambda_{2}=0$, $\lambda_{3}=0$.
+Και για  να είναι γραμμικά ανεξάρτητα τα $\bar{u}$, $\bar{v}$, $\bar{w}$ πρέπει να ισχύει $\lambda_{1}=0$, $\lambda_{2}=0$, $\lambda_{3}=0$.
 
 \begin{equation}%eq:eq34
     \begin{aligned}
@@ -399,7 +388,7 @@
 
 \subsubsection{Στην Octave}
 
-Για να είναι γραμμικώς ανεξάρτητα τα $\bar{u}$, $\bar{v}$, $\bar{w}$ πρέπει να ισχύει η σχέση από το \eqref{33}:
+Για να είναι γραμμικά ανεξάρτητα τα $\bar{u}$, $\bar{v}$, $\bar{w}$ πρέπει να ισχύει η σχέση από το \eqref{33}:
 \begin{equation*}
     \lambda_{1} = \lambda_{2} = \lambda_{3} = 0
 \end{equation*}
@@ -422,7 +411,7 @@
                 \lambda_{3}
             \end{pmatrix}
         }_\text{$\bar{x}$}
-                                 & =
+         & =
         \underbrace{
             \begin{pmatrix}
                 0 \\
@@ -433,14 +422,28 @@
     \end{aligned}\label{35}
 \end{equation}
 
-Εφαρμόζω στο \eqref{35} την συνάρτηση function\_task1\footnote{(βλ. σελίδα \pageref{function_task1})} από την Άσκηση 1 κι έχω έξοδο:
-\VerbatimInput{out_task3.txt}
-Έτσι, με $\lambda_{1} = 0$, $\lambda_{2} = 0$, $\lambda_{3} = 0$ τα $\bar{u}$, $\bar{v}$, $\bar{w}$ είναι γραμμικώς ανεξάρτητα στο $R^{3}$.
-\newpage
+Εφαρμόζω στο \eqref{35} την συνάρτηση function\_task1\footnote{(βλ. σελίδα \pageref{function_task1})} από την Άσκηση 1 και δίνει έξοδο:
+\lstinputlisting[language={}]{out_task3.txt}
+Έτσι, με $\lambda_{1} = 0$, $\lambda_{2} = 0$, $\lambda_{3} = 0$ τα $\bar{u}$, $\bar{v}$, $\bar{w}$ είναι γραμμικά ανεξάρτητα στο $R^{3}$.
+
 Το πρόγραμμα:
 \lstinputlisting{out_task3.m}
+\newpage
 
 \subsection{Πρόγραμμα}
+
+Για να είναι ένα σετ διανυσμάτων γραμμικά ανεξάρτητο πρέπει η ορίζουσα του πίνακα που προκύπτει, με τα διανύματα αυτά να είναι στήλες του, να έχει τιμή διάφορη του μηδενός. Αλλίως, αυτο το σετ διανυσμάτων είναι γραμμικά εξαρτημένο.
+
+Το κύριο πρόγραμμα:
+\lstinputlisting{task3.m}
+
+Η συνάρτηση function\_task3:
+\lstinputlisting{function_task3.m}
+
+Η έξοδος του προγράμματός μου:
+\lstinputlisting[language={}]{task3.txt}
+
+
 
 \chapter{Άσκηση 4}
 \section{Εκφώνηση}
