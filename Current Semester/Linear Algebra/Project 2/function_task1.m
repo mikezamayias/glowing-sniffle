@@ -1,8 +1,6 @@
 function [x, y, z] = function_task1(A, b)
     #   calulcate A's determinant
     det_A = det(A);
-    #   add empty line
-    disp("");
     #   check if the system has a unique non-trivial solution
     #   check if A's determinant is non-zero
     if (det_A != 0)
