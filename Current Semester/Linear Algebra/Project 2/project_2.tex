@@ -7,7 +7,8 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{listings}
 \usepackage{titlesec}
-\usepackage{amsmath}
+\usepackage{amsmath, mathtools}
+\usepackage{xifthen, xparse}
 \usepackage{fancyhdr}
 \usepackage{fancyvrb}
 \usepackage[hyphens]{url}
@@ -15,8 +16,13 @@
 
 \setlength{\headheight}{17pt}
 
+%\renewcommand{\arraystretch}{1.5}
+
 \titleformat{\chapter}[display]
   {\normalfont\bfseries}{}{0pt}{\Huge}
+
+\titleformat{\subsubsection}
+  {\normalfont\bfseries}{}{0pt}{\normalsize}
 
 \setlength{\parskip}{0cm}
 \setlength{\parindent}{1cm}
@@ -54,8 +60,8 @@
     showtabs=false,                  
     tabsize=2,
     frame=lines,
-    framesep=1em,
-    rulecolor=\color{gray},
+    framesep=0.1cm,
+    rulecolor=\color{black},
     morestring=[b]"
 }
 
@@ -73,9 +79,25 @@
 {
     fontsize=\footnotesize,
     frame=lines,
-    framesep=1em,
-    rulecolor=\color{gray}
+    framesep=0.1cm,
+    rulecolor=\color{black}
 }
+
+\newcommand\rowop[1]{\scriptstyle\smash{\xrightarrow[\vphantom{#1}]{\mkern-4mu#1\mkern-4mu}}}
+
+\DeclareDocumentCommand\converttorows
+{>{\SplitList{,}}m}
+{\ProcessList{#1}{\converttorow}}
+\NewDocumentCommand{\converttorow}{m}
+{\ifthenelse{\isempty{#1}}{}{\rowop{#1}}\\}
+
+\DeclareDocumentCommand \rowops{m}
+{\;
+ \begin{matrix}
+\converttorows {#1}
+ \end{matrix}
+ \; }
+
 
 \begin{document}
 
@@ -110,6 +132,8 @@
 
 \newpage
 \section{Απάντηση}
+
+\subsection{Πρόγραμμα}
 
 Το \eqref{eq:11} γράφεται ως \eqref{eq:13} στην μορφή $A\bar{x}=\bar{b}$. Ομοίως, το \eqref{eq:12} γράφεται ως \eqref{eq:14},  με $\mu = 0$ για αριθμό μητρώου 5000.
 
@@ -175,7 +199,7 @@
 \lstinputlisting{task1.m}
 
 \newpage
-Η συνάρτηση \textit{function\_task1}:
+Η συνάρτηση function\_task1:\label{function_task1}
 \lstinputlisting{function_task1.m}
 
 \chapter{Άσκηση 2}
@@ -196,6 +220,8 @@
 
 \newpage
 \section{Απάντηση}
+
+\subsection{Πρόγραμμα}
 
 Ο πίνακας \eqref{21} γράφεται ως \eqref{22} για $\mu = 0$.
 
@@ -221,7 +247,7 @@
 
 Θεωρήστε τα διανύσματα του \eqref{31}, όπου $\mu$ είναι το τελευταίο ψηφίο του αριθμού μητρώου σας. Ελέγξτε με το χέρι αν τα παραπάνω διανύσματα είναι γραμμικά ανεξάρτητα ή όχι χωρίς την χρήση του κριτηρίου της ορίζουσας. Αποτελούν αυτά τα διανύσματα βάση του $R^{3}$; Κατόπιν φτιάξτε ένα πρόγραμμα που να αποφασίζει αν μία οποιαδήποτε τριάδα διανυσμάτων στο $R^{3}$ αποτελεί βάση του $R^{3}$ κάνοντας χρήση του κριτηρίου της ορίζουσας.
 
-\begin{equation}
+\begin{equation}%eq:eq31
     \begin{aligned}
         u & = 3i - 4j + 5k  \\
         v & = 2i - 3j + k   \\
@@ -232,15 +258,189 @@
 \newpage
 \section{Απάντηση}
 
-Το σύστημα διανυσμάτων \eqref{31} γράφεται ως \eqref{32} για $\mu = 0$.
+\subsection{Έλεγχος με το χέρι}
+\subsubsection{Στο χέρι}
 
-\begin{equation}
+Το σύστημα διανυσμάτων \eqref{31} γράφεται ως το \eqref{32}, για $\mu = 0$.
+
+\begin{equation}%eq:eq32
     \begin{aligned}
         u & = 3i - 4j + 5k \\
         v & = 2i - 3j + k  \\
         w & = i - j + 0k
     \end{aligned}\label{32}
 \end{equation}
+
+Από το \eqref{32} μπορώ να πάρω την σχέση:
+\begin{equation}%eq:eq33
+    \begin{aligned}
+        \lambda_{1}\bar{u} + \lambda_{2}\bar{v} + \lambda_{3}\bar{w} = \bar{0}
+    \end{aligned}\label{33}
+\end{equation}
+
+Και για  να είναι γραμμικώς ανεξάρτητα τα $\bar{u}$, $\bar{v}$, $\bar{w}$ πρέπει να ισχύει $\lambda_{1}=0$, $\lambda_{2}=0$, $\lambda_{3}=0$.
+
+\begin{equation}%eq:eq34
+    \begin{aligned}
+        \lambda_{1}\begin{pmatrix}
+            3 \\ -4 \\ 5
+        \end{pmatrix} +
+        \lambda_{2}\begin{pmatrix}
+            2 \\ -3 \\ 1
+        \end{pmatrix} +
+        \lambda_{3}\begin{pmatrix}
+            1 \\ -1 \\ 0
+        \end{pmatrix}        & =
+        \begin{pmatrix}
+            0 \\ 0 \\ 0
+        \end{pmatrix}
+        \implies                                         \\
+        \underbrace{
+            \begin{pmatrix}
+                3 & -4 & 5 \\
+                2 & -3 & 1 \\
+                1 & -1 & 0
+            \end{pmatrix}}_\text{A}
+        \underbrace{
+        \begin{pmatrix}
+                \lambda_{1} \\
+                \lambda_{2} \\
+                \lambda_{3}
+            \end{pmatrix}}_\text{$\bar{x}$} & =
+        \underbrace{
+            \begin{pmatrix}
+                0 \\
+                0 \\
+                0
+            \end{pmatrix}}_\text{$\bar{b}$}
+    \end{aligned}\label{34}
+\end{equation}
+
+Με γραμμοπράξεις μετατρέπω τον πίνακα A του \eqref{34} σε ανηγμένο κλιμακωτό:
+
+\begin{equation*}
+    \begin{aligned}
+        \begin{pmatrix}
+            3 & -4 & 5 \\[0.4cm]
+            2 & -3 & 1 \\[0.4cm]
+            1 & -1 & 0
+        \end{pmatrix}\rowops{,R_{2}-(2/3)R_{1},R_{3}-(1/3)R_{1}}
+        \begin{pmatrix}
+            3 & -4           & 5            \\[0.4cm]
+            0 & -\frac{1}{3} & -\frac{7}{3} \\[0.4cm]
+            0 & \frac{1}{3}  & -\frac{5}{3}
+        \end{pmatrix}\rowops{,,R_{3}+R_{2}}
+        \begin{pmatrix}
+            3 & -4           & 5            \\[0.4cm]
+            0 & -\frac{1}{3} & -\frac{7}{3} \\[0.4cm]
+            0 & 0            & -4
+        \end{pmatrix}\rowops{,R_{2}+(7/3)R_{2},R_{3}-(1/4)R_{3}} \\[0.4cm]
+        \begin{pmatrix}
+            3 & -4           & 5 \\[0.4cm]
+            0 & -\frac{1}{3} & 0 \\[0.4cm]
+            0 & 0            & 1
+        \end{pmatrix}\rowops{R_{1}-5R_{3},-3R_{2},}
+        \begin{pmatrix}
+            3 & -4 & 0 \\[0.4cm]
+            0 & 1  & 0 \\[0.4cm]
+            0 & 0  & 1
+        \end{pmatrix}
+        \rowops{R_{1}+4R_{2},,}
+        \begin{pmatrix}
+            3 & 0 & 0 \\[0.4cm]
+            0 & 1 & 0 \\[0.4cm]
+            0 & 0 & 1
+        \end{pmatrix}
+        \rowops{(1/3)R_{1},,}
+        \begin{pmatrix}
+            1 & 0 & 0 \\[0.4cm]
+            0 & 1 & 0 \\[0.4cm]
+            0 & 0 & 1
+        \end{pmatrix}
+    \end{aligned}
+\end{equation*}
+
+Είναι:
+\begin{equation*}
+    \begin{aligned}
+        \underbrace{
+            \begin{pmatrix}
+                1 & 0 & 0 \\
+                0 & 1 & 0 \\
+                0 & 0 & 1
+            \end{pmatrix}}_\text{A}
+        \underbrace{
+        \begin{pmatrix}
+                \lambda_{1} \\
+                \lambda_{2} \\
+                \lambda_{3}
+            \end{pmatrix}}_\text{$\bar{x}$} & =
+        \underbrace{
+            \begin{pmatrix}
+                0 \\
+                0 \\
+                0
+            \end{pmatrix}}_\text{$\bar{b}$}
+        \implies
+        \begin{pmatrix}
+            \lambda_{1} \\
+            \lambda_{2} \\
+            \lambda_{3}
+        \end{pmatrix}                   & =
+        \begin{pmatrix}
+            0 \\
+            0 \\
+            0
+        \end{pmatrix}
+    \end{aligned}
+\end{equation*}
+
+Άρα όντως είναι $\lambda_{1}=0$, $\lambda_{2}=0$, $\lambda_{3}=0$, οπότε και τα $\bar{u}$, $\bar{v}$, $\bar{w}$ είναι γραμικώς ανεξάρτητα στο $R^{3}$.
+
+\subsubsection{Στην Octave}
+
+Για να είναι γραμμικώς ανεξάρτητα τα $\bar{u}$, $\bar{v}$, $\bar{w}$ πρέπει να ισχύει η σχέση από το \eqref{33}:
+\begin{equation*}
+    \lambda_{1} = \lambda_{2} = \lambda_{3} = 0
+\end{equation*}
+
+Από το γραμμικό σύστημα εξισώσεων \eqref{34}:
+
+\begin{equation}
+    \begin{aligned}%eq:eq35
+        \underbrace{
+            \begin{pmatrix}
+                3 & -4 & 5 \\
+                2 & -3 & 1 \\
+                1 & -1 & 0
+            \end{pmatrix}
+        }_\text{A}
+        \underbrace{
+            \begin{pmatrix}
+                \lambda_{1} \\
+                \lambda_{2} \\
+                \lambda_{3}
+            \end{pmatrix}
+        }_\text{$\bar{x}$}
+                                 & =
+        \underbrace{
+            \begin{pmatrix}
+                0 \\
+                0 \\
+                0
+            \end{pmatrix}
+        }_\text{$\bar{b}$}
+    \end{aligned}\label{35}
+\end{equation}
+
+Εφαρμόζω στο \eqref{35} την συνάρτηση function\_task1\footnote{(βλ. σελίδα \pageref{function_task1})} από την Άσκηση 1 κι έχω έξοδο:
+\VerbatimInput{out_task3.txt}
+Έτσι, με $\lambda_{1} = 0$, $\lambda_{2} = 0$, $\lambda_{3} = 0$ τα $\bar{u}$, $\bar{v}$, $\bar{w}$ είναι γραμμικώς ανεξάρτητα στο $R^{3}$.
+\newpage
+Το πρόγραμμα:
+\lstinputlisting{out_task3.m}
+
+\subsection{Πρόγραμμα}
 
 \chapter{Άσκηση 4}
 \section{Εκφώνηση}
@@ -268,6 +468,8 @@
     \item \href{https://www.youtube.com/watch?v=cJg2AuSFdjw}{Inverse Matrix Using Gauss-Jordan}
     \item \href{https://youtu.be/X5rDjbp0t6s}{Solving a 3x3 System Using Cramer's Rule}
     \item \href{https://youtu.be/0vB1sgebS9c}{Εύρεση αντίστροφου πίνακα με μέθοδο Gauss}
+    \item \href{https://youtu.be/Gmt1fmlrEto}{Γραμμική εξάρτηση διανυσμάτων}
+    \item \href{https://youtu.be/yLi8RxqfowA}{Linear Independence and Linear Dependence, Ex 1}
 \end{itemize}
 \section{Σύνδεσμοι}
 \begin{itemize}
@@ -276,8 +478,12 @@
     \item \href{http://www-h.eng.cam.ac.uk/help/programs/octave/tutorial/}{11. Solving Ax = b, Matrix division and the slash operator}
     \item \href{https://onlinemschool.com/math/assistance/equation/gaus/}{Gaussian elimination calculator}
     \item \href{http://www.matrixlab-examples.com/cramers-rule.html}{Cramer's Rule}
-    \item \href{https://pt.overleaf.com/learn/latex/Code_listing}{Inserting code in a \LaTeX document}
+    \item \href{https://pt.overleaf.com/learn/latex/Code_listing}{Inserting code in a LaTeX document}
 \end{itemize}
 \section{Χρήσιμα αρχεία}
+\begin{itemize}
+    \item \href{http://www.yanivplan.com/files/tutorial2vectors.pdf}{Octave, Vectors and Matrices}
+    \item \href{http://web.mit.edu/rsi/www/pdfs/advmath.pdf}{Hardcore LaTeX Math}
+\end{itemize}
 
 \end{document}
