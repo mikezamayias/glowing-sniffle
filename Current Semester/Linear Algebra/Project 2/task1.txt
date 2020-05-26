@@ -6,7 +6,6 @@ b =
    3
    3
    2
-
 The system has a unique non-trivial solution:
 x = -2.0000
 y = -2.5000
@@ -21,7 +20,6 @@ b =
    3
    0
    2
-
 The system has a unique non-trivial solution:
 x =  0.50000
 y = -0.25000
