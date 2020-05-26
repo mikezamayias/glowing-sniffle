@@ -1,5 +1,5 @@
 function function_task3(u, v, w)
-    #   make matrix A from vectors;
+    #   make matrix A from vectors, where vectors are A's columns
     A = [u; v; w]';
     #   calculate A's determinant
     det_A = det(A);
