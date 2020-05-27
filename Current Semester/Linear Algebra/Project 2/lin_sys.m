@@ -44,4 +44,4 @@ function [x, y, z] = lin_sys(A, b)
             disp("The system has no non-trivial solutions.")
         endif
     endif
-end
+endfunction
