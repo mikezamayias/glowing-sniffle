@@ -1,4 +1,5 @@
-\documentclass[12pt]{extreport}
+\documentclass[12pt, fleqn, leqno]{extreport}
+%\documentclass[12pt]{extreport}
 \usepackage[margin=2cm,includeheadfoot,a4paper]{geometry}
 \usepackage{fontspec}
 %\usepackage[utf8x]{inputenc}
@@ -11,9 +12,11 @@
 \usepackage{xifthen, xparse}
 \usepackage{fancyhdr}
 \usepackage{fancyvrb}
+\usepackage{comment}
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
 
+%\setlength{\mathindent}{0pt}
 \setlength{\headheight}{17pt}
 
 %\renewcommand{\arraystretch}{1.5}
@@ -188,8 +191,8 @@
 \lstinputlisting{task1.m}
 
 \newpage
-Η συνάρτηση function\_task1:\label{function_task1}
-\lstinputlisting{function_task1.m}
+Η συνάρτηση lin\_sys:\label{lin_sys}
+\lstinputlisting{lin_sys.m}
 
 \chapter{Άσκηση 2}
 \section{Εκφώνηση}
@@ -310,40 +313,40 @@
 \begin{equation*}
     \begin{aligned}
         \begin{pmatrix}
-            3 & -4 & 5 \\[0.4cm]
-            2 & -3 & 1 \\[0.4cm]
+            3 & -4 & 5 \\[0.2cm]
+            2 & -3 & 1 \\[0.2cm]
             1 & -1 & 0
         \end{pmatrix}\rowops{,R_{2}-(2/3)R_{1},R_{3}-(1/3)R_{1}}
         \begin{pmatrix}
-            3 & -4           & 5            \\[0.4cm]
-            0 & -\frac{1}{3} & -\frac{7}{3} \\[0.4cm]
+            3 & -4           & 5            \\[0.2cm]
+            0 & -\frac{1}{3} & -\frac{7}{3} \\[0.2cm]
             0 & \frac{1}{3}  & -\frac{5}{3}
         \end{pmatrix}\rowops{,,R_{3}+R_{2}}
         \begin{pmatrix}
-            3 & -4           & 5            \\[0.4cm]
-            0 & -\frac{1}{3} & -\frac{7}{3} \\[0.4cm]
+            3 & -4           & 5            \\[0.2cm]
+            0 & -\frac{1}{3} & -\frac{7}{3} \\[0.2cm]
             0 & 0            & -4
-        \end{pmatrix}\rowops{,R_{2}+(7/3)R_{2},R_{3}-(1/4)R_{3}} \\[0.4cm]
+        \end{pmatrix}\rowops{,R_{2}+(7/3)R_{2},R_{3}-(1/4)R_{3}} \\[0.2cm]
         \begin{pmatrix}
-            3 & -4           & 5 \\[0.4cm]
-            0 & -\frac{1}{3} & 0 \\[0.4cm]
+            3 & -4           & 5 \\[0.2cm]
+            0 & -\frac{1}{3} & 0 \\[0.2cm]
             0 & 0            & 1
         \end{pmatrix}\rowops{R_{1}-5R_{3},-3R_{2},}
         \begin{pmatrix}
-            3 & -4 & 0 \\[0.4cm]
-            0 & 1  & 0 \\[0.4cm]
+            3 & -4 & 0 \\[0.2cm]
+            0 & 1  & 0 \\[0.2cm]
             0 & 0  & 1
         \end{pmatrix}
         \rowops{R_{1}+4R_{2},,}
         \begin{pmatrix}
-            3 & 0 & 0 \\[0.4cm]
-            0 & 1 & 0 \\[0.4cm]
+            3 & 0 & 0 \\[0.2cm]
+            0 & 1 & 0 \\[0.2cm]
             0 & 0 & 1
         \end{pmatrix}
         \rowops{(1/3)R_{1},,}
         \begin{pmatrix}
-            1 & 0 & 0 \\[0.4cm]
-            0 & 1 & 0 \\[0.4cm]
+            1 & 0 & 0 \\[0.2cm]
+            0 & 1 & 0 \\[0.2cm]
             0 & 0 & 1
         \end{pmatrix}
     \end{aligned}
@@ -422,7 +425,7 @@
     \end{aligned}\label{35}
 \end{equation}
 
-Εφαρμόζω στο \eqref{35} την συνάρτηση function\_task1\footnote{(βλ. σελίδα \pageref{function_task1})} από την Άσκηση 1 και δίνει έξοδο:
+Εφαρμόζω στο \eqref{35} την συνάρτηση lin\_sys\footnote{(βλ. σελίδα \pageref{lin_sys})} από την Άσκηση 1 και δίνει έξοδο:
 \lstinputlisting[language={}]{out_task3.txt}
 Έτσι, με $\lambda_{1} = 0$, $\lambda_{2} = 0$, $\lambda_{3} = 0$ τα $\bar{u}$, $\bar{v}$, $\bar{w}$ είναι γραμμικά ανεξάρτητα στο $R^{3}$.
 
@@ -437,8 +440,8 @@
 Το κύριο πρόγραμμα:
 \lstinputlisting{task3.m}
 
-Η συνάρτηση function\_task3:
-\lstinputlisting{function_task3.m}
+Η συνάρτηση lin\_dep:
+\lstinputlisting{lin_dep.m}
 
 Η έξοδος του προγράμματός μου:
 \lstinputlisting[language={}]{task3.txt}
@@ -461,6 +464,449 @@
 \newpage
 \section{Απάντηση}
 
+\subsection{Έλεγχος αν τα διανύσματα αποτελούν βάση του $R^{3}$}
+
+\subsubsection{Στο χέρι}
+
+Για να δείξουμε ότι τα διανύσματα 
+$
+    u = \begin{pmatrix}
+        1 \\ -2 \\ 3
+    \end{pmatrix},
+    v = \begin{pmatrix}
+        2 \\ -1 \\ 2
+    \end{pmatrix},
+    w = \begin{pmatrix}
+        1 \\ -2 \\ 1
+    \end{pmatrix}
+$
+αποτελούν βάση του $R^{3}$ αρκεί να δείξουμε ότι τα διανύσματα είναι γραμμικά ανεξάρτητα.
+
+Έχουμε το σύστημα $A\bar{x}=\bar{b}$:
+\begin{equation*}
+    \begin{aligned}
+        \underbrace{
+            \begin{pmatrix}
+                1  & 2  & 1  \\
+                -2 & -1 & -2 \\
+                3  & 2  & 1
+            \end{pmatrix}}_\text{A}
+        \underbrace{
+        \begin{pmatrix}
+                \lambda_{1} \\
+                \lambda_{2} \\
+                \lambda_{3}
+            \end{pmatrix}}_\text{$\bar{x}$} & =
+        \underbrace{
+            \begin{pmatrix}
+                0 \\
+                0 \\
+                0
+            \end{pmatrix}}_\text{$\bar{b}$}
+    \end{aligned}
+\end{equation*}
+
+Με γραμμοπράξεις μετατρέπουμε τον πίνακα A σε ανηγμένο κλιμακωτό:
+
+\begin{equation*}
+    \begin{aligned}
+        \begin{pmatrix}
+            1  & 2  & 1  \\[0.2cm]
+            -2 & -1 & -2 \\[0.2cm]
+            3  & 2  & 1
+        \end{pmatrix}\rowops{R_{1}=R_{3},,R_{3}=R_{1}}
+        \begin{pmatrix}
+            3  & 2  & 1  \\[0.2cm]
+            -2 & -1 & -2 \\[0.2cm]
+            1  & 2  & 1
+        \end{pmatrix}\rowops{,R_{2}=R_{2}+(2/3)R_{1},R_{3}=R_{3}-(1/3)R_{1}}
+        \begin{pmatrix}
+            3 & 2           & 1            \\[0.2cm]
+            0 & \frac{1}{3} & -\frac{4}{3} \\[0.2cm]
+            0 & \frac{4}{3} & \frac{2}{3}
+        \end{pmatrix}\rowops{,R_{2}=R_{3},R_{3}=R_{2}}                  \\
+        \begin{pmatrix}
+            3 & 2           & 1            \\[0.2cm]
+            0 & \frac{4}{3} & \frac{2}{3}  \\[0.2cm]
+            0 & \frac{1}{3} & -\frac{4}{3}
+        \end{pmatrix}\rowops{,,R_{3}=R_{3}-(1/4)R_{2}}
+        \begin{pmatrix}
+            3 & 2           & 1            \\[0.2cm]
+            0 & \frac{4}{3} & \frac{2}{3}  \\[0.2cm]
+            0 & 0           & -\frac{3}{2}
+        \end{pmatrix}\rowops{,,R_{3}=-(2/3)R_{3}}
+        \begin{pmatrix}
+            3 & 2           & 1           \\[0.2cm]
+            0 & \frac{4}{3} & \frac{2}{3} \\[0.2cm]
+            0 & 0           & 1
+        \end{pmatrix}\rowops{R_{1}=R_{1}-R_{3},R_{2}=R_{2}-(2/3)R_{3},} \\
+        \begin{pmatrix}
+            3 & 2           & 0 \\[0.2cm]
+            0 & \frac{4}{3} & 0 \\[0.2cm]
+            0 & 0           & 1
+        \end{pmatrix}\rowops{,R_{2}=(3/4)R_{2},}
+        \begin{pmatrix}
+            3 & 2 & 0 \\[0.2cm]
+            0 & 1 & 0 \\[0.2cm]
+            0 & 0 & 1
+        \end{pmatrix}\rowops{R_{1}=R_{1}-2R_{2},,}
+        \begin{pmatrix}
+            3 & 0 & 0 \\[0.2cm]
+            0 & 1 & 0 \\[0.2cm]
+            0 & 0 & 1
+        \end{pmatrix}\rowops{R_{1}=(1/3)R_{1},,}
+        \begin{pmatrix}
+            1 & 0 & 0 \\[0.2cm]
+            0 & 1 & 0 \\[0.2cm]
+            0 & 0 & 1
+        \end{pmatrix}
+    \end{aligned}
+\end{equation*}
+
+Οπότε είναι:
+\begin{equation*}
+    \begin{aligned}
+        \underbrace{
+            \begin{pmatrix}
+                1 & 0 & 0 \\
+                0 & 1 & 0 \\
+                0 & 0 & 1
+            \end{pmatrix}}_\text{A}
+        \underbrace{
+        \begin{pmatrix}
+                \lambda_{1} \\
+                \lambda_{2} \\
+                \lambda_{3}
+            \end{pmatrix}}_\text{$\bar{x}$} & =
+        \underbrace{
+            \begin{pmatrix}
+                0 \\
+                0 \\
+                0
+            \end{pmatrix}}_\text{$\bar{b}$}
+        \implies
+        \begin{pmatrix}
+            \lambda_{1} \\
+            \lambda_{2} \\
+            \lambda_{3}
+        \end{pmatrix}                   & =
+        \begin{pmatrix}
+            0 \\
+            0 \\
+            0
+        \end{pmatrix}
+    \end{aligned}
+\end{equation*}
+
+Είναι $\lambda_{1}=0$, $\lambda_{2}=0$, $\lambda_{3}=0$, επομένως και τα $\bar{u}$, $\bar{v}$, $\bar{w}$ είναι γραμικώς ανεξάρτητα στο $R^{3}$, άρα αποτελούν βάση του $R^{3}$.
+
+\newpage
+\subsubsection{Στην Octave}
+
+Δίνω τα διανύσματα
+$
+    u = \begin{pmatrix}
+        1 \\ -2 \\ 3
+    \end{pmatrix},
+    v = \begin{pmatrix}
+        2 \\ -1 \\ 2
+    \end{pmatrix},
+    w = \begin{pmatrix}
+        1 \\ -2 \\ 1
+    \end{pmatrix}
+$
+στο πρόγραμμα της Άσκησης 3. Η έξοδος του προγράμματoς:
+\lstinputlisting[language={}]{task3.txt}
+Εφόσον τα $\bar{u}$, $\bar{v}$, $\bar{w}$ είναι γραμικώς ανεξάρτητα στο $R^{3}$, αποτελούν βάση του $R^{3}$.
+
+Το πρόγραμμα:
+\lstinputlisting{task3.m}
+Η συνάρτηση lin\_dep:
+\lstinputlisting{lin_dep.m}
+
+
+\newpage
+\subsection{Ορθοκανονικοποίηση βάσης με τον αλγόριθμο Gram-Smith}
+
+Έστω η βάση $S=[u, v, w]$ του $R_{3}$, αφού $u, v, w$ γραμμικά ανεξάρτητα.
+
+Κατασκευάζουμε την ορθογώνια βάση $S'=[a, b, c]$:
+
+%   orthogonal a
+\begin{equation}
+    \begin{split}
+        a &= u
+        \\&=
+        \begin{pmatrix}
+            1 & -2 & 3
+        \end{pmatrix}
+    \end{split}
+\end{equation}
+
+
+%   orthogona
+\begin{equation}
+    \begin{split}
+        b &= v - \frac{a \cdot v}{a \cdot a}a
+        \\ &=
+        \begin{pmatrix}
+            2 & -1 & 2
+        \end{pmatrix}
+        - \frac{
+            \begin{pmatrix}
+                1 & -2 & 3
+            \end{pmatrix}
+            \cdot
+            \begin{pmatrix}
+                2 & -1 & 2
+            \end{pmatrix}
+        }{
+            \begin{pmatrix}
+                1 & -2 & 3
+            \end{pmatrix}
+            \cdot
+            \begin{pmatrix}
+                1 & -2 & 3
+            \end{pmatrix}
+        }
+        \\ &=
+        \begin{pmatrix}
+            1 & -2 & 3
+        \end{pmatrix}
+        \begin{pmatrix}
+            2 & -1 & 2
+        \end{pmatrix}
+        - \frac{
+            \begin{pmatrix}
+                1 & -2 & 3
+            \end{pmatrix}
+            \cdot
+            \begin{pmatrix}
+                2 & -1 & 2
+            \end{pmatrix}
+        }{14}
+        \begin{pmatrix}
+            1 & -2 & 3
+        \end{pmatrix}
+        \\ &=
+        \begin{pmatrix}
+            2 & -1 & 2
+        \end{pmatrix}
+        - \frac{10}{14}
+        \begin{pmatrix}
+            1 & -2 & 3
+        \end{pmatrix}
+        \\ &=
+        \begin{pmatrix}
+            2 & -1 & 2
+        \end{pmatrix}
+        -
+        \begin{pmatrix}
+            \frac{5}{7} & -\frac{10}{7} & \frac{15}{7}
+        \end{pmatrix}
+        \\ &=
+        \begin{pmatrix}
+            \frac{9}{7} & \frac{3}{7} & -\frac{1}{7}
+        \end{pmatrix}
+    \end{split}
+\end{equation}
+
+%   orthogonal c
+\begin{equation}
+    \begin{split}
+        c & = w - \frac{a \cdot w}{a \cdot a}a - \frac{b \cdot w}{b \cdot b}b
+        \\ &=
+        \begin{pmatrix}
+            1 & -2 & 1
+        \end{pmatrix}
+        - \frac{
+            \begin{pmatrix}
+                1 & -2 & 3
+            \end{pmatrix}
+            \cdot
+            \begin{pmatrix}
+                1 & -2 & 1
+            \end{pmatrix}
+        }{14}
+        \begin{pmatrix}
+            1 & -2 & 3
+        \end{pmatrix}
+        - \frac{b \cdot w}{b \cdot b}b
+        \\ &=
+        \begin{pmatrix}
+            1 & -2 & 1
+        \end{pmatrix}
+        - \frac{8}{14}
+        \begin{pmatrix}
+            1 & -2 & 3
+        \end{pmatrix}
+        - \frac{b \cdot w}{b \cdot b}b
+        \\ &=
+        \begin{pmatrix}
+            1 & -2 & 1
+        \end{pmatrix}
+        -
+        \begin{pmatrix}
+            \frac{4}{7} & -\frac{8}{7} & \frac{12}{7}
+        \end{pmatrix}
+        - \frac{b \cdot w}{b \cdot b}b
+        \\ &=
+        \begin{pmatrix}
+            \frac{3}{7} & -\frac{6}{7} & -\frac{5}{7}
+        \end{pmatrix}
+        - \frac{
+            \begin{pmatrix}
+                \frac{9}{7} & \frac{3}{7} & -\frac{1}{7}
+            \end{pmatrix}
+            \cdot
+            \begin{pmatrix}
+                1 & -2 & 1
+            \end{pmatrix}
+        }{
+            \begin{pmatrix}
+                \frac{9}{7} & \frac{3}{7} & -\frac{1}{7}
+            \end{pmatrix}
+            \cdot
+            \begin{pmatrix}
+                \frac{9}{7} & \frac{3}{7} & -\frac{1}{7}
+            \end{pmatrix}
+        }
+        \begin{pmatrix}
+            \frac{9}{7} & \frac{3}{7} & -\frac{1}{7}
+        \end{pmatrix}
+        \\ &=
+        \begin{pmatrix}
+            \frac{3}{7} & -\frac{6}{7} & -\frac{5}{7}
+        \end{pmatrix}
+        - \frac{
+            \begin{pmatrix}
+                \frac{9}{7} & \frac{3}{7} & -\frac{1}{7}
+            \end{pmatrix}
+            \cdot
+            \begin{pmatrix}
+                1 & -2 & 1
+            \end{pmatrix}
+        }{
+            \frac{13}{7}
+        }
+        \begin{pmatrix}
+            \frac{9}{7} & \frac{3}{7} & -\frac{1}{7}
+        \end{pmatrix}
+        \\ &=
+        \begin{pmatrix}
+            \frac{3}{7} & -\frac{6}{7} & -\frac{5}{7}
+        \end{pmatrix}
+        - \frac{
+            \frac{2}{7}
+        }{
+            \frac{13}{7}
+        }
+        \begin{pmatrix}
+            \frac{9}{7} & \frac{3}{7} & -\frac{1}{7}
+        \end{pmatrix}
+        \\ &=
+        \begin{pmatrix}
+            \frac{3}{7} & -\frac{6}{7} & -\frac{5}{7}
+        \end{pmatrix}
+        -
+        \begin{pmatrix}
+            \frac{18}{91} & \frac{6}{91} & -\frac{2}{91}
+        \end{pmatrix}
+        \\ &=
+        \begin{pmatrix}
+            \frac{3}{13} & -\frac{12}{13} & -\frac{9}{13}
+        \end{pmatrix}
+    \end{split}
+\end{equation}
+
+Κατασκευάζουμε την ορθοκανονική βάση $S''=[e_{1}, e_{2}, e_{3}]$:
+
+%   orthonormal e1
+\begin{equation}
+    \begin{split}
+        e_{1} &= \frac{a}{\vert a \vert} =
+        \frac{
+            \begin{pmatrix}
+                1 & -2 & 3
+            \end{pmatrix}
+        }{
+            \vert
+            \begin{pmatrix}
+                1 & -2 & 3
+            \end{pmatrix}
+            \vert
+        } =
+        \frac{
+            \begin{pmatrix}
+                1 & -2 & 3
+            \end{pmatrix}
+        }{
+            \sqrt{14}
+        } =
+        \begin{pmatrix}
+            \frac{1}{\sqrt{14}} & \frac{-2}{\sqrt{14}} & \frac{3}{\sqrt{14}}
+        \end{pmatrix}
+    \end{split}
+\end{equation}
+
+%   orthonormal e2
+\begin{equation}
+    \begin{split}
+        e_{2} &= \frac{b}{\vert b \vert} =
+        \frac{
+            \begin{pmatrix}
+                \frac{9}{7} & \frac{3}{7} & -\frac{1}{7}
+            \end{pmatrix}
+        }{
+            \vert
+            \begin{pmatrix}
+                \frac{9}{7} & \frac{3}{7} & -\frac{1}{7}
+            \end{pmatrix}
+            \vert
+        } =
+        \frac{
+            \begin{pmatrix}
+                \frac{9}{7} & \frac{3}{7} & -\frac{1}{7}
+            \end{pmatrix}
+        }{
+            \sqrt{\frac{13}{7}}
+        } =
+        \begin{pmatrix}
+            \frac{9}{\sqrt{91}} & \frac{3}{\sqrt{91}} & -\frac{1}{\sqrt{91}}
+        \end{pmatrix}
+    \end{split}
+\end{equation}
+
+%   orthonormal e3
+\begin{equation}
+    \begin{split}
+        e_{3} &= \frac{c}{\vert c \vert} =
+        \frac{
+            \begin{pmatrix}
+                \frac{3}{13} & -\frac{12}{13} & -\frac{9}{13}
+            \end{pmatrix}
+        }{
+            \vert
+            \begin{pmatrix}
+                \frac{3}{13} & -\frac{12}{13} & -\frac{9}{13}
+            \end{pmatrix}
+            \vert
+        } =
+        \frac{
+            \begin{pmatrix}
+                \frac{3}{13} & -\frac{12}{13} & -\frac{9}{13}
+            \end{pmatrix}
+        }{
+            \frac{3\sqrt{2}}{\sqrt{13}}
+        } =
+        \begin{pmatrix}
+            \frac{1}{\sqrt{26}} & -\frac{2\sqrt{2}}{\sqrt{13}} & -\frac{3}{\sqrt{26}}
+        \end{pmatrix}
+    \end{split}
+\end{equation}
+
+\subsection{Πρόγραμμα}
+
 \chapter{Πηγές}
 \newpage
 
@@ -472,6 +918,8 @@
     \item \href{https://youtu.be/0vB1sgebS9c}{Εύρεση αντίστροφου πίνακα με μέθοδο Gauss}
     \item \href{https://youtu.be/Gmt1fmlrEto}{Γραμμική εξάρτηση διανυσμάτων}
     \item \href{https://youtu.be/yLi8RxqfowA}{Linear Independence and Linear Dependence, Ex 1}
+    \item \href{https://www.youtube.com/watch?v=ZJu26chXEiw}{Linear Algebra: Orthonormal Basis}
+    \item \href{https://www.youtube.com/watch?v=Aslf3KGq2UE}{Linear Algebra: Gram-Schmidt}
 \end{itemize}
 \section{Σύνδεσμοι}
 \begin{itemize}
@@ -487,6 +935,7 @@
 \begin{itemize}
     \item \href{http://www.yanivplan.com/files/tutorial2vectors.pdf}{Octave, Vectors and Matrices}
     \item \href{http://web.mit.edu/rsi/www/pdfs/advmath.pdf}{Hardcore LaTeX Math}
+    \item \href{http://www.katsetis.gr/mathimataeapsimeioseis/plh12/PLI12bash_kai_diastash_dianysmatikoy_xwroy.pdf}{Βάση και Διάσταση Διανυσματικού Χώρου}
 \end{itemize}
 
 \end{document}
