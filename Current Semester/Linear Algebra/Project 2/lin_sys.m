@@ -1,4 +1,4 @@
-function [x, y, z] = function_task1(A, b)
+function [x, y, z] = lin_sys(A, b)
     #   calulcate A's determinant
     det_A = det(A);
     #   check if the system has a unique non-trivial solution
