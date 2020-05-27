@@ -1,3 +1,4 @@
+#   check if linear system has solutions
 function [x, y, z] = lin_sys(A, b)
     #   calulcate A's determinant
     det_A = det(A);

@@ -1,3 +1,4 @@
+#   check vectors linear dependence
 function lin_dep(u, v, w)
     #   make matrix A from vectors, where vectors are A's columns
     A = [u; v; w]';
