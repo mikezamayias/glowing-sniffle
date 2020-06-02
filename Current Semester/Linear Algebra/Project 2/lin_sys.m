@@ -5,7 +5,7 @@ function [x, y, z] = lin_sys(A, b)
     #   check if the system has a unique non-trivial solution
     #   check if A's determinant is non-zero
     if (det_A != 0)
-        disp("The system has a unique non-trivial solution:")
+        disp("Given linear system has a unique non-trivial solution:")
         #   calculate system's unique non-trivial solution
         #   using Gaussian elimination
         Axb_roots = A\b;
@@ -37,11 +37,11 @@ function [x, y, z] = lin_sys(A, b)
         #   check if all of Cramer's determinants are equal to zero,
         #   then the system has infinite solutions
         if (det_x == 0 && det_y == 0 && det_z == 0)
-            disp("The system has infinite solutions.")
+            disp("Given linear system has infinite solutions.")
         #   if not all of Cramer's determinants are equal to zero,
         #   then the system has no non-trivial solutions
         else
-            disp("The system has no non-trivial solutions.")
+            disp("Given linear has no non-trivial solutions.")
         endif
     endif
 endfunction

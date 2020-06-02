@@ -7,11 +7,11 @@ function check = lin_dep(u, v, w)
     #   if det_A != 0 then the set of vectors is linearly independent
     #   else the set is linearly dependent
     if (det_A != 0)
-        disp("The set of vectors is linearly independent.");
+        disp("Given set of vectors is linearly independent.");
         check = 1;
         return;
     else
-        disp("The set of vectors is linearly dependent.");
+        disp("Given set of vectors is linearly dependent.");
         check = 0;
         return;
     endif
