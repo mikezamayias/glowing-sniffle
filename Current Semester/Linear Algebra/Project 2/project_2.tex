@@ -12,7 +12,6 @@
 \usepackage{xifthen, xparse}
 \usepackage{fancyhdr}
 \usepackage{fancyvrb}
-\usepackage{comment}
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
 
@@ -76,7 +75,6 @@
 \chead{Αριθμητική Γραμμική Άλγεβρα}
 \cfoot{\thepage}
 
-
 \newcommand\rowop[1]{\scriptstyle\smash{\xrightarrow[\vphantom{#1}]{\mkern-4mu#1\mkern-4mu}}}
 
 \DeclareDocumentCommand\converttorows
@@ -126,7 +124,6 @@
 
 \newpage
 \section{Λύση}
-
 \subsection{Πρόγραμμα}
 
 Το \eqref{eq:11} γράφεται ως \eqref{eq:13} στην μορφή $A\bar{x}=\bar{b}$. Ομοίως, το \eqref{eq:12} γράφεται ως \eqref{eq:14},  με $\mu = 0$ για αριθμό μητρώου 5000.
@@ -214,7 +211,6 @@
 
 \newpage
 \section{Λύση}
-
 \subsection{Πρόγραμμα}
 
 Ο πίνακας \eqref{21} γράφεται ως \eqref{22} για $\mu = 0$.
@@ -251,7 +247,6 @@
 
 \newpage
 \section{Λύση}
-
 \subsection{Έλεγχος με το χέρι}
 \subsubsection{Στο χέρι}
 
@@ -439,14 +434,14 @@
 
 Ένα σετ $m$ διανυσμάτων μήκους $n$ είναι γραμμικά ανεξάρτητο όταν η ορίζουσα του πίνακα, που προκύπτει με τα διανύματα αυτά να είναι στήλες του, να είναι μη μηδενική. Αλλίως, αυτο το σετ διανυσμάτων είναι γραμμικά εξαρτημένο.
 
+Η έξοδος του προγράμματός μου:
+\lstinputlisting[language={}]{task3.txt}
+
 Το κύριο πρόγραμμα:
 \lstinputlisting{task3.m}
 
 Η συνάρτηση lin\_dep:
 \lstinputlisting{lin_dep.m}
-
-Η έξοδος του προγράμματός μου:
-\lstinputlisting[language={}]{task3.txt}
 
 \chapter{Άσκηση 4}
 \section{Ερώτημα}
@@ -463,12 +458,10 @@
 
 \newpage
 \section{Λύση}
-
 \subsection{Έλεγχος αν τα διανύσματα αποτελούν βάση}
-
 \subsubsection{Στο χέρι}
 
-Για να δείξουμε ότι τα διανύσματα 
+Για να δείξουμε ότι τα διανύσματα
 $
     u = \begin{pmatrix}
         1 \\ -2 \\ 3
@@ -615,12 +608,15 @@ $
         1 \\ -2 \\ 1
     \end{pmatrix}
 $
-στο πρόγραμμα της Άσκησης 3. Η έξοδος του προγράμματoς:
+στο πρόγραμμα της Άσκησης 3.
+
+Η έξοδος του προγράμματoς:
 \lstinputlisting[language={}]{task3.txt}
 Εφόσον τα $\bar{u}$, $\bar{v}$, $\bar{w}$ είναι γραμικώς ανεξάρτητα στο $R^{3}$, αποτελούν βάση του $R^{3}$.
 
 Το πρόγραμμα:
 \lstinputlisting{task3.m}
+
 Η συνάρτηση lin\_dep:
 \lstinputlisting{lin_dep.m}
 
@@ -644,7 +640,7 @@ $
 \end{equation}
 
 
-%   orthogona
+%   orthogonal b
 \begin{equation}
     \begin{split}
         b &= v - \frac{a \cdot v}{a \cdot a}a
@@ -908,20 +904,18 @@ $
 \newpage
 \subsection{Πρόγραμμα}
 
+Η έξοδος του προγράμματός μου:
+\lstinputlisting[language={}]{task4.txt}
+
 Το κύριο πρόγραμμα:
 \lstinputlisting{task4.m}
 
 Η συνάρτηση orthonorm\_base:
 \lstinputlisting{orthonorm_base.m}
 
-Η έξοδος του προγράμματός μου:
-\lstinputlisting[language={}]{task4.txt}
-
-
 \chapter{Πηγές}
 \newpage
 
-\section{Βιβλία}
 \section{Video}
 \begin{itemize}
     \item \href{https://www.youtube.com/watch?v=cJg2AuSFdjw}{Inverse Matrix Using Gauss-Jordan}
