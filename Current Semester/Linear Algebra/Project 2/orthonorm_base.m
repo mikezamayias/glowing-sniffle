@@ -5,7 +5,7 @@ function [e1, e2, e3] = orthonorm_base(u, v, w)
     b = v - (dot(a, v) / dot(a, a) * a);
     c = w - (dot(a ,w) / dot(a, a) * a) - (dot(b, w) / dot(b, b) * b);
     #   make orthonormal vectors e1, e2, e3 from a, b, c respectively
-    e1 = rats(a/sqrt(dot(a, a)))
-    e2 = rats(b/sqrt(dot(b, b)))
-    e3 = rats(c/sqrt(dot(c, c)))
+    e1 = a/sqrt(dot(a, a))
+    e2 = b/sqrt(dot(b, b))
+    e3 = c/sqrt(dot(c, c))
 endfunction

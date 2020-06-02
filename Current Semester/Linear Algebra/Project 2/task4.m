@@ -8,7 +8,7 @@ w = [1, -2, 1];
 #   check if vector set is basis
 basis = lin_dep(u, v, w);
 if (basis == 1)
-    disp("Orthonormal basis:");
+    disp("Orthonormal basis {e1, e2, e3}:");
     [e1, e2, e3] = orthonorm_base(u, v, w);
 else
     disp("No basis");
