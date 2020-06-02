@@ -11,4 +11,4 @@ A = [u; v; w];
 #   make zero column matrix b the size of A
 b = zeros(size(A)(1), 1);
 #   run first task's logic
-[l1, l2, l3] = function_task1(A, b)
+[l1, l2, l3] = lin_sys(A, b)
