@@ -7,4 +7,5 @@ scripts = [
     "rm out_task3.txt && octave out_task3.m >> out_task3.txt"
 ]
 for script in scripts:
+    print(script)
     system(script)
