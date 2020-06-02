@@ -1,4 +1,4 @@
-The set of vectors is linearly independent.
+Given set of vectors is linearly independent.
 Orthonormal basis:
 e1 =    929/3476  -929/1738  3596/4485
 e2 =   3554/3767  3059/9727  -165/1574

@@ -1,4 +1,4 @@
-The system has a unique non-trivial solution:
+Given linear system has a unique non-trivial solution:
 l1 = 0
 l2 = 0
 l3 = 0
