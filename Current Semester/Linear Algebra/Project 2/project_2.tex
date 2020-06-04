@@ -1,4 +1,5 @@
 \documentclass[12pt, fleqn, leqno]{extreport}
+\usepackage{perpage}
 %\documentclass[12pt]{extreport}
 \usepackage[margin=2cm,includeheadfoot,a4paper]{geometry}
 \usepackage{fontspec}
@@ -14,6 +15,8 @@
 \usepackage{fancyvrb}
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
+
+\MakePerPage{footnote} 
 
 %\setlength{\mathindent}{0pt}
 \setlength{\headheight}{17pt}
@@ -182,15 +185,15 @@
     \end{aligned}\label{eq:14}
 \end{equation}
 
-Η έξοδος του προγράμματός μου για τα συστήματα \eqref{eq:13} και \eqref{eq:14}:
+Η έξοδος \lstinline[language={}]{task1.txt} του προγράμματος για τα συστήματα \eqref{eq:13} και \eqref{eq:14}:
 \lstinputlisting[language={}]{task1.txt}
 
 \newpage
-Το κύριο πρόγραμμα:
+Το πρόγραμμα \lstinline[language={}]{task1.m}:
 \lstinputlisting{task1.m}
 
 \newpage
-Η συνάρτηση lin\_sys:\label{lin_sys}
+Η συνάρτηση \lstinline[language={}]{lin_sys.m}:
 \lstinputlisting{lin_sys.m}
 
 \chapter{Άσκηση 2}
@@ -225,10 +228,10 @@
     \end{aligned}
 \end{equation}
 
-Η έξοδος του προγράμματός μου για τον πίνακα \eqref{22}:
+Η έξοδος \lstinline[language={}]{task2.txt} του προγράμματος για τον πίνακα \eqref{22}:
 \lstinputlisting[language={}]{task2.txt}
 
-Το πρόγραμμα:
+Το πρόγραμμα \lstinline[language={}]{task2.m}:
 \lstinputlisting{task2.m}
 
 
@@ -260,7 +263,7 @@
     \end{aligned}\label{32}
 \end{equation}
 
-Από το \eqref{32} μπορώ να πάρω την σχέση:
+Από το \eqref{32} μπορούμε να το πάρουμε την σχέση:
 \begin{equation}%eq:eq33
     \begin{aligned}
         \lambda_{1}\bar{u} + \lambda_{2}\bar{v} + \lambda_{3}\bar{w} = \bar{0}
@@ -305,7 +308,7 @@
     \end{aligned}\label{34}
 \end{equation}
 
-Με γραμμοπράξεις μετατρέπω τον πίνακα A του \eqref{34} σε ανηγμένο κλιμακωτό:
+Με γραμμοπράξεις μετατρέπουμε τον πίνακα A του \eqref{34} σε ανηγμένο κλιμακωτό:
 
 \begin{equation*}
     \begin{aligned}
@@ -384,7 +387,7 @@
     \end{aligned}
 \end{equation*}
 
-Άρα όντως είναι $\lambda_{1}=0$, $\lambda_{2}=0$, $\lambda_{3}=0$, οπότε και τα $\bar{u}$, $\bar{v}$, $\bar{w}$ είναι γραμικώς ανεξάρτητα στο $R^{3}$.
+Άρα όντως είναι $\lambda_{1}=0$, $\lambda_{2}=0$, $\lambda_{3}=0$, οπότε και τα $\bar{u}$, $\bar{v}$, $\bar{w}$ είναι γραμμικά ανεξάρτητα στο $R^{3}$.
 
 \subsubsection{Στην Octave}
 
@@ -422,11 +425,11 @@
     \end{aligned}\label{35}
 \end{equation}
 
-Εφαρμόζω στο \eqref{35} την συνάρτηση lin\_sys\footnote{Η συνάρτηση lin\_sys στην σελίδα \pageref{lin_sys}.} από την Άσκηση 1 και δίνει έξοδο:
+Εφαρμόζουμε στο \eqref{35} την συνάρτηση \lstinline[language={}]{lin_sys.m} από την Άσκηση 1 και δίνει έξοδο \lstinline[language={}]{out_task3.txt}:
 \lstinputlisting[language={}]{out_task3.txt}
 Έτσι, με $\lambda_{1} = 0$, $\lambda_{2} = 0$, $\lambda_{3} = 0$ τα $\bar{u}$, $\bar{v}$, $\bar{w}$ είναι γραμμικά ανεξάρτητα στο $R^{3}$.
 
-Το πρόγραμμα:
+Το πρόγραμμα \lstinline[language={}]{out_task3.m}:
 \lstinputlisting{out_task3.m}
 \newpage
 
@@ -434,13 +437,13 @@
 
 Ένα σετ $m$ διανυσμάτων μήκους $n$ είναι γραμμικά ανεξάρτητο όταν η ορίζουσα του πίνακα, που προκύπτει με τα διανύματα αυτά να είναι στήλες του, να είναι μη μηδενική. Αλλίως, αυτο το σετ διανυσμάτων είναι γραμμικά εξαρτημένο.
 
-Η έξοδος του προγράμματός μου:
+Η έξοδος του προγράμματος    \lstinline[language={}]{task3.txt}:
 \lstinputlisting[language={}]{task3.txt}
 
-Το κύριο πρόγραμμα:
+Το πρόγραμμα \lstinline[language={}]{task3.m}:
 \lstinputlisting{task3.m}
 
-Η συνάρτηση lin\_dep:
+Η συνάρτηση \lstinline[language={}]{lin_dep.m}:
 \lstinputlisting{lin_dep.m}
 
 \chapter{Άσκηση 4}
@@ -591,12 +594,12 @@ $
     \end{aligned}
 \end{equation*}
 
-Είναι $\lambda_{1}=0$, $\lambda_{2}=0$, $\lambda_{3}=0$, επομένως και τα $\bar{u}$, $\bar{v}$, $\bar{w}$ είναι γραμικώς ανεξάρτητα στο $R^{3}$, άρα αποτελούν βάση του $R^{3}$.
+Είναι $\lambda_{1}=0$, $\lambda_{2}=0$, $\lambda_{3}=0$, επομένως και τα $\bar{u}$, $\bar{v}$, $\bar{w}$ είναι γραμμικά ανεξάρτητα στο $R^{3}$, άρα αποτελούν βάση του $R^{3}$.
 
 \newpage
 \subsubsection{Στην Octave}
 
-Δίνω τα διανύσματα
+Δίνουμε τα διανύσματα
 $
     u = \begin{pmatrix}
         1 \\ -2 \\ 3
@@ -610,14 +613,15 @@ $
 $
 στο πρόγραμμα της Άσκησης 3.
 
-Η έξοδος του προγράμματoς:
+Η έξοδος του προγράμματoς \lstinline[language={}]{task3.txt}:
 \lstinputlisting[language={}]{task3.txt}
-Εφόσον τα $\bar{u}$, $\bar{v}$, $\bar{w}$ είναι γραμικώς ανεξάρτητα στο $R^{3}$, αποτελούν βάση του $R^{3}$.
 
-Το πρόγραμμα:
+Εφόσον τα $\bar{u}$, $\bar{v}$, $\bar{w}$ είναι γραμμικά ανεξάρτητα στο $R^{3}$, αποτελούν βάση του $R^{3}$.
+
+Το πρόγραμμα \lstinline[language={}]{task3.m}
 \lstinputlisting{task3.m}
 
-Η συνάρτηση lin\_dep:
+Η συνάρτηση \lstinline[language={}]{lin_dep.m}:
 \lstinputlisting{lin_dep.m}
 
 
@@ -904,13 +908,13 @@ $
 \newpage
 \subsection{Πρόγραμμα}
 
-Η έξοδος του προγράμματός μου:
+Η έξοδος του προγράμματος \lstinline[language={}]{task4.txt}:
 \lstinputlisting[language={}]{task4.txt}
 
-Το κύριο πρόγραμμα:
+Το πρόγραμμα \lstinline[language={}]{task4.m}:
 \lstinputlisting{task4.m}
 
-Η συνάρτηση orthonorm\_base:
+Η συνάρτηση \lstinline[language={}]{orthonorm_base.m}:
 \lstinputlisting{orthonorm_base.m}
 
 \chapter{Πηγές}
