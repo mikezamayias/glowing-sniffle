@@ -33,6 +33,5 @@ while True:
     if check == False:
         break
     else:
-        number = numbers[index] 
-        print(f'number: {number}')
+        print(f'numbers[{index}]: {numbers[index]}')
     index += 1
