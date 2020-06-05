@@ -499,8 +499,6 @@ Mike studies informatics science.
 10 is equal to 10
 \end{lstlisting}
 
-\newpage
-
 \subsection{Βρόχοι}
 
 Οι βρόχοι χρησιμοποιούνται για την επανάληψη κάποιου κομμάτι προγράμματος, όπως κάποια πράξης σε μία λίστα ακεραίων ή την τροποίηση μιας λίστας συμβολοσειρών.
@@ -562,11 +560,29 @@ numbers[9]: 9
 --- index < length: False
 \end{lstlisting}
 
-\newpage
 
 \subsection{Δομοστοιχεία}
-\newpage
-\subsection{Δουλεύοντας με αρχεία}
+
+Ένα δομοστοιχείο είναι ένα αρχείο το οποίο περιέχει ένα σύνολο κλάσεων  και συναρτήσεων για την χρήση του στο πρόγραμμά σας. Υπάρχουν επίσημα δομοστοιχεία της γλώσσας καθώς και άλλα παό τρίτους, με την τελευταία περίπτωση να χρειάζεται προσοχή. Σε κάθε περίπτωση, μπορείτε να εγκαταστήσετε δομοστοιχεία τα οποία χρειάζεστε χρησιμοποιώντας την εντολή \lstinline{conda install}.
+
+\begin{lstlisting}
+>>> import datetime
+>>> today = datetime.date.today()
+>>> print(today)
+2020-06-05
+\end{lstlisting}
+
+Στα παραπάνω παράδειγμα χρησιμοποιείται η μέθοδος \lstinline{today()}  της κλάσης \lstinline{date} του δομοστοιχείου \lstinline{datetime}.
+
+Μπορείτε επίσης να εισάγετε μόνο την κλάση \lstinline{date} του δομοστοιχείου \lstinline{datetime} και να έχετε παρόμοιο αποτέλεσμα με προηγουμένως, όπως φαίνεται παρακάτω:
+
+\begin{lstlisting}
+>>> from datetime import date
+>>> today = date.today()
+>>> print(today)
+2020-06-05
+\end{lstlisting}
+
 \newpage
 
 \chapter{Βιβλιογραφία}
