@@ -37,3 +37,6 @@ print(f'"{name}" containts characters or numbers: {name.isalnum()}')
 
 #   check if name containts just numbers
 print(f'"{name}" containts characters or numbers: {name.isnumeric()}')
+
+#   print length of name
+print(f'len({name}): {len(name)}')
