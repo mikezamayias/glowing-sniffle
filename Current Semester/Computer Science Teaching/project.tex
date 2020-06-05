@@ -33,7 +33,7 @@
     linkcolor=black,
     filecolor=magenta,      
     urlcolor=blue,
-    pdftitle={Προγραμματισμός, σε Python}
+    pdftitle={Χρησιμοποιώντας την γλώσσα προγραμματισμού Python}
 }
 
 \lstdefinestyle{mystyle}{
@@ -67,11 +67,12 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{Προγραμματισμός, σε Python}
+\rhead{Χρησιμοποιώντας την γλώσσα προγραμματισμού Python}
 \lhead{Διδακτική της Πληροφορικής}
 \cfoot{\thepage}
+
         
-\title{Προγραμματισμός, σε Python}
+\title{Χρησιμοποιώντας την γλώσσα προγραμματισμού Python}
 \author{Μιχαήλ Ανάργυρος Ζαμάγιας -- ΤΠ5000}
 \date{\today}
 
@@ -333,6 +334,9 @@ print(three)
 \end{lstlisting}
 \end{itemize}
 
+Για να δείτε το μέγεθος μιας ακολουθίας καλείτε την συνάρτηση \lstinline{len()} και της δίνετε όρισμα την ακολουθία που θέλετε. Θα δείτε παραδείγματα για την κάθε ακολουθία στην συνέχεια.
+
+
 \subsection{Συμβολοσειρές}
 
 Όπως είδατε πιο πριν, οι συμβολοσειρές επιτρέπουν να χρησιμοποιούνται λέξεις και κείμενο σαν δεδομένα, και είναι ένας από τους τρόπους επικονωνίας με τον χρήστη. Στο παρακάτω πρόγραμμα, \lstinline{string_format.py} θα δείτε πως γίνεται κάτι τέτοιο με περισσότερη λεπτομέρεια.
@@ -343,7 +347,7 @@ print(three)
 
 Στις γραμμές \lstinline{1} και \lstinline{2} δηλώνονται οι μεταβλητές \lstinline{name} και \lstinline{age} που έχουν τιμές \lstinline{'Mike'} και \lstinline{20}, αντίστοιχα. Μπορείτε να εμφανίσετε στο terminal αυτές τις τιμές εκτελώντας τις εντολές που είναι σχολιασμένες στις γραμμές \lstinline{4} και \lstinline{5}. Με τις γραμμές \lstinline{7} και \lstinline{8} εμφανίζονται τα μηνύματα \lstinline{'Hello, what\'s your name?'} και \lstinline{'How old are you?'}. Παρατηρήστε την κάθετο πριν το δεύτερο \lstinline{'}. Αυτό είναι για αποτραπεί το τέλος της συμβολοσειράς σε εκείνο το σημείο, για να μην δει η γλώσσα εκείνο το σημείο ως το τέλος του string. Έπειτα, παρατηρήστε στις γραμμές \lstinline{10}, \lstinline{11}, \lstinline{12}. Όπως βλέπετε αυτά τα strings έχουν ένα \lstinline{f} αμέσως πριν ξεκινήσουν και εμπεριέχουν μέσα σε άγκιστρα μεταβλητές που έχουν ήδη δηλωθεί. Τα συγκεκριμένα strings ονομάζονται f-strings και επιτρέπουν στις κανονικές συμβολοσειρές να γίνουν "διαδραστικές". Παρακάτω βλέπετε την έξοδο του προγράμματος, εκτελώντας την εντολή \lstinline{python strigns.py} στο terminal.
 
-\begin{lstlisting}[language={}, numbers=none]
+\begin{lstlisting}[language={}]
 python strigns.py
 Hello, what's your name?
 How old are you?
@@ -359,7 +363,7 @@ Hi, my name is Mike! I am 20 years old.
 
 Η έξοδος του παραπάνω προγράμματος:
 
-\begin{lstlisting}[language={}, numbers=none]
+\begin{lstlisting}[language={}]
 helen
 HELEN
 helen
@@ -371,19 +375,41 @@ Index of "e": 1
 "Hellen" containts just characters: True
 "Hellen" containts characters or numbers: True
 "Hellen" containts characters or numbers: False
+len(Hellen): 6
 \end{lstlisting}
 
+
 \subsection{Λίστες}
-Οι λίστες είναι μια συλλογή δεδομένων του ίδιου ή διαφορετικών τύπων μέσα σε αγγύλες.
+Οι λίστες είναι μια συλλογή δεδομένων ίδιου ή διαφορετικών τύπων και δηλώνονται με τα δεδομένα που περιέχουν γύρω από αγγύλες. Παρακάτω μπορείτε να δείτε μερικές μεθόδους τους από το πρόγραμμα \lstinline{list_methods.py}.
 
 \subsubsection{Μέθοδοι}
 
+\lstinputlisting{list_methods.py}
+
+Η έξοδος του παραπάνω προγράμματος:
+
+\begin{lstlisting}[language={}]
+veggies: ['carrot', 'onion', 'lettuce']
+veggies reversed: ['lettuce', 'onion', 'carrot']
+veggies sorted: ['carrot', 'lettuce', 'onion']
+veggies reverese sorted: ['onion', 'lettuce', 'carrot']
+first_item_index: 2
+veggies[first_item_index]: carrot
+added broccoli to the end of veggies: ['onion', 'lettuce', 'carrot', 'broccoli']
+removed last veggie: ['onion', 'lettuce', 'carrot']
+inserted potato to the start of veggies: ['onion', 'lettuce', 'potato', 'carrot']
+removed onion from veggies: ['lettuce', 'potato', 'carrot']
+len(veggies): 3
+\end{lstlisting}
 
 \subsection{Πλειάδες}
+
+
 \subsection{Σύνολα}
 \subsection{Λεξικά}
 \subsection{Προτάσεις υπό συνθήκη}
 \subsection{Βρόχοι}
+\subsection{Συναρτήσεις}
 \subsection{Δομοστοιχεία}
 \subsection{Δουλεύοντας με αρχεία}
 \subsection{Δουλεύοντας με JSON αρχεία}
