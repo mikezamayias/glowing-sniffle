@@ -7,7 +7,7 @@ age = 20
 print('Hello, what\'s your name?')
 print('How old are you?')
 
-greetings_reply = f'Greetings, my name is {name}!'
+greetings_reply = f'Hi, my name is {name}!'
 age_reply = f'I am {age} years old.'
 reply = f'{greetings_reply} {age_reply}'
 print(reply)
