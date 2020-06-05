@@ -1,4 +1,4 @@
-\documentclass[14pt]{extreport}
+\documentclass[12pt]{extreport}
 \usepackage[margin=2cm,includeheadfoot,a4paper]{geometry}
 \usepackage{fontspec}
 %\usepackage[utf8x]{inputenc}
@@ -14,7 +14,7 @@
 \usepackage[hyphens]{url} 
 \usepackage{hyperref}
 
-\setlength{\headheight}{17pt}
+\setlength{\headheight}{15pt}
 
 \defaultfontfeatures{Ligatures=TeX}
 \MakeOuterQuote{"}
@@ -92,7 +92,7 @@
 
 Στην δευτέρα λυκείου περίπου, είχα καταφέρει να γράψω ένα bot που έτρεχε στο terminal του υπολογιστή μου. Μπορούσε να απαντήσει όλες τις ερωτήσεις που του έκανα, δεδομένου, φυσικά, ότι τις καταλάβαινε. Δεν μπορούσε όμως να κρατήσει διάλογο. Άλλωστε ήταν ένα χαζό bot, όχι κάποια γενική τεχνιτή νοημοσύνη.
 
-Ακόμα, είχα γράψει ένα πρόγραμμα "μετερεολόγο" για μία σχολική εκδρομή, της δευτέρας ή τρίτης λυκείου. Ήταν μεγαλύτερο πρόγραμμα σε σύγκριση με το bot, το  οποίο μιλούσε με ένα API\footnote{Application Programming Interface ή Διεπαφή Προγραμματισμού Εφαρμογών, είναι η διεπαφή των προγραμματιστικών διαδικασιών που παρέχει ένα λογισμικό προκειμένου να επιτρέπει να γίνονται προς αυτό αιτήσεις από άλλα λογισμικά ή/και ανταλλαγή δεδο} για τα δεδομένα και τα εμφάνιζε σε μορφή ευνόητη στον άνθρωπο. Όμως, τα δελτία δεν ήταν ακριβή, συγκριτικά με άλλες υπηρεσίες, με αποτέλεσμα να σταματήσω να ασχολούμαι με αυτό.
+Ακόμα, είχα γράψει ένα πρόγραμμα "μετερεολόγο" για μία σχολική εκδρομή, της δευτέρας ή τρίτης λυκείου. Ήταν μεγαλύτερο πρόγραμμα σε σύγκριση με το bot, το  οποίο μιλούσε με ένα API\footnote{Application Programming Interface ή Διεπαφή Προγραμματισμού Εφαρμογών, είναι η διεπαφή των προγραμματιστικών διαδικασιών που παρέχει ένα λογισμικό προκειμένου να επιτρέπει να γίνονται προς αυτό αιτήσεις από άλλα λογισμικά ή/και ανταλλαγή δεδομένων. Με άλλα λόγια η δυνανότητα να επικοινωνούν μεταξύ τους λογισμικά.} για τα δεδομένα και τα εμφάνιζε σε μορφή ευνόητη στον άνθρωπο. Όμως, τα δελτία δεν ήταν ακριβή, συγκριτικά με άλλες υπηρεσίες, με αποτέλεσμα να σταματήσω να ασχολούμαι με αυτό.
 
 Μερικά χρόνια μετά, θέλω να σας εξοικειώσω με τα βασικά της Python μέσω αυτού του εγχειριδίου. Δεν χρειάζονται ανεπτυγμένες γνώσεις προγραμματισμού για να γράψετε κάτι το οποίο θα σας διευκολύνει με τις δουλειές σας στον υπολογιστή, π.χ. την αυτοματοποίηση μιας διαδικασίας.
 
@@ -167,7 +167,7 @@
 
 Αυτός είναι ο διερμηνευτής:
 
-\begin{lstlisting}
+\begin{lstlisting}[numbers=none]
 Python 3.7.6 (default, Jan  8 2020, 19:59:22) 
 [GCC 7.3.0] :: Anaconda, Inc. on linux
 Type "help", "copyright", "credits" or "license" for more information.
@@ -175,7 +175,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 \end{lstlisting}
 
 Για να εκτυπώσετε την φράση "hello world" στον διερμηνευτή εκτελείτε  την εντολή \lstinline{print("hello world")}:
-\begin{lstlisting}
+\begin{lstlisting}[numbers=none]
 Python 3.7.6 (default, Jan  8 2020, 19:59:22) 
 [GCC 7.3.0] :: Anaconda, Inc. on linux
 Type "help", "copyright", "credits" or "license" for more information.
@@ -185,7 +185,7 @@ hello world
 
 Για να κλείσετε τον διερμηνευτή, αρκεί να εκτελέσετε \lstinline{quit()}:
 
-\begin{lstlisting}
+\begin{lstlisting}[numbers=none]
 Python 3.7.6 (default, Jan  8 2020, 19:59:22) 
 [GCC 7.3.0] :: Anaconda, Inc. on linux
 Type "help", "copyright", "credits" or "license" for more information.
@@ -198,7 +198,7 @@ hello world
 
 Τα προγράμματα της Python εκτελούνται τις περισσότερες φορές μέσω του διερμηνευτή. Οπότε, αν έχετε το πρόγραμμα \lstinline{my_first_program.py}, αρκεί να εκτελέσετε την εντολή \lstinline{python my_first_program.py} στο terminal:
 
-\begin{lstlisting}
+\begin{lstlisting}[numbers=none]
 python hello_world.py
 hello world    
 \end{lstlisting}
@@ -245,15 +245,114 @@ too.
 
 \subsection{Μεταβλητές}
 
-Μία μεταβλητή είναι ένα “κουτί” για μια τιμή στην μνήμη του υπολογιστή. Η τιμή αυτή μπορεί να είναι ενά από διάφορα είδη.
+Μία μεταβλητή, ή αλλιώς variable, είναι μια ετικέτα σε μία τιμή, η οποία τιμή έχει έναν από πολλούς τύπους δεδομένων, και αποθηκεύεται στην μνήμη του υπολογιστή.
 
+Οι δηλώσεις μεταβλητών (αλλιώς οι ονομασίες τους):
+\begin{itemize}
+    \item είναι case-sensitive, π.χ. \lstinline{two} και \lstinline{Two} είναι διαφορετικές μεταβλητές,
+    \item πρέπει να ξεκινούν με γράμμα ή κάτω παύλα,
+    \item μπορούν να εμπεριέχουν αριθμούς, αλλά δεν μπορούν να ξεκινάνε μα αριθμούς.
+\end{itemize}
+
+Για παράδειγμα:
+\begin{lstlisting}
+two = 2
+\end{lstlisting}
+
+Παραπάνω, δίνεται στην μεταβλητή \lstinline{two} ο ακέραιος αριθμός \lstinline{2} κι έτσι αρκεί να καλέσετε την μεταβλητή \lstinline{two} όποτε χρειάζεται να χρησιμοποιήσετε τον ακέραιο αριθμό \lstinline{2} στην συνέχεια του προγράμματός σας.
+
+\begin{lstlisting}
+one = 1
+two = 2
+three = one + two
+print(three)
+\end{lstlisting}
+
+Εδώ, η μεταβλητή \lstinline{one} έχει τον ακέραιο αριθμό \lstinline{1}, η μεταβλητή \lstinline{two} έχει τον ακέραιο αριθμό \lstinline{2} και η μεταβλητή \lstinline{three} έχει τον ακέραιο αριθμό \lstinline{3} τελικά, από την πράξη \lstinline{one + two}, δηλαδή \lstinline{1 + 2}.
 
 \subsection{Τύποι δεδομένων}
+
+Οι τύποι δεδομένων επιτρέπουν την κατηγοριοποίηση των στοιχείων δεδομένων και καθορίζουν ποιες λειτουργίες μπορούν να εκτελεστούν σε αυτά τα στοιχεία δεδομένων. Παρακάτω θα δείτε συνοπτικά τους τύπους δεδομένων και πως τους καταλαβαίνει η γλώσσα, χρησιμοποιώντας την συνάρτηση \lstinline{type()}.
+
+\subsubsection{Αριθμητικά δεδομένα}
+
+Τα αριθμητικά δεδομένα αντιπροσωπεύουν οποιαδήποτε αναπαράσταση δεδομένων που περιέχει αριθμούς. Η Python αναγνωρίζει τους εξής τύπους αριθμητικών δεδομένων:
+
+\begin{itemize}
+    \item Integer numbers: Ακέραιοι αριθμοί, χωρίς κλασματικό μέρος.
+          \begin{lstlisting}[numbers=none]
+>>> type(5)     # decimal system
+<class 'int'>
+>>> type(0b010) # binary system
+<class 'int'>
+>>> type(0o642) # octal system
+<class 'int'>
+>>> type(0xF3)  # hexadecimal system
+<class 'int'>
+\end{lstlisting}
+    \item Float numbers: Οποιοσδήποτε πραγματικός αριθμός με κλασματικό μέρος, το οποίο αναπαριστάτε είτε με δεκαδική είτε με επιστημονική σημειογραφία.
+          \begin{lstlisting}[numbers=none]
+>>> type(0.0)       #   decimal notation
+<class 'float'>
+>>> type(-1.7e-6)   #   scientific notation
+<class 'float'>
+\end{lstlisting}
+    \item Complex numbers: Αριθμοί με πραγματικό και μιγαδικό μέρος, που αναπαριστώνται ως \lstinline{x+yj}, όπου το \lstinline{x} και το \lstinline{y} αποτελούν το πραγματικό μέρος του αριθμού και το \lstinline{j} την φανταστική μονάδα \lstinline{-1}.
+          \begin{lstlisting}[numbers=none]
+>>> type(4+6j)
+<class 'complex'>
+\end{lstlisting}
+\end{itemize}
+
+\subsubsection{Boolean δεδομένα}
+Δεδομένα με μία από δύο built-in τιμές, τις \lstinline{True} και \lstinline{False}. Παρατηρήστε ότι τα \lstinline{T} και \lstinline{F} είναι με κεφαλαία. Αντιπροσωπεύουν τις λογικές τιμές \lstinline{1} και \lstinline{0} αντίστοιχα, ως αποτέλεσμα των προτάσεων υπό συνθήκη.
+\begin{lstlisting}[numbers=none]
+>>> type(True)
+<class 'bool'>
+>>> type(False)
+<class 'bool'>        
+\end{lstlisting}
+
+\subsubsection{Τύποι ακολουθίας}
+
+Μια ακολουθία είναι μία ταξινομημένη συλλογή ίδιου ή διαφορετικών τύπων δεδομένων. Η Python αναγνωρίζει τους εξής τύπους ακολουθίας:
+
+\begin{itemize}
+    \item String: Συμβολοσειρά, είναι ένα σύνολο ενός ή περισσοτέρων χαρακτήρων, μια σειρά χαρακτήρων, ανάμεσα σε μονά ή διπλά "αυτάκια" (\lstinline[language={}]{' '," "}).
+          \begin{lstlisting}[numbers=none]
+>>> greetings = 'Hello there!'
+>>> type(greetings)
+<class 'str'>
+>>> type('1 + 2 = 3')
+<class 'str'>
+\end{lstlisting}
+    \item List: Λίστα, είναι ένα σύνολο ενός ή περισσοτέρων δεδομένων ενός ή διαφόρων τύπων, ανάμεσα σε αγγύλες (\lstinline[language={}]{[ ]}).
+          \begin{lstlisting}[numbers=none]
+>>> some_list = [0+1j, 2, 3.13, 4, 'numbers']
+>>> type(some_list)
+<class 'list'>    
+\end{lstlisting}
+    \item Tuple: Πλειάδα, είναι ένα σύνολο ενός ή περισσοτέρων δεδομένων ενός ή διαφόρων τύπων, ανάμεσα σε παρενθέσεις (\lstinline[language={}]{( )}).
+          \begin{lstlisting}[numbers=none]
+>>> some_tuple = (0+1j, 2, 3.13, 4, 'numbers')
+>>> type(some_tuple)
+<class 'tuple'>    
+\end{lstlisting}
+\end{itemize}
+
 \subsection{Συμβολοσειρές}
+
+Όπως είδατε πιο πριν, οι συμβολοσειρές επιτρέπουν να χρησιμοποιούνται λέξεις και κείμενο σαν δεδομένα, και είναι έανς από τους τρόπους επικονωνίας με τον χρήστη. Στο παρακάτω πρόγραμμα, \lstinline{strings.py} θα δείτε πως γίνεται κάτι τέτοιο με περισσότερη λεπτομέρεια.
+
 \subsubsection{Μορφοποίηση}
+
+\lstinputlisting{strings.py}
+
+Στις γραμμές \lstinline{1} και \lstinline{2} δηλώνονται οι μεταβλητές \lstinline{name} και \lstinline{age} που έχουν τιμές \lstinline{'Mike'} και \lstinline{20}, αντίστοιχα. Μπορείτε να εμφανίσετε στο terminal αυτές τις τιμές εκτελώντας τις εντολές που είναι σχολιασμένες στις γραμμές \lstinline{4} και \lstinline{5}. Με τις γραμμές \lstinline{7} και \lstinline{8} εμφανίζονται τα μηνύματα \lstinline{'Hello, what\'s your name?'} και \lstinline{'How old are you?'}. Παρατηρήστε την κάθετο πριν το δεύτερο \lstinline{'}. Αυτό είναι για αποτραπεί το τέλος της συμβολοσειράς σε εκείνο το σημείο, για να μην δει η γλώσσα εκείνο το σημείο ως το τέλος του string. Έπειτα, παρατηρήστε στις γραμμές \lstinline{10}, \lstinline{11}, \lstinline{12}. Όπως βλέπετε αυτά τα strings έχουν ένα \lstinline{f} αμέσως πριν ξεκινήσουν και εμπεριέχουν μέσα τους μεταβλητές που έχουν δηλωθεί προηγουμένως μέσα σε άγκιστρα. Τα συγκεκριμένα strings ονομάζονται f-strings και επιτρέπουν στις κανονικές συμβολοσειρές να γίνουν "διαδραστικές".
+
 \subsubsection{Μέθοδοι}
 \subsection{Λίστες}
-\subsection{Tuples}
+\subsection{Πλειάδες}
 \subsection{Σύνολα}
 \subsection{Λεξικά}
 \subsection{Προτάσεις υπό συνθήκη}
@@ -319,6 +418,7 @@ too.
     \item \href{https://tinyurl.com/y8y59y44}{Python Cheatsheet}
     \item \href{https://tinyurl.com/y54gclet}{VSCodium is a community-driven,
               freely-licensed binary distribution of Microsoft’s editor VSCode}
+    \item \href{https://www.tutorialsteacher.com/python/python-data-types}{Python data types}
 \end{itemize}
 \section{Χρήσιμα αρχεία}
 \begin{itemize}
