@@ -12,7 +12,7 @@ function [eves, evas, characteristic_polynomial] = task1_function(A)
     #   tolerance, to be used for converting -0 to 0
     tolerance = 1.e-6;
     #   transpose evas
-    evas = evas'
+    evas = evas';
     #   calculate vieta theorem with current state evas
     v_trace = round(sum(evas));
     v_det = round(prod(evas));

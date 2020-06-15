@@ -10,6 +10,7 @@ A = [1, 2, 3; 2, 4, 5; 3, 5, 0];
 if (rws == cols)
     disp('A =')
     disp(A);
+    #   if det(A) do not do stuff
     if (det(A) != 0)
         disp('Determinant of A does not equal to 0.')
     else
@@ -30,6 +31,7 @@ A = [1, 2, 3; 4, 5, 6; 7, 8, 9];
 if (rws == cols)
     disp('A =')
     disp(A);
+    #   if det(A) do not do stuff
     if (det(A) != 0)
         disp('Determinant of A does not equal to 0.')
     else
