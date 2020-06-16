@@ -10,7 +10,7 @@ A =
    4   5   6
    7   8   9
 Determinant of A equals to 0.
-Vieta's formulae are valid for matrix A
+Vieta's formulae are valid for matrix A.
 unit_eigenvectors =
 
   -0.231971  -0.785830   0.408248

@@ -35,8 +35,8 @@ function [eves, evas, characteristic_polynomial] = task1_function(A)
     characteristic_polynomial = polyout(round(pre_polynomial), 'x');
     #   output message for vieta's formulae
     if (v_trace == check_v_trace & v_det == check_v_det)
-        disp("Vieta's formulae are valid for matrix A")
+        disp("Vieta's formulae are valid for matrix A.")
     else
-        disp("Vieta's formulae are not valid for matrix A")
+        disp("Vieta's formulae are not valid for matrix A.")
     endif
 endfunction
