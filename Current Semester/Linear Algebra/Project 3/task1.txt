@@ -2,23 +2,16 @@ A =
    1   2   3
    2   4   5
    3   5   0
-Determinant of A does not equal to 0.
-
-
-A =
-   1   2   3
-   4   5   6
-   7   8   9
-Determinant of A equals to 0.
-Vieta's formulae are valid for matrix A.
 unit_eigenvectors =
 
-  -0.231971  -0.785830   0.408248
-  -0.525322  -0.086751  -0.816497
-  -0.818673   0.612328   0.408248
+  -0.330266   0.855839   0.398075
+  -0.445164  -0.513122   0.733849
+   0.832318   0.065156   0.550455
 
 eigenvalues =
 
-   16   -1    0
+  -3.864649   0.029286   8.835363
 
-characteristic_polynomial = 1*x^3 - 15*x^2 - 18*x^1 + 0
+characteristic_polynomial = 1*x^3 - 5*x^2 - 34*x^1 + 1
+
+Vieta's formulae are valid for matrix A.
