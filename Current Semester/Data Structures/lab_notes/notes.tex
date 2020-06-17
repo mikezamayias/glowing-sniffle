@@ -1,4 +1,4 @@
-\documentclass[12pt, fleqn, leqno]{extreport}
+\documentclass[14pt, fleqn, leqno]{extreport}
 \usepackage{perpage}
 %\documentclass[12pt]{extreport}
 \usepackage[margin=2cm,includeheadfoot,a4paper]{geometry}
@@ -13,6 +13,7 @@
 \usepackage{xifthen, xparse}
 \usepackage{fancyhdr}
 \usepackage{fancyvrb}
+\usepackage[autostyle,english=american]{csquotes}
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
 
@@ -32,6 +33,8 @@
 \setmainfont{[EBGaramond-Regular.ttf]}
 \setmonofont{[FiraMono-Regular.otf]}
 
+\MakeOuterQuote{"}
+
 \hypersetup{
     colorlinks = true,
     linkcolor=black,
@@ -44,7 +47,7 @@
 %\definecolor{name}{model}{color-spec}
 
 \lstdefinestyle{mystyle}{
-    language=Octave,
+    language=C,
     backgroundcolor=\color{white},   
     commentstyle=\color{teal},
     keywordstyle=\color{blue},
@@ -74,8 +77,8 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[R]{\rightmark}
-\lhead{Project 2}
-\chead{Αριθμητική Γραμμική Άλγεβρα}
+\lhead{Σημειώσεις εργαστηρίου}
+\chead{Δομές Δεδομένων}
 \cfoot{\thepage}
 
 \newcommand\rowop[1]{\scriptstyle\smash{\xrightarrow[\vphantom{#1}]{\mkern-4mu#1\mkern-4mu}}}
@@ -96,12 +99,74 @@
 
 \begin{document}
 
-\title{Αριθμητική Γραμμική Άλγεβρα\\Project 3}
+\title{Δομές Δεδομένων\\Σημειώσεις εργαστηρίου}
 \author{Μιχαήλ Ανάργυρος Ζαμάγιας\\ΤΠ5000}
 \date{\today}
 \maketitle
 \newpage
 
 \tableofcontents
+
+\newpage
+\chapter{Εργαστήριο 1}
+
+\section{Μονοδιάστατοι πίνακες}
+
+Ισχύουν τα εξής:
+\begin{lstlisting}
+pin == &pin[0]
+pin+k == &pin[k]
+*pin == pin[0]
+*(pin+k) == pin[k]
+\end{lstlisting}
+
+Η τιμή ενός δείκτη ισούται με τη διεύθυνση μνήμης του byte στο οποίο είναι τοποθετημένος ο δείκτης και εμφανίζεται στην οθόνη με την χρήση του προσδιοριστή \lstinline{%p}.
+
+\section{Πίνακες ως ορίσματα συνάρτησης}
+
+Για να "περάσω" σε μια συνάρτηση ως παράμετρο ένα πίνακα, περνάω ένα δείκτη στην αρχή του πίνακα και (αν χρειάζεται) το μέγεθος του πίνακα.
+
+Στον ορισμό μιας συνάρτησης (έστω της \lstinline{parad}) οι παρακάτω συμβολισμοί έιναι ισοδύναμοι:
+\begin{lstlisting}
+void parad(int *pin)
+void parad(int pin[])
+\end{lstlisting}
+Σε κάθε περίπτωση, το \lstinline{pin} είναι δείκτης σε ακέραιο.
+
+\section{Ταξινόμηση πίνακα}
+
+Υπάρχουν διάφοροι αλγόριθμοι ταξινόμησης ενός πίνακα. Αυτός που περιγράφεται εδώ είναι γνωστός ως "Ταξινόμηση με επιλογή".
+
+Η συνάρτηση θα ξεκινά από το στοιχείο της πρώτης θέσης τοτ πίνακα, το \lstinline{list[0]}, με στόχο να τοποθετηθεί στην θέση αυτή η μικρότερη τιμή του πίνακα.Η συνάρτηση να διατρέχει όλα τα υπόλοιπα στοιχεία, από το \lstinline{list[1]} μέχρι το \lstinline{list[Ν-1]} και να συγκρίνει καθένα με το πρώτο. Αν βρει κάποιο μικρότερο από το πρώτο, τα στοιχεία εναλλάσσονται μεταξύ τους. Τελικά το \lstinline{list[0]} θα έχει την μικρότερη τιμή του πίνακα.
+
+Αφού τελειώσουμε με το πρώτο στοιχείο επαναλαμβάνεται η διαδικασία, προσπαθώντας να βάλουμε στη θέση 1 του πίνακα τη δεύτερη σε μέγεθος τιμή. Συγκρίνονται δηλαδή όλα τα στοιχεία από το \lstinline{list[2]} και μεα με το \lstinline{list[1]}. Αν βρεθεί κάποιο στροιχείο μικρότερο από το \lstinline{list[1]}, τα στοιχε εναλλάσσονται μεταξύ τους, κ.ο.κ.
+
+Χρειάζεστε δύο εμφωλευμένες επαναλήψεις.
+
+\chapter{Εργαστήριο 2}
+
+\section{Πίνακες συμβολοσειρών}
+
+\chapter{Εργαστήριο 3}
+
+\section{Δομές}
+\section{Πίνακες δομών}
+\section{Δομές ως παράμετροι και ως τιμή επιστδροφής συναρτήσεων}
+
+\chapter{Εργαστήριο 4}
+
+\section{Δυναμική δέσμευση μνήμης (συνάρτηση \lstinline{malloc})}
+\section{Πίνακες δεικτών}
+
+\chapter{Εργαστήριο 5}
+
+\section{Στοίβες, υλοποίηση με πίνακα}
+
+\chapter{Εργαστήριο 6}
+
+\section{Απλά συνδεδεμένες λίστες (δημιουργία)}
+\section{Λειτουργίες στις απλά συνδεδεμένες λίστες: αναζήτηση, εισαγωγή, διαγραφή, μετακίνηση, συνένωση λιστών}
+
+
 
 \end{document}
