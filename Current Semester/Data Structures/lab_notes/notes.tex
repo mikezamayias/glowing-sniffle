@@ -1,0 +1,107 @@
+\documentclass[12pt, fleqn, leqno]{extreport}
+\usepackage{perpage}
+%\documentclass[12pt]{extreport}
+\usepackage[margin=2cm,includeheadfoot,a4paper]{geometry}
+\usepackage{fontspec}
+%\usepackage[utf8x]{inputenc}
+\usepackage[english,greek]{babel}
+\usepackage{indentfirst}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{amsmath, mathtools}
+\usepackage{xifthen, xparse}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+
+\MakePerPage{footnote} 
+
+%\setlength{\mathindent}{0pt}
+\setlength{\headheight}{17pt}
+
+%\renewcommand{\arraystretch}{1.5}
+
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries}{}{0pt}{\Huge}
+
+\setlength{\parskip}{0cm}
+\setlength{\parindent}{1cm}
+
+\setmainfont{[EBGaramond-Regular.ttf]}
+\setmonofont{[FiraMono-Regular.otf]}
+
+\hypersetup{
+    colorlinks = true,
+    linkcolor=black,
+    filecolor=magenta,
+    urlcolor=blue,
+    pdftitle={Project 2}
+}
+
+
+%\definecolor{name}{model}{color-spec}
+
+\lstdefinestyle{mystyle}{
+    language=Octave,
+    backgroundcolor=\color{white},   
+    commentstyle=\color{teal},
+    keywordstyle=\color{blue},
+    numberstyle=\color{gray}\ttfamily,
+    stringstyle=\color{orange},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    frame=lines,
+    framesep=0.1cm,
+    rulecolor=\color{black},
+    morestring=[b]"
+}
+
+\lstset{style=mystyle}
+
+\pagenumbering{arabic}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\rightmark}
+\lhead{Project 2}
+\chead{Αριθμητική Γραμμική Άλγεβρα}
+\cfoot{\thepage}
+
+\newcommand\rowop[1]{\scriptstyle\smash{\xrightarrow[\vphantom{#1}]{\mkern-4mu#1\mkern-4mu}}}
+
+\DeclareDocumentCommand\converttorows
+{>{\SplitList{,}}m}
+{\ProcessList{#1}{\converttorow}}
+\NewDocumentCommand{\converttorow}{m}
+{\ifthenelse{\isempty{#1}}{}{\rowop{#1}}\\}
+
+\DeclareDocumentCommand \rowops{m}
+{\;
+ \begin{matrix}
+\converttorows {#1}
+ \end{matrix}
+ \; }
+
+
+\begin{document}
+
+\title{Αριθμητική Γραμμική Άλγεβρα\\Project 3}
+\author{Μιχαήλ Ανάργυρος Ζαμάγιας\\ΤΠ5000}
+\date{\today}
+\maketitle
+\newpage
+
+\tableofcontents
+
+\end{document}
