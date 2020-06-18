@@ -11,6 +11,7 @@
 \usepackage{titlesec}
 \usepackage{xifthen, xparse}
 \usepackage{fancyhdr}
+\usepackage{multicol}
 %\usepackage{fancyvrb}
 \usepackage[autostyle,english=american]{csquotes}
 \usepackage[hyphens]{url}
@@ -62,11 +63,11 @@
     showspaces=false,                
     showstringspaces=false,
     showtabs=false,                  
-    tabsize=2,
-    frame=lines,
-    framesep=0.1cm,
-    rulecolor=\color{black},
-    morestring=[b]"
+    tabsize=2
+    %frame=lines
+    %framesep=0.1cm
+    %rulecolor=\color{black}
+    %morestring=[b]"
 }
 
 \lstset{style=mystyle}
@@ -319,11 +320,113 @@ H \lstinline{strcpy()} δέχεται ως ορίσματα δύο δείκτε�
     \item Εάν το \lstinline{head} σημαίνει την θέση της στοίβας όπου έχει τοποθετηθεί το τελευταίο στοιχείο, τότε κατά την ώθηση αυξάνουμε το \lstinline{head} και τοποθετούμετο στοιχείο στην στοίβα, ενώ κατά την ανάκληση παίρνουμε πρώτα το στοιχείο και μετά ελαττώνουμε το \lstinline{head}.
 \end{enumerate}
 
+\newpage
+Μια υλοποίηση στοίβας:
+\begin{multicols}{2}
+\begin{lstlisting}
+#include<stdio.h>
+
+#define MAX 3
+ 
+typedef struct
+{
+    int TOP;
+    int ele[MAX]; 
+}Stack;
+ 
+void init(Stack *s)
+{
+    s->TOP = -1;
+}
+ 
+int isFull(Stack *s)
+{
+    if(s->TOP == MAX-1)
+    {
+        return 0;
+    }
+    return -1;
+}
+ 
+int isEmpty(Stack *s)
+{
+    if(s->TOP == -1)
+    {
+        return 0;
+    }
+    return -1;
+}
+ 
+void push(Stack *s, int item)
+{
+    if( !isFull(s) )
+    {
+        printf("\nStack is full");
+        return;
+    }
+    s->TOP = s->TOP + 1;
+    s->ele[s->TOP] = item;
+}
+ 
+int pop(Stack *s, int *item)
+{
+    if(!isEmpty(s))
+    {
+        printf("\nStack is empty");
+        return -1;
+    }
+    *item = s->ele[s->TOP];
+    s->TOP = s->TOP - 1;
+    return 0;
+}
+ 
+int main()
+{
+    Stack s;
+    int item;
+ 
+    clrscr();
+ 
+    init(&s);
+ 
+    push(&s, 10);
+    push(&s, 20);
+    push(&s, 30);
+ 
+    pop(&s, &item);
+    printf("\nPoped Item : %d",item);
+ 
+    pop(&s, &item);
+    printf("\nPoped Item : %d",item);
+ 
+    pop(&s, &item);
+    printf("\nPoped Item : %d",item);
+    getch();
+ 
+    return 0;
+}
+\end{lstlisting}
+\end{multicols}
+
 \chapter{Εργαστήριο 6}
 
 \section{Απλά συνδεδεμένες λίστες (δημιουργία)}
+
+Η δομή που περιγραφεί κάθε κόμβο μιας απλά συνδεδεμένης λίστας περιέχει "χρήσιμα" δεδομένα και ένα δείκτη προς ίδιου τύπου δομές.
+
+Τον χώρο των κόμβων που δεν Χρειαζόμαστε πρέπει να τον ελευθερώνουμε (συνάρτηση \lstinline{free()}).
+
+Στον πρώτο κόμβο (κεφαλή) μιας απλά συνδεδεμένης λίστας πρέπει να υπάρχει ένας δείκτης, ο οποίος να μη μετακινηθεί ποτέ από εκ. Μέσω αυτού μπορούμε να διατρέχουμε την λίστα.
+
+Ο δείκτης του τελευταίου κόμβου της λίστας πρέπει να είναι \lstinline{NULL}. Ελέγχοντας αν έχουμε φθάσει σε τιμή \lstinline{NULL}, ξέτουμε αν φθάσαμε ή όχι στο τέλος της λίστας.
+
 \section{Λειτουργίες στις απλά συνδεδεμένες λίστες: αναζήτηση, εισαγωγή, διαγραφή, μετακίνηση, συνένωση λιστών}
 
+\chapter{Χρήσιμες πηγές}
 
+\href{https://courses.cs.washington.edu/courses/cse351/16wi/sections/1/Cheatsheet-c.pdf}{C Cheatsheet}
+\href{https://medium.com/@stephen_gou/data-structures-and-algorithms-cheat-sheet-b06c7ff5515f}{Data structures runtime}
+\href{https://www.interviewcake.com/concept/python/stack?}{Stack, in Python}
+\href{https://www.interviewcake.com/concept/python/linked-list?}{Linked list, in Python}
 
 \end{document}
