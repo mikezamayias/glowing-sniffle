@@ -1,66 +1,66 @@
 .vscode/settings.json
-Past Semesters/Algorithms/Notes.aux
-Past Semesters/Algorithms/Notes.fdb_latexmk
-Past Semesters/Algorithms/Notes.fls
-Past Semesters/Algorithms/Notes.log
-Past Semesters/Algorithms/Notes.synctex.gz
-Past Semesters/Algorithms/Notes.toc
-Current Semester/Computer Science Teaching/FiraMono-Bold.otf
-Current Semester/Computer Science Teaching/FiraMono-Regular.otf
-Current Semester/Computer Science Teaching/FiraSans-Book.otf
-Current Semester/Computer Science Teaching/project.aux
-Current Semester/Computer Science Teaching/project.fdb_latexmk
-Current Semester/Computer Science Teaching/project.fls
-Current Semester/Computer Science Teaching/project.log
-Current Semester/Computer Science Teaching/project.md
-Current Semester/Computer Science Teaching/project.out
-Current Semester/Computer Science Teaching/project.synctex.gz
-Current Semester/Computer Science Teaching/project.toc
-Current Semester/Computer Architecture/Assignment 8/temp.py
-Current Semester/Computer Architecture/Assignment 7/temp.py
-Current Semester/Computer Architecture/renm.py
-Current Semester/Computer Science Teaching/CascadiaMono.otf
-Current Semester/Computer Science Teaching/RobotoMono-Regular.ttf
-Current Semester/Computer Science Teaching/EBGaramond-Regular.ttf
-Current Semester/Computer Science Teaching/NewCMMono10-Regular.otf
-Current Semester/Linear Algebra/Project 2/EBGaramond-Regular.ttf
-Current Semester/Linear Algebra/Project 2/FiraMono-Regular.otf
-Current Semester/Linear Algebra/Project 2/project_2.aux
-Current Semester/Linear Algebra/Project 2/project_2.fdb_latexmk
-Current Semester/Linear Algebra/Project 2/project_2.fls
-Current Semester/Linear Algebra/Project 2/project_2.log
-Current Semester/Linear Algebra/Project 2/project_2.out
-Current Semester/Linear Algebra/Project 2/project_2.synctex.gz
-Current Semester/Linear Algebra/Project 2/project_2.toc
-Current Semester/Linear Algebra/Project 1/Project 1.aux
-Current Semester/Linear Algebra/Project 1/Project 1.fdb_latexmk
-Current Semester/Linear Algebra/Project 1/Project 1.fls
-Current Semester/Linear Algebra/Project 1/Project 1.log
-Current Semester/Linear Algebra/Project 1/Project 1.pdf
-Current Semester/Linear Algebra/Project 1/Project 1.synctex.gz
-Current Semester/Linear Algebra/Project 1/Project 1.toc
-Current Semester/Computer Science Teaching/project.uhy
-Current Semester/Linear Algebra/Project 3/project3.aux
-Current Semester/Linear Algebra/Project 3/project3.fdb_latexmk
-Current Semester/Linear Algebra/Project 3/project3.fls
-Current Semester/Linear Algebra/Project 3/project3.log
-Current Semester/Linear Algebra/Project 3/project3.out
-Current Semester/Linear Algebra/Project 3/project3.toc
-Current Semester/Linear Algebra/Project 3/project3.synctex.gz
-Current Semester/Data Structures/lab_notes/notes.aux
-Current Semester/Data Structures/lab_notes/notes.fdb_latexmk
-Current Semester/Data Structures/lab_notes/notes.fls
-Current Semester/Data Structures/lab_notes/notes.log
-Current Semester/Data Structures/lab_notes/notes.out
-Current Semester/Data Structures/lab_notes/notes.synctex.gz
-Current Semester/Data Structures/lab_notes/notes.toc
-Current Semester/Data Structures/lab_notes/code/a.out
-Past Semesters/Multimedia Technology/EBGaramond-Regular.ttf
-Past Semesters/Multimedia Technology/Notes.aux
-Past Semesters/Multimedia Technology/Notes.dvi
-Past Semesters/Multimedia Technology/Notes.fdb_latexmk
-Past Semesters/Multimedia Technology/Notes.fls
-Past Semesters/Multimedia Technology/Notes.log
-Past Semesters/Multimedia Technology/Notes.out
-Past Semesters/Multimedia Technology/Notes.toc
-Past Semesters/Multimedia Technology/Notes.synctex.gz
+Past Courses/Algorithms/Notes.aux
+Past Courses/Algorithms/Notes.fdb_latexmk
+Past Courses/Algorithms/Notes.fls
+Past Courses/Algorithms/Notes.log
+Past Courses/Algorithms/Notes.synctex.gz
+Past Courses/Algorithms/Notes.toc
+Current Courses/Computer Science Teaching/FiraMono-Bold.otf
+Current Courses/Computer Science Teaching/FiraMono-Regular.otf
+Current Courses/Computer Science Teaching/FiraSans-Book.otf
+Current Courses/Computer Science Teaching/project.aux
+Current Courses/Computer Science Teaching/project.fdb_latexmk
+Current Courses/Computer Science Teaching/project.fls
+Current Courses/Computer Science Teaching/project.log
+Current Courses/Computer Science Teaching/project.md
+Current Courses/Computer Science Teaching/project.out
+Current Courses/Computer Science Teaching/project.synctex.gz
+Current Courses/Computer Science Teaching/project.toc
+Current Courses/Computer Architecture/Assignment 8/temp.py
+Current Courses/Computer Architecture/Assignment 7/temp.py
+Current Courses/Computer Architecture/renm.py
+Current Courses/Computer Science Teaching/CascadiaMono.otf
+Current Courses/Computer Science Teaching/RobotoMono-Regular.ttf
+Current Courses/Computer Science Teaching/EBGaramond-Regular.ttf
+Current Courses/Computer Science Teaching/NewCMMono10-Regular.otf
+Current Courses/Linear Algebra/Project 2/EBGaramond-Regular.ttf
+Current Courses/Linear Algebra/Project 2/FiraMono-Regular.otf
+Current Courses/Linear Algebra/Project 2/project_2.aux
+Current Courses/Linear Algebra/Project 2/project_2.fdb_latexmk
+Current Courses/Linear Algebra/Project 2/project_2.fls
+Current Courses/Linear Algebra/Project 2/project_2.log
+Current Courses/Linear Algebra/Project 2/project_2.out
+Current Courses/Linear Algebra/Project 2/project_2.synctex.gz
+Current Courses/Linear Algebra/Project 2/project_2.toc
+Current Courses/Linear Algebra/Project 1/Project 1.aux
+Current Courses/Linear Algebra/Project 1/Project 1.fdb_latexmk
+Current Courses/Linear Algebra/Project 1/Project 1.fls
+Current Courses/Linear Algebra/Project 1/Project 1.log
+Current Courses/Linear Algebra/Project 1/Project 1.pdf
+Current Courses/Linear Algebra/Project 1/Project 1.synctex.gz
+Current Courses/Linear Algebra/Project 1/Project 1.toc
+Current Courses/Computer Science Teaching/project.uhy
+Current Courses/Linear Algebra/Project 3/project3.aux
+Current Courses/Linear Algebra/Project 3/project3.fdb_latexmk
+Current Courses/Linear Algebra/Project 3/project3.fls
+Current Courses/Linear Algebra/Project 3/project3.log
+Current Courses/Linear Algebra/Project 3/project3.out
+Current Courses/Linear Algebra/Project 3/project3.toc
+Current Courses/Linear Algebra/Project 3/project3.synctex.gz
+Current Courses/Data Structures/lab_notes/notes.aux
+Current Courses/Data Structures/lab_notes/notes.fdb_latexmk
+Current Courses/Data Structures/lab_notes/notes.fls
+Current Courses/Data Structures/lab_notes/notes.log
+Current Courses/Data Structures/lab_notes/notes.out
+Current Courses/Data Structures/lab_notes/notes.synctex.gz
+Current Courses/Data Structures/lab_notes/notes.toc
+Current Courses/Data Structures/lab_notes/code/a.out
+Past Courses/Multimedia Technology/EBGaramond-Regular.ttf
+Past Courses/Multimedia Technology/Notes.aux
+Past Courses/Multimedia Technology/Notes.dvi
+Past Courses/Multimedia Technology/Notes.fdb_latexmk
+Past Courses/Multimedia Technology/Notes.fls
+Past Courses/Multimedia Technology/Notes.log
+Past Courses/Multimedia Technology/Notes.out
+Past Courses/Multimedia Technology/Notes.toc
+Past Courses/Multimedia Technology/Notes.synctex.gz
