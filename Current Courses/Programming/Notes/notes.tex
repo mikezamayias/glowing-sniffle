@@ -1,0 +1,88 @@
+\documentclass{extreport}
+\usepackage[margin=2cm, includeheadfoot, a4paper]{geometry}
+\usepackage[LGR]{fontenc}
+\usepackage[utf8]{luainputenc}
+\usepackage[english, greek]{babel}
+\usepackage{indentfirst}
+\usepackage{multicol}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage{epigraph}
+\usepackage[autostyle, english=american]{csquotes}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{url} 
+\usepackage{hyperref}
+
+\setlength{\headheight}{17pt}
+\setlength{\parindent}{1cm}
+\setlength{\parskip}{0cm}
+
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries}{}{0pt}{\Huge}
+
+\setlength{\parskip}{0cm}
+\setlength{\parindent}{1cm}
+
+\MakeOuterQuote{"}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,
+    urlcolor=blue,
+    pdftitle={Προγραμματισμός Σημειώσεις θεωρίας}
+}
+
+
+\lstdefinestyle{mystyle}{
+    language=C,
+    backgroundcolor=\color{white},   
+    commentstyle=\color{teal},
+    keywordstyle=\color{blue},
+    numberstyle=\color{gray}\ttfamily,
+    stringstyle=\color{orange},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+    %frame=lines
+    %framesep=0.1cm
+    %rulecolor=\color{black}
+    %morestring=[b]"
+}
+
+\lstset{style=mystyle}
+
+\pagenumbering{arabic}
+
+\fancyhf{}
+\pagestyle{fancy}
+\lhead{\small \rightmark}
+\cfoot{\thepage}
+
+\begin{document}
+
+\title{Προγραμματισμός\\Σημειώσεις θεωρίας}
+\author{Μιχαήλ Ανάργυρος Ζαμάγιας -- ΤΠ5000}
+\date{\today}
+
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+
+
+\end{document}
