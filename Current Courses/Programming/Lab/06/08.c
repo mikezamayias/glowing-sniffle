@@ -23,6 +23,7 @@ int main()
     }
 
     printf("%i ακέραιοι, από το %i έως το %i:\n", ARRAY_SIZE, MINIMUM_NUMBER, MAXIMUM_NUMBER);
+    
     for (i = 0; i < ARRAY_SIZE; i++)
     {
         printf("%i\t", mat[i]);
