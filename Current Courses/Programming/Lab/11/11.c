@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <math.h>
-#include <string.h>
 
 #define ARRAY_SIZE (int)pow(2, 3) * (int)pow(2, 10)
 
@@ -14,9 +13,8 @@ int main(int argc, char const *argv[])
 
     printf("%s\n", first_name);
     printf("%s\n", last_name);
-    printf("%i\n", strcmp(first_name, last_name));
     printf("%i\n", _strcmp_(first_name, last_name));
-    // printf("%s\n", strcat(first_name, last_name));
+    // printf("%i\n", strcmp(first_name, last_name));
 
     return 0;
 }

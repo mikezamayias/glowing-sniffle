@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <math.h>
-#include <string.h>
 
 #define ARRAY_SIZE (int)pow(2, 3) * (int)pow(2, 10)
 

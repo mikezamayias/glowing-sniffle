@@ -12,8 +12,8 @@ int main(int argc, char const *argv[])
 
     printf("%s\n", first_name);
     printf("%s\n", last_name);
-    // printf("%s\n", _strcpy_(first_name, last_name));
-    printf("%s\n", strcpy(first_name, last_name));
+    printf("%s\n", _strcpy_(first_name, last_name));
+    // printf("%s\n", strcpy(first_name, last_name));
 
     return 0;
 }
