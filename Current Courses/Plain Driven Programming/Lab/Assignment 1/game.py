@@ -1,3 +1,7 @@
+""" Assignment status
+TODO: Remove remaining cards message
+TODO: Fix "None" output when printing players hand
+"""
 # import modules
 from random import shuffle
 
@@ -113,7 +117,8 @@ if __name__ == "__main__":
         card_deck.distribute_cards([player_1, player_2], number_of_cards)
 
         # print number of remaining cards in the card deck
-        print(f"Remaining cards in deck:\t{card_deck.get_number_of_remaining_cards()}")
+        print(
+            f"Remaining cards in deck:\t{card_deck.get_number_of_remaining_cards()}")
 
         # in the case where in each round both players get the same number of hearts
         # and the card deck has no cards left, end the game
