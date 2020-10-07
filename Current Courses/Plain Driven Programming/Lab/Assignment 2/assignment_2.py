@@ -7,7 +7,8 @@ from random import shuffle
 
 
 class Card:
-    def __init__(self, suit, number):
+    # Card class
+    def __init__(self, suit: str, number: str):
         self.suit = suit
         self.number = number
 
@@ -33,10 +34,10 @@ class Deck:
             for number in ['Ace'] + [f'{i}' for i in range(2, 11)] + ['Jack', 'Queen', 'King']:
                 self.add_card(Card(suit, number))
 
-    def add_card(self, card):
+    def add_card(self, card: Card):
         self.cards.append(card)
 
-    def remove_card(self, card):
+    def remove_card(self, card: Card):
         self.cards.remove(card)
 
     def get_deck(self):
@@ -61,24 +62,24 @@ class Hand:
 
 
 class Player:
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
         self.hand = Hand()
         self.number_of_hearts = self.count_hearts()
 
-    def take_card(self, card):
+    def take_card(self, card: Card):
         self.hand.cards.append(card)
 
-    def throw_card(self, card):
+    def throw_card(self, card: Card):
         self.hand.cards.remove(card)
 
-    def get_hand(self):
+    def get_hand(self) -> list:
         return [card.get_card() for card in self.hand.cards]
 
-    def get_name(self):
+    def get_name(self) -> str:
         return self.name
 
-    def count_hearts(self):
+    def count_hearts(self) -> int:
         counter = 0
         for card in self.hand.cards:
             if card.is_heart():
