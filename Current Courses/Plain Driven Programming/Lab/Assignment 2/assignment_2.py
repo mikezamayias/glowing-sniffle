@@ -17,9 +17,9 @@ class Card:
     -------
     get_card() -> dict
         Returns a dictinary containining the card's suit and number
-    get_card_suit() -> str
+    get_cards_suit() -> str
         Returns the card's suit
-    get_card_number() -> str
+    get_cards_number() -> str
         Returns the card's number
     is_heart() -> bool
         Returns True if the card's suit is Hearts else False
@@ -48,7 +48,7 @@ class Card:
         """
         return self.suit, self.number
 
-    def get_card_suit(self) -> str:
+    def get_cards_suit(self) -> str:
         """
         Returns the card's suit
 
@@ -57,7 +57,7 @@ class Card:
         """
         return self.suit
 
-    def get_card_number(self) -> str:
+    def get_cards_number(self) -> str:
         """
         Returns the card's number
 
@@ -92,20 +92,20 @@ class Deck:
 
     Methods
     -------
+    get_deck()
+        Returns a list of dictionaries each containing the card's suit and number for each card in deck
+    get_number_of_remaining_cards()
+        Return the number of remaining cards in deck
     create_deck()
         Creates instances of Card type and populates the deck with them
     add_card(card: Card)
         Appends card, a Card instance, to the deck
     remove_card(card: Card)
         Removes card, a Card instance, from the deck
-    get_deck()
-        Returns a list of dictionaries each containing the card's suit and number for each card in deck
     shuffle_deck()
         Shuffles deck in place, using the shuffle method from module random
     distribute_cards(players_list: list, number_of_cards_to_deal: int)
         Distribute cards to players and remove distributed cards from deck
-    get_number_of_remaining_cards()
-        Return the number of remaining cards in deck
     """
 
     # Number of cards to deal
@@ -121,6 +121,24 @@ class Deck:
             The deck of cards as a list
         """
         self.cards = []
+
+    def get_deck(self) -> list:
+        """
+        Returns a list of dictinaries each containing the card's suit and number for each card in deck
+
+        Returns:
+            list: of dictinaries each containing the card's suit and number for each card in deck
+        """
+        return [card.get_card() for card in self.cards]
+
+    def get_number_of_remaining_cards(self) -> int:
+        """
+        Return the number of remaininng cards in deck
+
+        Returns:
+            int: The deck's length
+        """
+        return len(self.cards)
 
     def create_deck(self):
         """
@@ -148,15 +166,6 @@ class Deck:
         """
         self.cards.remove(card)
 
-    def get_deck(self) -> list:
-        """
-        Returns a list of dictinaries each containing the card's suit and number for each card in deck
-
-        Returns:
-            list: of dictinaries each containing the card's suit and number for each card in deck
-        """
-        return [card.get_card() for card in self.cards]
-
     def shuffle_deck(self):
         """
         Shuffles deck in place, using the shuffle method from module random
@@ -175,15 +184,6 @@ class Deck:
             for dealt_card_counter in range(number_of_cards_to_deal):
                 player.take_card(self.cards[dealt_card_counter])
                 self.remove_card(self.cards[dealt_card_counter])
-
-    def get_number_of_remaining_cards(self) -> int:
-        """
-        Return the number of remaininng cards in deck
-
-        Returns:
-            int: The deck's length
-        """
-        return len(self.cards)
 
 
 class Hand:
@@ -214,50 +214,141 @@ class Player:
 
     Attributes
     ----------
-    name: string
-        Player's name
+    first_name: str
+        Player's first name
+    last_name: str
+        Player's last name
+    full_name: str
+        Player's full name
+    age: int
+        Player's age
     hand: Hand
         Player's Hand
-    points: int
-        Player's points
     hearts_count: int
         Count of Hearts in Player's hand
+    points: int
+        Player's points
 
     Methods
     -------
+    get_first_name()
+        Returns player's first name
+    get_last_name()
+        Returns player's last name
+    get_full_name()
+        Returns player's full name
+    get_age()
+        Returns player's age
+    get_hand()
+        Returns a list of dictionaries of card's suit and number for each card in player's hand
+    get_number_of_hearts()
+        Counts the number of Heart cards in player's hand
+    get_points()
+        Returns player's points
     take_card(card: Card)
         Appends card, of a Card instance, to the end of the player's hand
     throw_card(card: Card)
         Removes card, of a Card instance, from the player's hand
-    get_hand()
-        Returns a list of dictionaries of card's suit and number for each card in player's hand
-    get_name()
-        Returns player's name
-    count_hearts()
-        Counts the number of Heart cards in player's hand
     print_hand()
         Pretty prints player's name and player's hand
     """
 
-    def __init__(self, name: str):
+    def __init__(self, first_name: str, last_name: str, age: int):
         """
         Constructor of Player class
 
         Parameters
         ----------
-        name: str
-            Player's name
+        first_name: str
+            Player's first name
+        last_name: str
+            Player's last name
+        full_name: str
+            Player's full name
+        age: int
+            Player's age
         hand: Hand
             Player's hand
-        points: int
-            Player's points
         hearts_count: int
             Count of Hearts in Player's hand
+        points: int
+            Player's points
         """
-        self.name = name
+        self.first_name = first_name
+        self.last_name = last_name
+        self.full_name = f"{self.first_name} {self.last_name}"
+        self.age = age
         self.hand = Hand()
+        self.hearts_count = self.get_number_of_hearts()
         self.points = 0
-        self.hearts_count = self.count_hearts()
+
+    def get_first_name(self) -> str:
+        """
+        Returns player's first name
+
+        Returns:
+            str: player's first name
+        """
+        return f"{self.first_name}"
+
+    def get_last_name(self) -> str:
+        """
+        Returns player's last name
+
+        Returns:
+            str: player's last name
+        """
+        return f"{self.last_name}"
+
+    def get_full_name(self) -> str:
+        """
+        Returns player's full name
+
+        Returns:
+            str: player's full name
+        """
+        return self.full_name
+
+    def get_age(self) -> int:
+        """
+        Returns player's age
+
+        Returns:
+            int: player's age
+        """
+        return self.age
+
+    def get_hand(self) -> list:
+        """
+        Returns a list of dictionaries of card's suit and number for each card in player's hand
+
+        Returns:
+            list: list of dictionaries of card's suit and number for each card in player's hand
+        """
+        return [card.get_card() for card in self.hand.cards]
+
+    def get_number_of_hearts(self) -> int:
+        """
+        Counts the number of Heart cards in player's hand
+
+        Returns:
+            int: number of Heart cards in player's hand
+        """
+        counter = 0
+        for card in self.hand.cards:
+            if card.is_heart():
+                counter += 1
+        self.hearts_count = counter
+        return counter
+
+    def get_points(self) -> int:
+        """
+        Returns player's points
+
+        Returns:
+            int: player's points
+        """
+        return self.points
 
     def take_card(self, card: Card):
         """
@@ -277,46 +368,13 @@ class Player:
         """
         self.hand.cards.remove(card)
 
-    def get_hand(self) -> list:
-        """
-        Returns a list of dictionaries of card's suit and number for each card in player's hand
-
-        Returns:
-            list: list of dictionaries of card's suit and number for each card in player's hand
-        """
-        return [card.get_card() for card in self.hand.cards]
-
-    def get_name(self) -> str:
-        """
-        Returns player's name
-
-        Returns:
-            str: player's name
-        """
-        return self.name
-
-    def count_hearts(self) -> int:
-        """
-        Counts the number of Heart cards in player's hand
-
-
-        Returns:
-            int: number of Heart cards in player's hand
-        """
-        counter = 0
-        for card in self.hand.cards:
-            if card.is_heart():
-                counter += 1
-        self.hearts_count = counter
-        return counter
-
     def print_hand(self):
         """
         Pretty prints player's name and player's hand
         """
-        print(f"\t{self.name}'s hand:")
+        print(f"\t{self.first_name} {self.last_name}'s hand:")
         for card in self.hand.cards:
-            print(f'\t\t{card.get_card_number()}\t{card.get_card_suit()}')
+            print(f'\t\t{card.get_cards_number()}\t{card.get_cards_suit()}')
 
 
 if __name__ == "__main__":
@@ -330,10 +388,10 @@ if __name__ == "__main__":
     card_deck.shuffle_deck()
 
     # create player 1
-    player_1 = Player('Chuck Norris')
+    player_1 = Player('Chuck', 'Norris', 55)
 
     # create player 2
-    player_2 = Player('God')
+    player_2 = Player('Donald', 'Duck',  85)
 
     # count played rounds
     round_counter = 0
@@ -342,7 +400,8 @@ if __name__ == "__main__":
     for game_round in range(5):
         # change the number of cards to deal, if first round was played
         if game_round != 0:
-            Deck.number_of_cards_to_deal = 3  # 3 so there is no "IndexError: list index out of range"
+            # 3 so there is no "IndexError: list index out of range"
+            Deck.number_of_cards_to_deal = 3
 
         # print round counter
         print(f"Round {game_round}")
@@ -368,10 +427,10 @@ if __name__ == "__main__":
         # f"Remaining cards in deck {card_deck.get_number_of_remaining_cards():02d}")
 
         # count player's 1 Hearts
-        player_1_hearts_counter = player_1.count_hearts()
+        player_1_hearts_counter = player_1.get_number_of_hearts()
 
         # count player's 2 Hearts
-        player_2_hearts_counter = player_2.count_hearts()
+        player_2_hearts_counter = player_2.get_number_of_hearts()
 
         # difference in players' count of Hearts
         diff = player_1_hearts_counter - player_2_hearts_counter
@@ -384,9 +443,9 @@ if __name__ == "__main__":
 
     #   announce game results
     if player_1.points > player_2.points:
-        print(f"{player_1.name} wins with {player_1.points} points to {player_2.name}'s {player_2.points}.")
+        print(f"{player_1.get_full_name()} wins with {player_1.points} points to {player_2.get_full_name()}'s {player_2.points}.")
     elif player_1.points < player_2.points:
-        print(f"{player_2.name} wins with {player_2.points} points to {player_1.name}'s {player_1.points}.")
+        print(f"{player_2.get_full_name()} wins with {player_2.points} points to {player_1.get_full_name()}'s {player_1.points}.")
     else:
         print(
-            f"Nobody won, both {player_1.name} and {player_2.name} have {player_2.points}.")
+            f"Nobody won, both {player_1.get_full_name()} and {player_2.get_full_name()} have {player_2.points}.")
