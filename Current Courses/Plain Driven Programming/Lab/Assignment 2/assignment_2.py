@@ -218,9 +218,9 @@ class Player:
         return counter
 
     def print_hand(self):
-        print(f"{self.name}'s hand:")
+        print(f"\t{self.name}'s hand:")
         for card in self.hand.cards:
-            print(f'\t{card.get_card_number()}\t{card.get_card_suit()}')
+            print(f'\t\t{card.get_card_number()}\t{card.get_card_suit()}')
 
 
 if __name__ == "__main__":
@@ -238,43 +238,44 @@ if __name__ == "__main__":
     # count the number of rounds
     round_counter = 0
 
-    # logic
+    # where the game is played
     while True:
 
-        # distribute cards to players
-        card_deck.distribute_cards([player_1, player_2], Deck.number_of_cards)
+        # deal cards to players
+        card_deck.deal_cards([player_1, player_2], Deck.number_of_cards)
 
-        # print number of remaining cards in the card deck
-        # print(
-        # f"Remaining cards in deck:\t{card_deck.get_number_of_remaining_cards()}")
-
-        # in the case where in each round both players get the same number of hearts
-        # and the card deck has no cards left, end the game
-        if card_deck.get_number_of_remaining_cards() == 0:
-            print(
-                f"There is no winner between {player_1.get_name()}'s {player_1.count_hearts()} Hearts")
-            print(
-                f" and {player_2.get_name()}'s {player_2.count_hearts()} Hearts. It's a tie.")
-            break
+        # remaining cards in deck
+        remaining_cards_in_deck = card_deck.get_number_of_remaining_cards()
 
         # print the round number
-        print(f"Round {round_counter+1:2d}")
+        print(f"\nRound {round_counter+1:02d}")
 
-        # count hearts from player hands
+        # print player hands
         player_1.print_hand()
         player_2.print_hand()
+
+        #  print how many cards are left in deck
+        print(f"Remaining cards in deck {card_deck.get_number_of_remaining_cards():02d}")
 
         # print round's outcome
         # player 1 wins
         if player_1.count_hearts() > player_2.count_hearts():
-            print(f"{player_1.get_name()} wins with {player_1.count_hearts()} Hearts to {player_2.get_name()}'s {player_2.count_hearts()}.")
+            print(f"\n{player_1.get_name()} wins with {player_1.count_hearts()} Hearts to {player_2.get_name()}'s {player_2.count_hearts()}.")
             break
         # player 2 wins
         elif player_1.count_hearts() < player_2.count_hearts():
-            print(f"{player_2.get_name()} wins with {player_2.count_hearts()} Hearts to {player_1.get_name()}'s {player_1.count_hearts()}.")
+            print(f"\n{player_2.get_name()} wins with {player_2.count_hearts()} Hearts to {player_1.get_name()}'s {player_1.count_hearts()}.")
             break
         # next round
         else:
+            # in the case where in each round both players get the same number of hearts
+            # and the card deck has no cards left, end the game
+            if remaining_cards_in_deck == 0:
+                print(
+                    f"There is no winner between {player_1.get_name()}'s {player_1.count_hearts()} Hearts")
+                print(
+                    f" and {player_2.get_name()}'s {player_2.count_hearts()} Hearts. It's a tie.")
+                break
             # if it is the first round and there was no winner, update the number of cards to distribute to players
             if round_counter == 0:
                 # update number of cards to distribute
