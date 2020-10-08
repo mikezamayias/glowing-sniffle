@@ -7,6 +7,11 @@ class Deck:
     """
     A class to represent a Deck (of playing cards)
 
+    Variables
+    ---------
+    number_of_cards: int
+        The number of cards to deal to players
+
     Attributes
     ----------
     cards: list
@@ -29,6 +34,9 @@ class Deck:
     get_number_of_remaining_cards()
         Return the number of remaining cards in deck
     """
+
+    # Number of cards to deal
+    number_of_cards = 5
 
     def __init__(self):
         """
@@ -84,7 +92,7 @@ class Deck:
 
     def deal_cards(self, players_list: list, number_of_cards: int):
         """
-        Distribute cards to players and remove distributed cards from deck
+        Distribute cards to players and remove dealt cards from deck
 
         Args:
             players_list (list): A list of players, instances of Players
