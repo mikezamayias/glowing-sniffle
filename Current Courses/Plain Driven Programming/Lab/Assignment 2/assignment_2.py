@@ -27,7 +27,7 @@ class Card:
 
     def __init__(self, suit: str, number: str):
         """
-        The constructor for Card class
+        Constructor for Card class
 
         Parameters
         ----------
@@ -113,7 +113,7 @@ class Deck:
 
     def __init__(self):
         """
-        The constructor of Deck class
+        Constructor of Deck class
 
         Parameters
         ----------
@@ -193,39 +193,121 @@ class Hand:
     Attributes
     ----------
     cards: list
-        The cards in hand, represented as a list
+        Cards in hand
     """
     def __init__(self):
+        """
+        Constructor of Hand class
+
+        Parameters
+        ----------
+        cards: list
+            Cards in hand
+        """
         self.cards = []
 
 
 class Player:
+    """
+    A class to represent a Player
+
+    Attributes
+    ----------
+    name: string
+        Player's name
+    hand: Hand
+        Player's Hand
+    hearts_count: int
+        Count of Hearts in Player's hand
+
+    Methods
+    -------
+    take_card(card: Card)
+        Appends card, of a Card instance, to the end of the player's hand
+    throw_card(card: Card)
+        Removes card, of a Card instance, from the player's hand
+    get_hand()
+        Returns a list of dictionaries of card's suit and number for each card in player's hand
+    get_name()
+        Returns player's name
+    count_hearts()
+        Counts the number of Heart cards in player's hand
+    print_hand()
+        Pretty prints player's name and player's hand
+    """
+
     def __init__(self, name: str):
+        """
+        Constructor of Player class
+
+        Parameters
+        ----------
+        name: str
+            Player's name
+        hand: Hand
+            Player's hand
+        hearts_count: int
+            Count of Hearts in Player's hand
+        """
         self.name = name
         self.hand = Hand()
-        self.number_of_hearts = self.count_hearts()
+        self.hearts_count = self.count_hearts()
 
     def take_card(self, card: Card):
+        """
+        Appends card, of a Card instance, to the end of the player's hand
+
+        Args:
+            card (Card): a instance card of class Card
+        """
         self.hand.cards.append(card)
 
     def throw_card(self, card: Card):
+        """
+        Removes card, of a Card instance, from the player's hand
+
+        Args:
+            card (Card): a instance card of class Card
+        """
         self.hand.cards.remove(card)
 
     def get_hand(self) -> list:
+        """
+        Returns a list of dictionaries of card's suit and number for each card in player's hand
+
+        Returns:
+            list: list of dictionaries of card's suit and number for each card in player's hand
+        """
         return [card.get_card() for card in self.hand.cards]
 
     def get_name(self) -> str:
+        """
+        Returns player's name
+
+        Returns:
+            str: player's name
+        """
         return self.name
 
     def count_hearts(self) -> int:
+        """
+        Counts the number of Heart cards in player's hand
+
+
+        Returns:
+            int: number of Heart cards in player's hand
+        """
         counter = 0
         for card in self.hand.cards:
             if card.is_heart():
                 counter += 1
-        self.number_of_hearts = counter
+        self.hearts_count = counter
         return counter
 
     def print_hand(self):
+        """
+        Pretty prints player's name and player's hand
+        """
         print(f"\t{self.name}'s hand:")
         for card in self.hand.cards:
             print(f'\t\t{card.get_card_number()}\t{card.get_card_suit()}')
