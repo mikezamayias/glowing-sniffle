@@ -1,58 +1,188 @@
-""" Assignment status
-TODO: Remove remaining cards message
-TODO: Fix "None" output when printing players hand
-"""
 # import modules
 from random import shuffle
 
 
 class Card:
-    # Card class
+    """
+    A class used to represent a (playing) Card
+
+    Attributes
+    ----------
+    suit: str
+        The card's suit
+    number: str
+        The card's number
+
+    Methods
+    -------
+    get_card() -> dict
+        Returns a dictinary containining the card's suit and number
+    get_card_suit() -> str
+        Returns the card's suit
+    get_card_number() -> str
+        Returns the card's number
+    is_heart() -> bool
+        Returns True if the card's suit is Hearts else False
+    """
+
     def __init__(self, suit: str, number: str):
+        """
+        The constructor for Card class
+
+        Parameters
+        ----------
+        suit: str
+            The card's suit
+        number: str
+            The card's number
+        """
         self.suit = suit
         self.number = number
 
-    def get_card(self):
+    def get_card(self) -> dict:
+        """
+        Returns a dictionary containing card's suit and number
+
+        Returns:
+            dict: The card as dictionary containing the suit and number
+        """
         return self.suit, self.number
 
-    def get_card_suit(self):
+    def get_card_suit(self) -> str:
+        """
+        Returns the card's suit
+
+        Returns:
+            str: The card's suit
+        """
         return self.suit
 
-    def get_card_number(self):
+    def get_card_number(self) -> str:
+        """
+        Returns the card's number
+
+        Returns:
+            str: The card's number
+        """
         return self.number
 
-    def is_heart(self):
+    def is_heart(self) -> bool:
+        """
+        Return True if the card's suit is Hearts. If it's not, return False
+
+        Returns:
+            bool: True if the card's suit is Hearts, else False
+        """
         return True if self.suit == 'Hearts' else False
 
 
 class Deck:
+    """
+    A class to represent a Deck (of playing cards)
+
+    Variables
+    ---------
+    number_of_cards: int
+        The number of cards to deal to players
+
+    Attributes
+    ----------
+    cards: list
+        The playing cards deck, as a list
+
+    Methods
+    -------
+    create_deck()
+        Creates instances of Card type and populates the deck with them
+    add_card(card: Card)
+        Appends card, a Card instance, to the deck
+    remove_card(card: Card)
+        Removes card, a Card instance, from the deck
+    get_deck()
+        Returns a list of dictionaries each containing the card's suit and number for each card in deck
+    shuffle_deck()
+        Shuffles deck in place, using the shuffle method from module random
+    distribute_cards(players_list: list, number_of_cards: int)
+        Distribute cards to players and remove distributed cards from deck
+    get_number_of_remaining_cards()
+        Return the number of remaining cards in deck
+    """
+
+    # Number of cards to deal
+    number_of_cards = 5
+
     def __init__(self):
+        """
+        The constructor of Deck class
+
+        Parameters
+        ----------
+        cards: list
+            The deck of cards as a list
+        """
         self.cards = []
 
     def create_deck(self):
+        """
+        Creates instances of Card type and populates the deck with them
+        """
         for suit in ['Clubs', 'Spades', 'Diamonds', 'Hearts']:
             for number in ['Ace'] + [f'{i}' for i in range(2, 11)] + ['Jack', 'Queen', 'King']:
                 self.add_card(Card(suit, number))
 
     def add_card(self, card: Card):
+        """
+        Appends card, a Card instance, to the deck
+
+        Args:
+            card (Card): a Card instance
+        """
         self.cards.append(card)
 
     def remove_card(self, card: Card):
+        """
+        Removes card, a Card instance, from the deck
+
+        Args:
+            card (Card): a Card instance
+        """
         self.cards.remove(card)
 
-    def get_deck(self):
+    def get_deck(self) -> list:
+        """
+        Returns a list of dictinaries each containing the card's suit and number for each card in deck
+
+        Returns:
+            list: of dictinaries each containing the card's suit and number for each card in deck
+        """
         return [card.get_card() for card in self.cards]
 
     def shuffle_deck(self):
+        """
+        Shuffles deck in place, using the shuffle method from module random
+        """
         shuffle(self.cards)
 
-    def distribute_cards(self, players_list, number_of_cards):
+    def deal_cards(self, players_list: list, number_of_cards: int):
+        """
+        Distribute cards to players and remove dealt cards from deck
+
+        Args:
+            players_list (list): A list of players, instances of Players
+            number_of_cards (int): The number of cards to deal
+        """
         for player in players_list:
             for _ in range(number_of_cards):
                 player.take_card(self.cards[0])
                 self.remove_card(self.cards[0])
 
-    def get_number_of_remaining_cards(self):
+    def get_number_of_remaining_cards(self) -> int:
+        """
+        Return the number of remaininng cards in deck
+
+        Returns:
+            int: The deck's length
+        """
         return len(self.cards)
 
 
@@ -105,9 +235,6 @@ if __name__ == "__main__":
     player_1 = Player('Chuck Norris')
     player_2 = Player('God')
 
-    # number of cards to deal
-    number_of_cards = 5
-
     # count the number of rounds
     round_counter = 0
 
@@ -115,11 +242,11 @@ if __name__ == "__main__":
     while True:
 
         # distribute cards to players
-        card_deck.distribute_cards([player_1, player_2], number_of_cards)
+        card_deck.distribute_cards([player_1, player_2], Deck.number_of_cards)
 
         # print number of remaining cards in the card deck
-        print(
-            f"Remaining cards in deck:\t{card_deck.get_number_of_remaining_cards()}")
+        # print(
+        # f"Remaining cards in deck:\t{card_deck.get_number_of_remaining_cards()}")
 
         # in the case where in each round both players get the same number of hearts
         # and the card deck has no cards left, end the game
@@ -131,13 +258,13 @@ if __name__ == "__main__":
             break
 
         # print the round number
-        print(f"Round:\t{round_counter+1}")
+        print(f"Round {round_counter+1:2d}")
 
         # count hearts from player hands
-        print(player_1.print_hand())
-        print(player_2.print_hand())
+        player_1.print_hand()
+        player_2.print_hand()
 
-        # compare players number of hearts
+        # print round's outcome
         # player 1 wins
         if player_1.count_hearts() > player_2.count_hearts():
             print(f"{player_1.get_name()} wins with {player_1.count_hearts()} Hearts to {player_2.get_name()}'s {player_2.count_hearts()}.")
@@ -150,7 +277,7 @@ if __name__ == "__main__":
         else:
             # if it is the first round and there was no winner, update the number of cards to distribute to players
             if round_counter == 0:
-                # update number of cards to deal
-                number_of_cards = 1
+                # update number of cards to distribute
+                Deck.number_of_cards = 1
             # update the rounds counter
             round_counter += 1
