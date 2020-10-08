@@ -9,9 +9,9 @@ class Card:
     Attributes
     ----------
     suit: str
-        The card's suit
+        Card's suit
     number: str
-        The card's number
+        Card's number
 
     Methods
     -------
@@ -83,12 +83,12 @@ class Deck:
     Variables
     ---------
     number_of_cards: int
-        The number of cards to deal to players
+        Number of cards to deal to players
 
     Attributes
     ----------
     cards: list
-        The playing cards deck, as a list
+        Playing cards deck
 
     Methods
     -------
@@ -187,6 +187,14 @@ class Deck:
 
 
 class Hand:
+    """
+    A class to represent a player's Hand
+    
+    Attributes
+    ----------
+    cards: list
+        The cards in hand, represented as a list
+    """
     def __init__(self):
         self.cards = []
 
