@@ -82,7 +82,7 @@ class Deck:
 
     Variables
     ---------
-    number_of_cards: int
+    number_of_cards_to_deal: int
         Number of cards to deal to players
 
     Attributes
@@ -102,14 +102,14 @@ class Deck:
         Returns a list of dictionaries each containing the card's suit and number for each card in deck
     shuffle_deck()
         Shuffles deck in place, using the shuffle method from module random
-    distribute_cards(players_list: list, number_of_cards: int)
+    distribute_cards(players_list: list, number_of_cards_to_deal: int)
         Distribute cards to players and remove distributed cards from deck
     get_number_of_remaining_cards()
         Return the number of remaining cards in deck
     """
 
     # Number of cards to deal
-    number_of_cards = 5
+    number_of_cards_to_deal = 10
 
     def __init__(self):
         """
@@ -163,18 +163,18 @@ class Deck:
         """
         shuffle(self.cards)
 
-    def deal_cards(self, players_list: list, number_of_cards: int):
+    def deal_cards(self, players_list: list, number_of_cards_to_deal: int):
         """
-        Distribute cards to players and remove dealt cards from deck
+        Deal cards to players and remove dealt cards from deck
 
         Args:
             players_list (list): A list of players, instances of Players
-            number_of_cards (int): The number of cards to deal
+            number_of_cards_to_deal (int): The number of cards to deal
         """
         for player in players_list:
-            for _ in range(number_of_cards):
-                player.take_card(self.cards[0])
-                self.remove_card(self.cards[0])
+            for dealt_card_counter in range(number_of_cards_to_deal):
+                player.take_card(self.cards[dealt_card_counter])
+                self.remove_card(self.cards[dealt_card_counter])
 
     def get_number_of_remaining_cards(self) -> int:
         """
@@ -189,12 +189,13 @@ class Deck:
 class Hand:
     """
     A class to represent a player's Hand
-    
+
     Attributes
     ----------
     cards: list
         Cards in hand
     """
+
     def __init__(self):
         """
         Constructor of Hand class
@@ -217,6 +218,8 @@ class Player:
         Player's name
     hand: Hand
         Player's Hand
+    points: int
+        Player's points
     hearts_count: int
         Count of Hearts in Player's hand
 
@@ -246,11 +249,14 @@ class Player:
             Player's name
         hand: Hand
             Player's hand
+        points: int
+            Player's points
         hearts_count: int
             Count of Hearts in Player's hand
         """
         self.name = name
         self.hand = Hand()
+        self.points = 0
         self.hearts_count = self.count_hearts()
 
     def take_card(self, card: Card):
@@ -317,58 +323,70 @@ if __name__ == "__main__":
     # make card deck
     card_deck = Deck()
 
-    # create and shuffle cards deck
+    # create cards deck
     card_deck.create_deck()
+
+    # shuffle cards deck
     card_deck.shuffle_deck()
 
-    # create players
+    # create player 1
     player_1 = Player('Chuck Norris')
+
+    # create player 2
     player_2 = Player('God')
 
-    # count the number of rounds
+    # count played rounds
     round_counter = 0
 
-    # where the game is played
-    while True:
+    # play rounds
+    for game_round in range(5):
+        # change the number of cards to deal, if first round was played
+        if game_round != 0:
+            Deck.number_of_cards_to_deal = 3  # 3 so there is no "IndexError: list index out of range"
+
+        # print round counter
+        print(f"Round {game_round}")
 
         # deal cards to players
-        card_deck.deal_cards([player_1, player_2], Deck.number_of_cards)
+        card_deck.deal_cards([player_1, player_2],
+                             Deck.number_of_cards_to_deal)
 
         # remaining cards in deck
         remaining_cards_in_deck = card_deck.get_number_of_remaining_cards()
 
         # print the round number
-        print(f"\nRound {round_counter+1:02d}")
+        # print(f"\nRound {round_counter+1:02d}")
 
-        # print player hands
+        # print player 1 hand
         player_1.print_hand()
+
+        # print player 2 hand
         player_2.print_hand()
 
         #  print how many cards are left in deck
-        print(f"Remaining cards in deck {card_deck.get_number_of_remaining_cards():02d}")
+        # print(
+        # f"Remaining cards in deck {card_deck.get_number_of_remaining_cards():02d}")
 
-        # print round's outcome
-        # player 1 wins
-        if player_1.count_hearts() > player_2.count_hearts():
-            print(f"\n{player_1.get_name()} wins with {player_1.count_hearts()} Hearts to {player_2.get_name()}'s {player_2.count_hearts()}.")
-            break
-        # player 2 wins
-        elif player_1.count_hearts() < player_2.count_hearts():
-            print(f"\n{player_2.get_name()} wins with {player_2.count_hearts()} Hearts to {player_1.get_name()}'s {player_1.count_hearts()}.")
-            break
-        # next round
-        else:
-            # in the case where in each round both players get the same number of hearts
-            # and the card deck has no cards left, end the game
-            if remaining_cards_in_deck == 0:
-                print(
-                    f"There is no winner between {player_1.get_name()}'s {player_1.count_hearts()} Hearts")
-                print(
-                    f" and {player_2.get_name()}'s {player_2.count_hearts()} Hearts. It's a tie.")
-                break
-            # if it is the first round and there was no winner, update the number of cards to distribute to players
-            if round_counter == 0:
-                # update number of cards to distribute
-                Deck.number_of_cards = 1
-            # update the rounds counter
-            round_counter += 1
+        # count player's 1 Hearts
+        player_1_hearts_counter = player_1.count_hearts()
+
+        # count player's 2 Hearts
+        player_2_hearts_counter = player_2.count_hearts()
+
+        # difference in players' count of Hearts
+        diff = player_1_hearts_counter - player_2_hearts_counter
+
+        # give points to players
+        if diff > 0:
+            player_1.points += diff * 10
+        elif diff < 0:
+            player_2.points += abs(diff) * 10
+
+    #   announce game results
+    if player_1.points > player_2.points:
+        print(f"{player_1.name} wins with {player_1.points} points to {player_2.name}'s {player_2.points}.")
+    elif player_1.points < player_2.points:
+        print(f"{player_2.name} wins with {player_2.points} points to {player_1.name}'s {player_1.points}.")
+    else:
+        print(
+            f"Nobody won, both {player_1.name} and {player_2.name} have {player_2.points}.")
