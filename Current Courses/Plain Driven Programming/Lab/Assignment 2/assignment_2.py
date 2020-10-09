@@ -320,10 +320,12 @@ class Player:
 
     def get_hand(self) -> list:
         """
-        Returns a list of dictionaries of card's suit and number for each card in player's hand
+        Returns a list of dictionaries of card's
+        suit and number for each card in player's hand
 
         Returns:
-            list: list of dictionaries of card's suit and number for each card in player's hand
+            list: list of dictionaries of card's
+            suit and number for each card in player's hand
         """
         return [card.get_card() for card in self.hand.cards]
 
