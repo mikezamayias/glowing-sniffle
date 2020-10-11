@@ -1,4 +1,3 @@
-# import modules
 from random import shuffle
 
 
