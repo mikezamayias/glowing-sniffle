@@ -35,14 +35,14 @@ class Card:
         self.suit = suit
         self.number = number
 
-    def get_card(self) -> str:
+    def get_card(self) -> dict:
         """
         Returns a dictionary containing card's suit and number
 
         Returns:
             dict: The card as dictionary containing the suit and number
         """
-        return f"{self.suit} {self.number}"
+        return self.suit, self.number
 
     def get_cards_suit(self) -> str:
         """
@@ -64,9 +64,18 @@ class Card:
 
     def is_heart(self) -> bool:
         """
-        Return True if the card's suit is Hearts. If it's not, return False
+        Returns True if the card's suit is Hearts. If it's not, return False
 
         Returns:
             bool: True if the card's suit is Hearts, else False
         """
         return True if self.suit == 'Hearts' else False
+
+    def pretty_card(self) -> str:
+        """
+        Returns a prtty string from the card
+
+        Returns:
+            str: Card's number and suit in a pretty string
+        """
+        return f"{self.number}\t{self.suit}"

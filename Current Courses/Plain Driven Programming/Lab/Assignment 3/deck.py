@@ -1,5 +1,5 @@
-# import modules
 from random import shuffle
+from card import Card
 
 
 class Deck:
@@ -35,7 +35,7 @@ class Deck:
     """
 
     # Number of cards to deal
-    number_of_cards_to_deal = 10
+    number_of_cards_to_deal = 5
 
     def __init__(self):
         """
@@ -50,16 +50,16 @@ class Deck:
 
     def get_deck(self) -> list:
         """
-        Returns a list of dictinaries each containing the card's suit and number for each card in deck
+        Returns a list of dictionaries each containing the card's suit and number for each card in deck
 
         Returns:
-            list: of dictinaries each containing the card's suit and number for each card in deck
+            list: of dictionaries each containing the card's suit and number for each card in deck
         """
         return [card.get_card() for card in self.cards]
 
     def get_number_of_remaining_cards(self) -> int:
         """
-        Return the number of remaininng cards in deck
+        Return the number of remaining cards in deck
 
         Returns:
             int: The deck's length
@@ -81,7 +81,8 @@ class Deck:
         Args:
             card (Card): a Card instance
         """
-        self.cards.append(card)
+        if card not in self.cards:
+            self.cards.append(card)
 
     def remove_card(self, card: Card):
         """
@@ -90,7 +91,8 @@ class Deck:
         Args:
             card (Card): a Card instance
         """
-        self.cards.remove(card)
+        if card in self.cards:
+            self.cards.remove(card)
 
     def shuffle_deck(self):
         """
