@@ -16,7 +16,7 @@ class Card:
     Methods
     -------
     get_card() -> dict
-        Returns a dictinary containining the card's suit and number
+        Returns a dictionary containing the card's suit and number
     get_cards_suit() -> str
         Returns the card's suit
     get_cards_number() -> str
@@ -46,7 +46,7 @@ class Card:
         Returns:
             dict: The card as dictionary containing the suit and number
         """
-        return self.suit, self.number
+        return (f"{self.suit}", f"{self.number}")
 
     def get_cards_suit(self) -> str:
         """

@@ -5,17 +5,17 @@ class Card:
     Attributes
     ----------
     suit: str
-        The card's suit
+        Card's suit
     number: str
-        The card's number
+        Card's number
 
     Methods
     -------
     get_card() -> dict
-        Returns a dictinary containining the card's suit and number
-    get_card_suit() -> str
+        Returns a dictionary containing the card's suit and number
+    get_cards_suit() -> str
         Returns the card's suit
-    get_card_number() -> str
+    get_cards_number() -> str
         Returns the card's number
     is_heart() -> bool
         Returns True if the card's suit is Hearts else False
@@ -23,7 +23,7 @@ class Card:
 
     def __init__(self, suit: str, number: str):
         """
-        The constructor for Card class
+        Constructor for Card class
 
         Parameters
         ----------
@@ -35,16 +35,16 @@ class Card:
         self.suit = suit
         self.number = number
 
-    def get_card(self) -> dict:
+    def get_card(self) -> str:
         """
         Returns a dictionary containing card's suit and number
 
         Returns:
             dict: The card as dictionary containing the suit and number
         """
-        return self.suit, self.number
+        return f"{self.suit} {self.number}"
 
-    def get_card_suit(self) -> str:
+    def get_cards_suit(self) -> str:
         """
         Returns the card's suit
 
@@ -53,7 +53,7 @@ class Card:
         """
         return self.suit
 
-    def get_card_number(self) -> str:
+    def get_cards_number(self) -> str:
         """
         Returns the card's number
 
