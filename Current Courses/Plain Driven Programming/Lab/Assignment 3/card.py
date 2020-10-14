@@ -11,12 +11,12 @@ class Card:
 
     Methods
     -------
-    get_card -> dict
-        Returns a dictionary containing the card's suit and number
+    get_card -> tuple
+        Returns a tuple containing card's suit and number
     get_cards_suit -> str
-        Returns the card's suit
+        Returns card's suit
     get_cards_number -> str
-        Returns the card's number
+        Returns card's number
     is_heart -> bool
         Returns True if the card's suit is Hearts else False
     """
@@ -28,9 +28,9 @@ class Card:
         Parameters
         ----------
         suit: str
-            The card's suit
+            Card's suit
         number: str
-            The card's number
+            Card's number
         """
         self.suit = suit
         self.number = number
