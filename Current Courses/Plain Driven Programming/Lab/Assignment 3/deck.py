@@ -1,15 +1,9 @@
-from random import shuffle
 from card import Card
 
 
 class Deck:
     """
     A class to represent a Deck (of playing cards)
-
-    Variables
-    ---------
-    number_of_cards_to_deal: int
-        Number of cards to deal to players
 
     Attributes
     ----------
@@ -18,26 +12,19 @@ class Deck:
 
     Methods
     -------
-    get_deck()
+    get_deck -> list
         Returns a list of dictionaries each containing the card's suit and number for each card in deck
-    get_number_of_remaining_cards()
+    get_number_of_remaining_cards -> int
         Return the number of remaining cards in deck
-    create_deck()
+    create_deck() -> None
         Creates instances of Card type and populates the deck with them
-    add_card(card: Card)
+    add_card(card: Card) -> None
         Appends card, a Card instance, to the deck
-    remove_card(card: Card)
+    remove_card(card: Card) -> None
         Removes card, a Card instance, from the deck
-    shuffle_deck()
-        Shuffles deck in place, using the shuffle method from module random
-    distribute_cards(players_list: list, number_of_cards_to_deal: int)
-        Distribute cards to players and remove distributed cards from deck
     """
 
-    # Number of cards to deal
-    number_of_cards_to_deal = 5
-
-    def __init__(self):
+    def __init__(self) -> None:
         """
         Constructor of Deck class
 
@@ -48,6 +35,7 @@ class Deck:
         """
         self.cards = []
 
+    @property
     def get_deck(self) -> list:
         """
         Returns a list of dictionaries each containing the card's suit and number for each card in deck
@@ -57,6 +45,7 @@ class Deck:
         """
         return [card.get_card() for card in self.cards]
 
+    @property
     def get_number_of_remaining_cards(self) -> int:
         """
         Return the number of remaining cards in deck
@@ -66,7 +55,7 @@ class Deck:
         """
         return len(self.cards)
 
-    def create_deck(self):
+    def create_deck(self) -> None:
         """
         Creates instances of Card type and populates the deck with them
         """
@@ -74,7 +63,7 @@ class Deck:
             for number in ['Ace'] + [f'{i}' for i in range(2, 11)] + ['Jack', 'Queen', 'King']:
                 self.add_card(Card(suit, number))
 
-    def add_card(self, card: Card):
+    def add_card(self, card: Card) -> None:
         """
         Appends card, a Card instance, to the deck
 
@@ -84,7 +73,7 @@ class Deck:
         if card not in self.cards:
             self.cards.append(card)
 
-    def remove_card(self, card: Card):
+    def remove_card(self, card: Card) -> None:
         """
         Removes card, a Card instance, from the deck
 
@@ -93,22 +82,3 @@ class Deck:
         """
         if card in self.cards:
             self.cards.remove(card)
-
-    def shuffle_deck(self):
-        """
-        Shuffles deck in place, using the shuffle method from module random
-        """
-        shuffle(self.cards)
-
-    def deal_cards(self, players_list: list, number_of_cards_to_deal: int):
-        """
-        Deal cards to players and remove dealt cards from deck
-
-        Args:
-            players_list (list): A list of players, instances of Players
-            number_of_cards_to_deal (int): The number of cards to deal
-        """
-        for player in players_list:
-            for dealt_card_counter in range(number_of_cards_to_deal):
-                player.take_card(self.cards[dealt_card_counter])
-                self.remove_card(self.cards[dealt_card_counter])
