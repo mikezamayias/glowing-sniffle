@@ -14,17 +14,17 @@ class Human:
     Methods
     -------
     set_first_name() -> None
-        Updates human's first name
+        Sets human's first name
     set_last_name() -> None
-        Updates human's last name
+        Sets human's last name
     set_age() -> None
-        Updates human's age
+        Sets human's age
     get_first_name -> str
-        Returns human's first name
+        Gets human's first name
     get_last_name -> str
-        Returns human's last name
+        Gets human's last name
     get_age -> int
-        Returns human's age   
+        Gets human's age   
     introduce_self() -> None
         Prints human's info
     """
@@ -48,9 +48,10 @@ class Human:
 
     def set_first_name(self, name: str) -> None:
         """
-        Updates human's first name
+        Sets human's first name
 
-        Args:
+        Arguments
+        ---------
             name (str): human's first name
         """
         if self.first_name is None:
@@ -58,9 +59,10 @@ class Human:
 
     def set_last_name(self, name: str) -> None:
         """
-        Updates human's last name
+        Sets human's last name
 
-        Args:
+        Arguments
+        ---------
             name (str): human's last name
         """
         if self.last_name is None:
@@ -68,9 +70,10 @@ class Human:
 
     def set_age(self, num: int) -> None:
         """
-        Updates human's age
+        Sets human's age
 
-        Args:
+        Arguments
+        ---------
             num (int): human's age
         """
         if self.age is None:
@@ -79,9 +82,10 @@ class Human:
     @property
     def get_first_name(self) -> str:
         """
-        Returns human's first name
+        Gets human's first name
 
-        Returns:
+        Returns
+        -------
             str: human's first name
         """
         return self.first_name
@@ -89,9 +93,10 @@ class Human:
     @property
     def get_last_name(self) -> str:
         """
-        Returns human's last name
+        Gets human's last name
 
-        Returns:
+        Returns
+        -------
             str: human's last name
         """
         return self.last_name
@@ -99,9 +104,10 @@ class Human:
     @property
     def get_age(self) -> int:
         """
-        Returns human's age
+        Gets human's age
 
-        Returns:
+        Returns
+        -------
             int: human's age
         """
         return self.age

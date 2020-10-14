@@ -13,9 +13,9 @@ class Deck:
     Methods
     -------
     get_deck -> list
-        Returns a list of dictionaries each containing the card's suit and number for each card in deck
+        Gets a list of dictionaries each containing the card's suit and number for each card in deck
     get_number_of_remaining_cards -> int
-        Return the number of remaining cards in deck
+        Gets the number of remaining cards in deck
     create_deck() -> None
         Creates instances of Card type and populates the deck with them
     add_card(card: Card) -> None
@@ -38,7 +38,7 @@ class Deck:
     @property
     def get_deck(self) -> list:
         """
-        Returns a list of dictionaries each containing the card's suit and number for each card in deck
+        Gets a list of dictionaries each containing the card's suit and number for each card in deck
 
         Returns:
             list: of dictionaries each containing the card's suit and number for each card in deck
@@ -48,7 +48,7 @@ class Deck:
     @property
     def get_number_of_remaining_cards(self) -> int:
         """
-        Return the number of remaining cards in deck
+        Gets the number of remaining cards in deck
 
         Returns:
             int: The deck's length

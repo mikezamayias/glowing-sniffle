@@ -12,13 +12,15 @@ class Card:
     Methods
     -------
     get_card -> tuple
-        Returns a tuple containing card's suit and number
+        Gets a tuple containing card's suit and number
     get_cards_suit -> str
-        Returns card's suit
+        Gets card's suit
     get_cards_number -> str
-        Returns card's number
+        Gets card's number
     is_heart -> bool
         Returns True if the card's suit is Hearts else False
+    pretty_card -> str
+        Returns a pretty string containing card's number and suit
     """
 
     def __init__(self, suit: str, number: str) -> None:
@@ -38,7 +40,7 @@ class Card:
     @property
     def get_card(self) -> tuple:
         """
-        Returns a dictionary containing card's suit and number
+        Gets a dictionary containing card's suit and number
 
         Returns:
             dict: The card as dictionary containing the suit and number
@@ -48,7 +50,7 @@ class Card:
     @property
     def get_card_suit(self) -> str:
         """
-        Returns the card's suit
+        Gets the card's suit
 
         Returns:
             str: The card's suit
@@ -58,7 +60,7 @@ class Card:
     @property
     def get_card_number(self) -> str:
         """
-        Returns the card's number
+        Gets the card's number
 
         Returns:
             str: The card's number
