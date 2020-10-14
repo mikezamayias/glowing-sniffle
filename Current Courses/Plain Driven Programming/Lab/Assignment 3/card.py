@@ -11,17 +11,17 @@ class Card:
 
     Methods
     -------
-    get_card() -> dict
+    get_card -> dict
         Returns a dictionary containing the card's suit and number
-    get_cards_suit() -> str
+    get_cards_suit -> str
         Returns the card's suit
-    get_cards_number() -> str
+    get_cards_number -> str
         Returns the card's number
-    is_heart() -> bool
+    is_heart -> bool
         Returns True if the card's suit is Hearts else False
     """
 
-    def __init__(self, suit: str, number: str):
+    def __init__(self, suit: str, number: str) -> None:
         """
         Constructor for Card class
 
@@ -35,7 +35,8 @@ class Card:
         self.suit = suit
         self.number = number
 
-    def get_card(self) -> dict:
+    @property
+    def get_card(self) -> tuple:
         """
         Returns a dictionary containing card's suit and number
 
@@ -44,7 +45,8 @@ class Card:
         """
         return self.suit, self.number
 
-    def get_cards_suit(self) -> str:
+    @property
+    def get_card_suit(self) -> str:
         """
         Returns the card's suit
 
@@ -53,7 +55,8 @@ class Card:
         """
         return self.suit
 
-    def get_cards_number(self) -> str:
+    @property
+    def get_card_number(self) -> str:
         """
         Returns the card's number
 
@@ -62,6 +65,7 @@ class Card:
         """
         return self.number
 
+    @property
     def is_heart(self) -> bool:
         """
         Returns True if the card's suit is Hearts. If it's not, return False
@@ -71,9 +75,10 @@ class Card:
         """
         return True if self.suit == 'Hearts' else False
 
+    @property
     def pretty_card(self) -> str:
         """
-        Returns a prtty string from the card
+        Returns a pretty string from the card
 
         Returns:
             str: Card's number and suit in a pretty string
