@@ -31,8 +31,6 @@ class HeartsDealer(Human):
         Deals a random card from deck
     deal_to_players() -> None
         Deals cards to players
-    count_player_hearts() -> int
-        Counts player's Hearts
     count_player_points() -> None
         Counts and sets players' points
     decide_winner() -> None
@@ -95,27 +93,7 @@ class HeartsDealer(Human):
                 self.deck.remove_card(card)
 
     @staticmethod
-    def count_player_hearts(player: HeartsPlayer) -> int:
-        """
-        Counts player's Hearts
-
-        Parameters
-        ----------
-        player: HeartsPlayer
-            Player
-
-        Returns
-        -------
-        heart_counter: int
-            Number of Hearts in Player's hand
-        """
-        heart_counter = 0
-        for card in player.get_hand:
-            if card.is_heart:
-                heart_counter += 1
-        return heart_counter
-
-    def count_player_points(self, player1: HeartsPlayer, player2: HeartsPlayer) -> None:
+    def count_player_points(player1: HeartsPlayer, player2: HeartsPlayer) -> None:
         """
         Counts and sets players' points
 
@@ -126,8 +104,8 @@ class HeartsDealer(Human):
         player2: HeartsPlayer
             Player 2
         """
-        player1_hearts = self.count_player_hearts(player1)
-        player2_hearts = self.count_player_hearts(player2)
+        player1_hearts = player1.count_hearts
+        player2_hearts = player2.count_hearts
         hearts_difference = player1_hearts - player2_hearts
         if hearts_difference > 0:
             player1.set_points(hearts_difference * 10)
