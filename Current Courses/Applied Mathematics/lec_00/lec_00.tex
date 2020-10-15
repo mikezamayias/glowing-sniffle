@@ -1,0 +1,68 @@
+\documentclass[14pt]{extarticle}
+% \documentclass[12pt, fleqn, leqno]{article}
+\usepackage{perpage}
+%\documentclass[12pt]{extreport}
+\usepackage[margin=2cm,includeheadfoot,a4paper]{geometry}
+\usepackage[english,greek]{babel}
+\usepackage{indentfirst}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{titlesec}
+\usepackage{amsmath, mathtools}
+\usepackage{xifthen, xparse}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[hyphens]{url}
+% \usepackage{hyperref}
+
+\MakePerPage{footnote} 
+
+%\setlength{\mathindent}{0pt}
+\setlength{\headheight}{17pt}
+
+%\renewcommand{\arraystretch}{1.5}
+
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries}{}{0pt}{\Huge}
+
+\setlength{\parskip}{0cm}
+\setlength{\parindent}{1cm}
+
+\pagenumbering{arabic}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\rightmark}
+\lhead{Διάλεξη 00}
+\chead{Εφαρμοσμένα Μαθηματικά}
+\rhead{Διαφορικές Εξισώσεις}
+\cfoot{\thepage}
+
+\begin{document}
+
+\subsection{Συνήθης διαφορική εξίσωση}
+
+\begin{equation*}
+    \alpha y''(x) + \beta (x)+ \gamma = 0
+\end{equation*}
+
+Είναι γραμμική, δεύτερης τάξης, ομογενής, με σταθερούς συντελεστές.
+
+
+\subsection{Χαρακτηριστική εξίσωση}
+
+\begin{equation*}
+    \alpha r^2 + \beta r + \gamma = 0
+\end{equation*}
+
+Διακρίνονται οι παρακάτω περιπτώσεις:
+\begin{enumerate}
+    \item \begin{equation*}
+              \Delta > 0 \implies r_1, r_2 \in \Re : y(x) = c_1 e^{r_1x} + c_2 e^{r_2x}
+          \end{equation*}
+    \item
+    \item
+\end{enumerate}
+
+
+
+\end{document}
