@@ -33,6 +33,8 @@ class HeartsPlayer(Human):
         Returns player's hand
     get_points -> int
         Returns player's pints
+    count_hearts -> int
+        Count's the number of Hearts in player's hand
     introduce_self() -> None
         Prints player's info
     print_hand() -> None
@@ -120,6 +122,22 @@ class HeartsPlayer(Human):
             self.points (int): player's points
         """
         return self.points
+
+    @property
+    def count_hearts(self) -> int:
+        """
+        Counts the number of Hearts in player's hand
+
+        Returns
+        -------
+        counter: int
+            Hearts counter
+        """
+        counter = 0
+        for card in self.hand:
+            if card.is_heart:
+                counter += 1
+        return counter
 
     def introduce_self(self) -> None:
         """
