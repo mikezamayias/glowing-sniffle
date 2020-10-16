@@ -1,23 +1,25 @@
 \documentclass[12pt]{extarticle}
-% \documentclass[12pt, fleqn, leqno]{article}
-\usepackage{perpage}
-%\documentclass[12pt]{extreport}
+% \documentclass[15pt, fleqn, leqno]{extarticle}
+% \documentclass[12pt]{extreport}
 \usepackage[margin=2cm,includeheadfoot,a4paper]{geometry}
-\usepackage[english,greek]{babel}
+\usepackage[english, greek]{babel}
+\usepackage[normalize-symbols,keep-semicolon]{alphabeta}
+% \usepackage{fontspec}
 \usepackage{indentfirst}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{titlesec}
+\usepackage{multicol}
 \usepackage{amsmath, mathtools}
-\usepackage{xifthen, xparse}
 \usepackage{fancyhdr}
 \usepackage{fancyvrb}
+\usepackage{perpage}
 \usepackage[hyphens]{url}
 % \usepackage{hyperref}
 
 \MakePerPage{footnote} 
 
 %\setlength{\mathindent}{0pt}
-\setlength{\headheight}{16pt}
+% \setlength{\headheight}{16pt}
 
 %\renewcommand{\arraystretch}{1.5}
 
@@ -32,39 +34,113 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[R]{\rightmark}
-\lhead{Διάλεξη 00}
-\chead{Εφαρμοσμένα Μαθηματικά}
-\rhead{Διαφορικές Εξισώσεις}
+\lhead{Εφαρμοσμένα Μαθηματικά}
+% \chead{}
+% \rhead{}
 \cfoot{\thepage}
+
+% \setmainfont{EB Garamond}
 
 \begin{document}
 
-\subsection{Συνήθης διαφορική εξίσωση}
-
+\tableofcontents
+\newpage
+\chapter{}{Διάλεξη Πρώτη}
+\section{Διαφορική Εξίσωση}
 \begin{equation*}
-    \alpha y''(x) + \beta (x)+ \gamma = 0
+    \begin{aligned}
+        \alpha y''(x) + \beta y' (x)+ \gamma y = 0
+    \end{aligned}
 \end{equation*}
-
-Είναι γραμμική, δεύτερης τάξης, ομογενής, με σταθερούς συντελεστές.
-
-
-\subsection{Χαρακτηριστική εξίσωση}
-
+Η συνήθης Δ.Ε. είναι γραμμική, δεύτερης τάξης, ομογενής, με
+\begin{math}
+    α,β,γ
+\end{math}
+σταθερούς συντελεστές.
+\section{Χαρακτηριστική Eξίσωση}
 \begin{equation*}
-    \alpha r^2 + \beta r + \gamma = 0
+    \begin{aligned}
+        \alpha r^2 + \beta r + \gamma = 0
+    \end{aligned}
 \end{equation*}
-
-Διακρίνονται οι παρακάτω περιπτώσεις:
+Για την γενική λύση της Χ.Ε. διακρίνονται οι παρακάτω περιπτώσεις:
 \begin{enumerate}
-\item $
-    \Delta > 0 \\
-    r_1, r_2 \in \Re \\
-    y(x) = c_1 e^{r_1x} + c_2 e^{r_2x} \\
-    y_1(x) = c_1 e^{r_1x} \\
-    y_2(x) = c_2 e^{r_2x}
-$
+    \item \begin{math}
+              \Delta   > 0 :
+          \end{math}
+          \begin{equation*}
+              \begin{aligned}
+                  r_1, r_2 & \in \Re                       \\
+                  y(x)     & = c_1 e^{r_1x} + c_2 e^{r_2x} \\
+                  y_1(x)   & = c_1 e^{r_1x}                \\
+                  y_2(x)   & = c_2 e^{r_2x}                \\
+                  c_1, c_2 & \text{ σταθερές}
+              \end{aligned}
+          \end{equation*}
+    \item \begin{math}
+              \Delta   = 0 :
+          \end{math}
+          \begin{equation*}
+              \begin{aligned}
+                  r        & \in \Re                     \\
+                  y(x)     & = c_1 e^{rx} + c_2 x e^{rx} \\
+                  y_1(x)   & = c_1 e^{rx}                \\
+                  y_2(x)   & = c_2 x e^{rx}              \\
+                  c_1, c_2 & \text{ σταθερές}
+              \end{aligned}
+          \end{equation*}
+    \item \begin{math}
+              \Delta   < 0 :
+          \end{math}
+          \begin{equation*}
+              \begin{aligned}
+                  r_1                      & = A + Bi                                    \\
+                  r_2                      & = A - Bi                                    \\
+                  A        = \frac{-β}{2α} & \text{, } B = \frac{\sqrt{-Δ}}{2α}          \\
+                  y(x)                     & = c_1 e^{Ax} \sin{Bx} + c_2 e^{Ax} \cos{Bx} \\
+                  y_3(x)                   & = c_1 e^{Ax} \sin{Bx}                       \\
+                  y_4(x)                   & = c_2 e^{Ax} \cos{Bx}                       \\
+                  c_1, c_2                 & \text{ σταθερές}
+              \end{aligned}
+          \end{equation*}
 \end{enumerate}
+\subsection{Απόδειξη περίπτωης \(Δ<0\)}
+Είναι:
+\begin{equation}\label{eqn:1}
+    y_1(x) = e^{Ax} (\sin{Bx} + i \cos{Bx})
+\end{equation}
+\begin{equation}\label{eqn:2}
+    y_2(x) = e^{Ax} (\sin{Bx} - i \cos{Bx})
+\end{equation}
 
+Έχουμε:
+\begin{equation*}
+    \begin{aligned}
+        \eqref{eqn:1} + \eqref{eqn:2}           & = e^{Ax} (\sin{Bx} + i \cos{Bx})                         \\
+                                                & + e^{Ax} (\sin{Bx} - i \cos{Bx})                         \\
+                                                & = e^{Ax} (\sin{Bx} + i \cos{Bx} + \sin{Bx} - i \cos{Bx}) \\
+                                                & = e^{Ax} (2 \sin{Bx}) \implies                           \\
+        y_1(x) + y_2(x)                         & = 2 e^{Ax} \sin{Bx}                                      \\
+        \frac{1}{2} y_1(x) + \frac{1}{2} y_2(x) & = e^{Ax} \sin{Bx}                                        \\
+        y_3(x)                                  & = e^{Ax} \sin{Bx}
+    \end{aligned}
+\end{equation*}
 
-
+Και:
+\begin{equation*}
+    \begin{aligned}
+        \eqref{eqn:1} - \eqref{eqn:2}               & = e^{Ax} (\sin{Bx} + i \cos{Bx})                         \\
+                                                    & - e^{Ax} (\sin{Bx} - i \cos{Bx})                         \\
+                                                    & = e^{Ax} (\sin{Bx} + i \cos{Bx} - \sin{Bx} + i \cos{Bx}) \\
+                                                    & = e^{Ax} (2 i \cos{Bx}) \implies                         \\
+        y_1(x) + y_2(x)                             & = 2 i e^{Ax} \cos{Bx}                                    \\
+        \frac{1}{2 i} y_1(x) + \frac{1}{2 i} y_2(x) & = e^{Ax} \cos{Bx}                                        \\
+        y_4(x)                                      & = e^{Ax} \cos{Bx}
+    \end{aligned}
+\end{equation*}
+\section{Παραδείγματα}
+\subsection{Λύστε τις ακόλουθες Δ.Ε.}
+\subsubsection{\( y''  -y' - 6y = 0 \)}
+\subsubsection{\( y'' -4y' - 5y = 0 \)}
+\subsubsection{\( y'' -4y' - 4y = 0 \)}
 \end{document}
