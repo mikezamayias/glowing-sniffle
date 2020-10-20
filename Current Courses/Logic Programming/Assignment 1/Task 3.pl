@@ -12,7 +12,7 @@ sex_female(soula).
 sex_female(anna).
 
 
-% figoure 3
+% figure 3
 % 1.
 wife(Y, X) :-
     husband(X, Y).
