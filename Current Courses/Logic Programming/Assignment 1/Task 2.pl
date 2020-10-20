@@ -1,22 +1,22 @@
 % a)
 
-edge(a, b).
 % a is connected to b
-edge(a, d).
+edge(a, b).
 % a is connected to d
-edge(b, c).
+edge(a, d).
 % b is connected to c
-edge(b, e).
+edge(b, c).
 % b is connected to e
-edge(c, d).
+edge(b, e).
 % c is connected to d
-edge(d, e).
+edge(c, d).
 % d is connected to e
+edge(d, e).
 
 
 % b)
 
 connected(A, B):-
     edge(A, _); edge(_, B).
-    % using the anonymous variable _ here
-    % instead if using a singleon variable
+    % using anonymous variable _ here,
+    % instead of using a singleon variable
