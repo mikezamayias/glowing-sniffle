@@ -1,6 +1,7 @@
-% consult source file
+% consult source file:
+% https://www.swi-prolog.org/pldoc/man?predicate=consult/1 and
+% https://stackoverflow.com/a/16374004/13504709
 consult('Task 3 source.pl').
-
 
 % figure 2
 father(kostas, anna).

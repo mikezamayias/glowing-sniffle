@@ -20,3 +20,4 @@ connected(A, B):-
     edge(A, _); edge(_, B).
     % using anonymous variable _ here,
     % instead of using a singleon variable
+    % https://www.swi-prolog.org/pldoc/man?section=singleton
