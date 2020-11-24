@@ -1,3 +1,4 @@
+// TODO: comment SalariedEmployee
 package com.company.task_2;
 
 public class SalariedEmployee extends Employee {

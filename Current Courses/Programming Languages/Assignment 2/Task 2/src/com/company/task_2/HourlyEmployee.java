@@ -1,3 +1,4 @@
+// TODO: comment HourlyEmployee
 package com.company.task_2;
 
 public class HourlyEmployee extends Employee {

@@ -1,3 +1,4 @@
+// TODO: comment Employee
 package com.company.task_2;
 
 public abstract class Employee {
