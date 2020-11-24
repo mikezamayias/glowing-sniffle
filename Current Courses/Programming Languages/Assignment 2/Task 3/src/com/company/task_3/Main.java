@@ -29,7 +29,7 @@ public class Main {
         System.out.printf("tv.getPrice() = %d%n", tv.getPrice());
         System.out.printf("tv.getInches() = %d%n", tv.getInches());
         System.out.printf("tv.getColor() = %s%n", tv.getColor());
-        System.out.printf("tv.getTrade_name() = %s%n", tv.getTrade_name());
+        System.out.printf("tv.getTradeName() = %s%n", tv.getTradeName());
         // get and print usb attribute values
         System.out.printf("usb.getId() = %d%n", usb.getId());
         System.out.printf("usb.getName() = %s%n", usb.getName());
