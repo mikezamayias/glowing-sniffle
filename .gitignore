@@ -1,6 +1,6 @@
 .vscode/settings.json
 */.idea/*
-Current Courses/Plain Driven Programming/Lab/Assignment 3/.idea/
+Current Courses/Agile Programming/Lab/Assignment 3/.idea/
 Past Courses/Algorithms/Notes.aux
 Past Courses/Algorithms/Notes.fdb_latexmk
 Past Courses/Algorithms/Notes.fls
@@ -106,86 +106,86 @@ Past Courses/Data Structures/lab_notes/notes.aux
 Past Courses/Data Structures/lab_notes/notes.fdb_latexmk
 Past Courses/Data Structures/lab_notes/notes.fls
 Past Courses/Data Structures/lab_notes/notes.log
-Current Courses/Plain Driven Programming/Lab/Assignment 2/__pycache__/card.cpython-38.pyc
-Current Courses/Plain Driven Programming/Lab/Assignments_1-2.zip
-Current Courses/Plain Driven Programming/Lab/.idea/Lab.iml
-Current Courses/Plain Driven Programming/Lab/.idea/misc.xml
-Current Courses/Plain Driven Programming/Lab/.idea/modules.xml
-Current Courses/Plain Driven Programming/Lab/.idea/vcs.xml
-Current Courses/Plain Driven Programming/Lab/.idea/inspectionProfiles/profiles_settings.xml
-Current Courses/Plain Driven Programming/Lab/Assignment 3/__pycache__/card.cpython-38.pyc
-Current Courses/Plain Driven Programming/Lab/Assignment 3/__pycache__/deck.cpython-38.pyc
-Current Courses/Plain Driven Programming/Lab/Assignment 3/__pycache__/human.cpython-38.pyc
-Current Courses/Plain Driven Programming/Lab/.idea/.gitignore
+Current Courses/Agile Programming/Lab/Assignment 2/__pycache__/card.cpython-38.pyc
+Current Courses/Agile Programming/Lab/Assignments_1-2.zip
+Current Courses/Agile Programming/Lab/.idea/Lab.iml
+Current Courses/Agile Programming/Lab/.idea/misc.xml
+Current Courses/Agile Programming/Lab/.idea/modules.xml
+Current Courses/Agile Programming/Lab/.idea/vcs.xml
+Current Courses/Agile Programming/Lab/.idea/inspectionProfiles/profiles_settings.xml
+Current Courses/Agile Programming/Lab/Assignment 3/__pycache__/card.cpython-38.pyc
+Current Courses/Agile Programming/Lab/Assignment 3/__pycache__/deck.cpython-38.pyc
+Current Courses/Agile Programming/Lab/Assignment 3/__pycache__/human.cpython-38.pyc
+Current Courses/Agile Programming/Lab/.idea/.gitignore
 Current Courses/Logic Programming/__pycache__/task.cpython-38.pyc
 Current Courses/Logic Programming/121481081_721908838397422_4187437675773737313_n.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/backview.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Clubs_2.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Clubs_3.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Clubs_4.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Clubs_5.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Clubs_6.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Clubs_7.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Clubs_8.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Clubs_9.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Clubs_10.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Clubs_A.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Clubs_J.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Clubs_K.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Clubs_Q.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Diamonds_2.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Diamonds_3.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Diamonds_4.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Diamonds_5.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Diamonds_6.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Diamonds_7.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Diamonds_8.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Diamonds_9.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Diamonds_10.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Diamonds_A.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Diamonds_J.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Diamonds_K.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Diamonds_Q.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/empty.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Hearts_2.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Hearts_3.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Hearts_4.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Hearts_5.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Hearts_6.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Hearts_7.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Hearts_8.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Hearts_9.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Hearts_10.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Hearts_A.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Hearts_J.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Hearts_K.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Hearts_Q.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Spades_2.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Spades_3.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Spades_4.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Spades_5.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Spades_6.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Spades_7.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Spades_8.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Spades_9.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Spades_10.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Spades_A.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Spades_J.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Spades_K.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards/Spades_Q.png
-Current Courses/Plain Driven Programming/Lab/Assignment 3/.idea/.gitignore
-Current Courses/Plain Driven Programming/Lab/Assignment 3/.idea/Assignment 3.iml
-Current Courses/Plain Driven Programming/Lab/Assignment 3/.idea/misc.xml
-Current Courses/Plain Driven Programming/Lab/Assignment 3/.idea/modules.xml
-Current Courses/Plain Driven Programming/Lab/Assignment 3/.idea/vcs.xml
-Current Courses/Plain Driven Programming/Lab/Assignment 3/.idea/inspectionProfiles/profiles_settings.xml
-Current Courses/Plain Driven Programming/Lab/Assignment 3/.idea/inspectionProfiles/Project_Default.xml
-Current Courses/Plain Driven Programming/Lab/Assignment 3/__pycache__/dealer.cpython-38.pyc
-Current Courses/Plain Driven Programming/Lab/Assignment 3/__pycache__/player.cpython-38.pyc
-Current Courses/Plain Driven Programming/Lab/Assignment 3/cards.zip
-Current Courses/Plain Driven Programming/Lab/Assignment 3/Revision Excercise 3.pdf
-Current Courses/Plain Driven Programming/Lab/Assignment 3/dui.ui
-Current Courses/Plain Driven Programming/Lab/Assignment 3/ERGASIA_YPOXREWTIKI_Ergasia4.pdf
+Current Courses/Agile Programming/Lab/Assignment 3/cards/backview.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Clubs_2.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Clubs_3.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Clubs_4.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Clubs_5.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Clubs_6.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Clubs_7.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Clubs_8.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Clubs_9.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Clubs_10.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Clubs_A.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Clubs_J.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Clubs_K.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Clubs_Q.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Diamonds_2.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Diamonds_3.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Diamonds_4.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Diamonds_5.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Diamonds_6.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Diamonds_7.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Diamonds_8.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Diamonds_9.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Diamonds_10.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Diamonds_A.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Diamonds_J.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Diamonds_K.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Diamonds_Q.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/empty.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Hearts_2.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Hearts_3.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Hearts_4.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Hearts_5.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Hearts_6.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Hearts_7.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Hearts_8.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Hearts_9.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Hearts_10.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Hearts_A.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Hearts_J.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Hearts_K.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Hearts_Q.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Spades_2.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Spades_3.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Spades_4.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Spades_5.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Spades_6.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Spades_7.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Spades_8.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Spades_9.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Spades_10.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Spades_A.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Spades_J.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Spades_K.png
+Current Courses/Agile Programming/Lab/Assignment 3/cards/Spades_Q.png
+Current Courses/Agile Programming/Lab/Assignment 3/.idea/.gitignore
+Current Courses/Agile Programming/Lab/Assignment 3/.idea/Assignment 3.iml
+Current Courses/Agile Programming/Lab/Assignment 3/.idea/misc.xml
+Current Courses/Agile Programming/Lab/Assignment 3/.idea/modules.xml
+Current Courses/Agile Programming/Lab/Assignment 3/.idea/vcs.xml
+Current Courses/Agile Programming/Lab/Assignment 3/.idea/inspectionProfiles/profiles_settings.xml
+Current Courses/Agile Programming/Lab/Assignment 3/.idea/inspectionProfiles/Project_Default.xml
+Current Courses/Agile Programming/Lab/Assignment 3/__pycache__/dealer.cpython-38.pyc
+Current Courses/Agile Programming/Lab/Assignment 3/__pycache__/player.cpython-38.pyc
+Current Courses/Agile Programming/Lab/Assignment 3/cards.zip
+Current Courses/Agile Programming/Lab/Assignment 3/Revision Excercise 3.pdf
+Current Courses/Agile Programming/Lab/Assignment 3/dui.ui
+Current Courses/Agile Programming/Lab/Assignment 3/ERGASIA_YPOXREWTIKI_Ergasia4.pdf
 Current Courses/Applied Mathematics/lec_00/lec_00.synctex.gz
 Current Courses/Applied Mathematics/lec_00/lec_00.log
 Current Courses/Applied Mathematics/lec_00/lec_00.fls
