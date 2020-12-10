@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
+
+String randomSplashscreenQuote =
+    splashscreenQuotes[Random().nextInt(splashscreenQuotes.length)];
+String splashscreenBackground = "assets/images/lowpoly_house.jpg";
 
 String staticQuestionText =
     'Over the last 2 weeks, how often have you been bothered by any of the following problems?';
