@@ -1,6 +1,5 @@
 import 'package:feeling_good/get_randoms.dart';
 import 'package:flutter/material.dart';
-import 'package:feeling_good/constants.dart';
 
 class ArticleImageCard extends StatefulWidget {
   @override
@@ -12,7 +11,7 @@ class _ArticleImageCardState extends State<ArticleImageCard> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.maybeOf(context).size.width,
-      height: MediaQuery.maybeOf(context).size.height / 1.7,
+      height: MediaQuery.maybeOf(context).size.height / 1.8,
       // height: 200,
       decoration: BoxDecoration(
         image: DecorationImage(

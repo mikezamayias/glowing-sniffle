@@ -12,7 +12,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget homescreenCard(screen) {
     return GestureDetector(
       onTap: () {
-        navigateTo(screen, context);
+        navigateTo(screen, context, '');
       },
       child: HomescreenCard(
         text: screen,

@@ -5,6 +5,7 @@ import 'package:feeling_good/screens/splash/splash_screen.dart';
 import 'package:feeling_good/screens/home/home_screen.dart';
 import 'package:feeling_good/screens/suggestions/suggestions_screen.dart';
 import 'package:feeling_good/screens/questionnaire/questionnaire_screen.dart';
+import 'package:feeling_good/screens/article/article_screen.dart';
 
 void main() {
   runApp(FeelingGoodApp());
@@ -37,22 +38,26 @@ class _FeelingGoodAppState extends State<FeelingGoodApp> {
   }
 }
 
-void navigateTo(String screen, BuildContext context) {
+void navigateTo(String screen, BuildContext context, String article) {
   var duration = Duration(seconds: 1);
   Future.delayed(
     duration,
     () {
       Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (context) {
-          if (screen == 'Suggestions') {
-            return SuggestionsScreen();
-          } else if (screen == 'Questionnaire') {
-            return QuestionnaireScreen();
-          } else {
-            return HomeScreen();
-          }
-        }),
+        MaterialPageRoute(
+          builder: (context) {
+            if (screen == 'Suggestions') {
+              return SuggestionsScreen();
+            } else if (screen == 'Questionnaire') {
+              return QuestionnaireScreen();
+            } else if (screen == 'Article') {
+              return ArticleScreen(article: '$article');
+            } else {
+              return HomeScreen();
+            }
+          },
+        ),
         (route) => false,
       );
     },

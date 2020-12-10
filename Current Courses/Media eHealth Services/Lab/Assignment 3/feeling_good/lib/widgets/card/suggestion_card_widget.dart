@@ -1,16 +1,17 @@
+import 'package:feeling_good/main.dart';
 import 'package:flutter/material.dart';
 import 'package:feeling_good/constants.dart';
 import 'article_image_card_widget.dart';
 import 'article_text_card_widget.dart';
 
-class SuggestionCard extends StatefulWidget {
-  SuggestionCard({Key key}) : super(key: key);
+class SuggestionCard extends StatelessWidget {
+  const SuggestionCard({
+    Key key,
+    @required this.article,
+  }) : super(key: key);
 
-  @override
-  _SuggestionCardState createState() => _SuggestionCardState();
-}
+  final String article;
 
-class _SuggestionCardState extends State<SuggestionCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,16 +21,27 @@ class _SuggestionCardState extends State<SuggestionCard> {
         height: MediaQuery.maybeOf(context).size.height,
         decoration: BoxDecoration(
           color: colors["pale orange"],
-          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+          borderRadius: BorderRadius.all(
+            Radius.circular(20.0),
+          ),
         ),
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          // mainAxisSize: MainAxisSize.max,
-          // crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            ArticleImageCard(),
-            ArticleTextCard(),
-          ],
+        child: GestureDetector(
+          onTap: () => navigateTo('Article', context, '$article'),
+          // onTap: () => showDialog(
+          //   context: context,
+          //   barrierDismissible: true,
+          //   builder: (_) => AlertDialog(
+          //     content: SingleChildScrollView(
+          //       child: Text(articleTitle),
+          //     ),
+          //   ),
+          // ),
+          child: Column(
+            children: <Widget>[
+              ArticleImageCard(),
+              ArticleTextCard(article: '$article')
+            ],
+          ),
         ),
       ),
     );

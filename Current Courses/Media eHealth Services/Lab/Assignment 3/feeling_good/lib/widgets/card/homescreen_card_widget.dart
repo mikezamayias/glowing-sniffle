@@ -21,7 +21,7 @@ class HomescreenCard extends StatelessWidget {
       child: SizedBox(
         height: MediaQuery.maybeOf(context).size.height / 2.5,
         child: Align(
-          alignment: Alignment.bottomCenter,
+          alignment: Alignment.center,
           child: Padding(
             padding: EdgeInsets.all(10.0),
             child: Text(

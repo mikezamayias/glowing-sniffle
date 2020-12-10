@@ -2,26 +2,26 @@ import 'package:feeling_good/constants.dart';
 import 'package:feeling_good/main.dart';
 import 'package:flutter/material.dart';
 
-class QuestionnaireScreen extends StatefulWidget {
-  QuestionnaireScreen({Key key}) : super(key: key);
+class ArticleScreen extends StatelessWidget {
+  const ArticleScreen({
+    Key key,
+    @required this.article,
+  }) : super(key: key);
 
-  @override
-  _QuestionnaireScreenState createState() => _QuestionnaireScreenState();
-}
+  final String article;
 
-class _QuestionnaireScreenState extends State<QuestionnaireScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: () => navigateTo('Homescreen', context, ''),
+          onPressed: () => navigateTo('Suggestions', context, ''),
         ),
         elevation: 20.0,
         backgroundColor: colors["dark purple"],
         title: Text(
-          'Questionnaire',
+          articleTitles['$article'],
           style: TextStyle(
             fontFamily: 'Jura',
             fontWeight: FontWeight.bold,
@@ -34,8 +34,15 @@ class _QuestionnaireScreenState extends State<QuestionnaireScreen> {
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Container(
-          decoration: BoxDecoration(
-            color: colors["pale orange"],
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
+            child: Text(
+              articleBodies["$article"],
+              textAlign: TextAlign.justify,
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
           ),
         ),
       ),
