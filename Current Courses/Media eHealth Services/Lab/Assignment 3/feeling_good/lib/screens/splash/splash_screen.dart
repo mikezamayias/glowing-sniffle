@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:feeling_good/constants.dart';
 import 'package:feeling_good/get_randoms.dart';
 import 'package:feeling_good/widgets/quote/splashscreen_quote_widget.dart';
 import 'package:feeling_good/screens/home/home_screen.dart';
@@ -11,7 +12,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    var duration = Duration(seconds: 5);
+    Duration duration = Duration(seconds: 6);
     Future.delayed(
       duration,
       () {
@@ -44,7 +45,8 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Padding(
               child: SplashscreenCard(
                 text: randomSplashscreenQuote,
-                backgroundcolor: Color(0X882E2334),
+                backgroundcolor: Color(0XAA2E2334),
+                // backgroundcolor: colors['dark purple'],
               ),
               padding: EdgeInsets.all(40.0),
             ),

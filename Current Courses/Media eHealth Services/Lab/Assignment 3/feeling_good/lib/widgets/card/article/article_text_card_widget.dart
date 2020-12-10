@@ -18,15 +18,18 @@ class ArticleTextCard extends StatelessWidget {
           articleTitles['$article'],
           style: TextStyle(
             color: colors["dark font"],
-            fontSize: 30,
+            fontSize: 22,
             fontWeight: FontWeight.bold,
           ),
         ),
-        subtitle: Text(
-          articleDescriptions['$article'],
-          style: TextStyle(
-            color: colors["dark font"],
-            fontSize: 20,
+        subtitle: Padding(
+          padding: EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 0.0),
+          child: Text(
+            articleDescriptions['$article'],
+            style: TextStyle(
+              color: colors["dark font"],
+              fontSize: 20,
+            ),
           ),
         ),
         isThreeLine: true,
