@@ -34,7 +34,7 @@ class _QuestionCardState extends State<QuestionCard> {
               questions[widget.questionIndexCounter],
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 22,
                 fontWeight: FontWeight.bold,
               ),
             ),

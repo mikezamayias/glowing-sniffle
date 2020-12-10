@@ -1,12 +1,14 @@
 import 'package:feeling_good/get_randoms.dart';
 import 'package:flutter/material.dart';
 
-class ArticleImageCard extends StatefulWidget {
-  @override
-  _ArticleImageCardState createState() => _ArticleImageCardState();
-}
+class ArticleImageCard extends StatelessWidget {
+  const ArticleImageCard({
+    Key key,
+    @required this.article,
+  }) : super(key: key);
 
-class _ArticleImageCardState extends State<ArticleImageCard> {
+  final String article;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,8 +17,9 @@ class _ArticleImageCardState extends State<ArticleImageCard> {
       // height: 200,
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage(randomSplashscreenQuoteBackground),
-            fit: BoxFit.cover),
+          image: AssetImage(articleImages['$article']),
+          fit: BoxFit.cover,
+        ),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20.0),
           topRight: Radius.circular(20.0),

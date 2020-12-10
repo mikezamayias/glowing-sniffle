@@ -36,7 +36,7 @@ List<String> splashscreenQuotes = [
   '""\nEach day is a new day. Try again.'
 ];
 
-List<String> splashscreenQuotesBackground = [
+List<String> images = [
   'assets/images/beach.jpg',
   'assets/images/forest_path.jpg',
   'assets/images/lowpoly_house.jpg',

@@ -38,7 +38,7 @@ class SuggestionCard extends StatelessWidget {
           // ),
           child: Column(
             children: <Widget>[
-              ArticleImageCard(),
+              ArticleImageCard(article: '$article'),
               ArticleTextCard(article: '$article')
             ],
           ),

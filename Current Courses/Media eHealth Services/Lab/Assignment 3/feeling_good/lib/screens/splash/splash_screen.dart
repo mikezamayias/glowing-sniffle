@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(randomSplashscreenQuoteBackground),
+              image: AssetImage(splashscreenBackground),
               fit: BoxFit.fitHeight,
             ),
           ),
