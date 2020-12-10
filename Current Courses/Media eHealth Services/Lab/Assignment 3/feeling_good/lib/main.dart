@@ -24,7 +24,7 @@ class _FeelingGoodAppState extends State<FeelingGoodApp> {
       theme: ThemeData(fontFamily: 'Jura'),
       home: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle(
-            statusBarColor: colors["dark purple"], // status bar color
+            statusBarColor: Colors.transparent, // status bar color
             systemNavigationBarColor:
                 colors["dark purple"], // navigation bar color
             statusBarIconBrightness:
@@ -38,8 +38,8 @@ class _FeelingGoodAppState extends State<FeelingGoodApp> {
   }
 }
 
-void navigateTo(String screen, BuildContext context, String article) {
-  var duration = Duration(seconds: 1);
+void navigateTo(BuildContext context, String screen, String article) {
+  Duration duration = Duration(milliseconds: 100);
   Future.delayed(
     duration,
     () {
@@ -62,4 +62,23 @@ void navigateTo(String screen, BuildContext context, String article) {
       );
     },
   );
+}
+
+int navigateQuestions(BuildContext context, int counter) {
+  Duration duration = Duration(milliseconds: 100);
+  Future.delayed(
+    duration,
+    () {
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return;
+          },
+        ),
+        (route) => false,
+      );
+    },
+  );
+  return counter++;
 }

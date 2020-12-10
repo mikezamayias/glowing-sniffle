@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:feeling_good/main.dart';
 import 'package:feeling_good/constants.dart';
-import 'package:feeling_good/widgets/card/homescreen_card_widget.dart';
+import 'package:feeling_good/widgets/card/homescreen/homescreen_card_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -12,7 +12,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget homescreenCard(screen) {
     return GestureDetector(
       onTap: () {
-        navigateTo(screen, context, '');
+        navigateTo(context, screen, '');
       },
       child: HomescreenCard(
         text: screen,

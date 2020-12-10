@@ -1,6 +1,5 @@
 import 'package:feeling_good/main.dart';
-import 'package:feeling_good/screens/home/home_screen.dart';
-import 'package:feeling_good/widgets/card/suggestion_card_widget.dart';
+import 'package:feeling_good/widgets/card/suggestions/suggestion_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:feeling_good/constants.dart';
 
@@ -16,7 +15,7 @@ class _SuggestionsScreenState extends State<SuggestionsScreen> {
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: () => navigateTo('Home', context, ''),
+          onPressed: () => navigateTo(context, 'Home', ''),
         ),
         elevation: 20.0,
         backgroundColor: colors["dark purple"],

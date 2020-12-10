@@ -16,7 +16,7 @@ class ArticleScreen extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: () => navigateTo('Suggestions', context, ''),
+          onPressed: () => navigateTo(context, 'Suggestions', ''),
         ),
         elevation: 20.0,
         backgroundColor: colors["dark purple"],
