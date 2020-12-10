@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:feeling_good/constants.dart';
 
 class SplashscreenCard extends StatelessWidget {
   const SplashscreenCard({

@@ -18,6 +18,7 @@ class _QuestionnaireScreenState extends State<QuestionnaireScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        brightness: Brightness.dark,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () => navigateTo(context, 'Homescreen', ''),

@@ -27,15 +27,6 @@ class SuggestionCard extends StatelessWidget {
         ),
         child: GestureDetector(
           onTap: () => navigateTo(context, 'Article', '$article'),
-          // onTap: () => showDialog(
-          //   context: context,
-          //   barrierDismissible: true,
-          //   builder: (_) => AlertDialog(
-          //     content: SingleChildScrollView(
-          //       child: Text(articleTitle),
-          //     ),
-          //   ),
-          // ),
           child: Column(
             children: <Widget>[
               ArticleImageCard(article: '$article'),

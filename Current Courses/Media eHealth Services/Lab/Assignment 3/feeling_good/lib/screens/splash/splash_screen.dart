@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:feeling_good/constants.dart';
 import 'package:feeling_good/get_randoms.dart';
 import 'package:feeling_good/widgets/quote/splashscreen_quote_widget.dart';
 import 'package:feeling_good/screens/home/home_screen.dart';

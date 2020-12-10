@@ -13,6 +13,7 @@ class _SuggestionsScreenState extends State<SuggestionsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        brightness: Brightness.dark,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () => navigateTo(context, 'Home', ''),

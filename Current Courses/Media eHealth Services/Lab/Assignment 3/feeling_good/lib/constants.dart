@@ -36,8 +36,19 @@ List<String> splashscreenQuotes = [
   '""\nEach day is a new day. Try again.'
 ];
 
+Map<String, String> homescreenCardImages = {
+  'Suggestions': 'assets/images/forest_path.jpg',
+  'Questionnaire': 'assets/images/river_balance.jpg'
+};
+
+Map<String, String> articleImages = {
+  'article_1': 'assets/images/mountain_shore.jpg',
+  'article_2': 'assets/images/mountain.jpg',
+  'article_3': 'assets/images/mountains.jpg',
+  'article_4': 'assets/images/splash_forest.jpg'
+};
+
 List<String> images = [
-  'assets/images/beach.jpg',
   'assets/images/forest_path.jpg',
   'assets/images/lowpoly_house.jpg',
   'assets/images/mountain.jpg',

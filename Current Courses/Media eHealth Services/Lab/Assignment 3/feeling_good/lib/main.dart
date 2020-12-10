@@ -24,14 +24,10 @@ class _FeelingGoodAppState extends State<FeelingGoodApp> {
       theme: ThemeData(fontFamily: 'Jura'),
       home: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle(
-            statusBarColor: Colors.transparent, // status bar color
-            systemNavigationBarColor:
-                colors["dark purple"], // navigation bar color
-            statusBarIconBrightness:
-                Brightness.light, // status bar icons' color
-            systemNavigationBarIconBrightness:
-                Brightness.light //navigation bar icons' color
-            ),
+            statusBarColor: Colors.transparent,
+            systemNavigationBarColor: colors["dark purple"],
+            statusBarIconBrightness: Brightness.light,
+            systemNavigationBarIconBrightness: Brightness.light),
         child: SplashScreen(),
       ),
     );

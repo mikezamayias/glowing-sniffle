@@ -25,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        brightness: Brightness.dark,
         leadingWidth: 0.0,
         // backgroundColor: Colors.amber[900],
         backgroundColor: colors["dark purple"],

@@ -1,5 +1,5 @@
-import 'package:feeling_good/get_randoms.dart';
 import 'package:flutter/material.dart';
+import 'package:feeling_good/constants.dart';
 
 class ArticleImageCard extends StatelessWidget {
   const ArticleImageCard({
@@ -14,7 +14,6 @@ class ArticleImageCard extends StatelessWidget {
     return Container(
       width: MediaQuery.maybeOf(context).size.width,
       height: MediaQuery.maybeOf(context).size.height / 1.8,
-      // height: 200,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(articleImages['$article']),

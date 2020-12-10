@@ -24,19 +24,36 @@ class HomescreenCard extends StatelessWidget {
           Radius.circular(20.0),
         ),
       ),
-      child: Align(
-        alignment: Alignment.center,
-        child: Padding(
-          padding: EdgeInsets.all(10.0),
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-              color: colors["dark font"],
+      child: Column(
+        children: <Widget>[
+          Container(
+            width: MediaQuery.maybeOf(context).size.width,
+            height: MediaQuery.maybeOf(context).size.height / 3.2,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  homescreenCardImages[text],
+                ),
+                fit: BoxFit.cover,
+              ),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20.0),
+                topRight: Radius.circular(20.0),
+              ),
             ),
           ),
-        ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(10.0, 13.0, 10.0, 10.0),
+            child: Text(
+              text,
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: colors["dark font"],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
