@@ -1,8 +1,9 @@
+import 'package:feeling_good/constants.dart';
 import 'package:feeling_good/main.dart';
 import 'package:flutter/material.dart';
-import 'package:feeling_good/constants.dart';
-import '../article/article_image_card_widget.dart';
-import '../article/article_text_card_widget.dart';
+
+import '../article/article_image_widget.dart';
+import '../article/article_text_widget.dart';
 
 class SuggestionCard extends StatelessWidget {
   const SuggestionCard({
@@ -28,10 +29,7 @@ class SuggestionCard extends StatelessWidget {
         child: GestureDetector(
           onTap: () => navigateTo(context, 'Article', '$article'),
           child: Column(
-            children: <Widget>[
-              ArticleImageCard(article: '$article'),
-              ArticleTextCard(article: '$article')
-            ],
+            children: <Widget>[ArticleImageCard(article: '$article'), ArticleTextCard(article: '$article')],
           ),
         ),
       ),

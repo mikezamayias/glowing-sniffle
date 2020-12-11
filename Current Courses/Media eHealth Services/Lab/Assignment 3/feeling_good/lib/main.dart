@@ -1,11 +1,11 @@
+import 'package:feeling_good/constants.dart';
+import 'package:feeling_good/screens/article_screen.dart';
+import 'package:feeling_good/screens/home_screen.dart';
+import 'package:feeling_good/screens/questionnaire_screen.dart';
+import 'package:feeling_good/screens/splash_screen.dart';
+import 'package:feeling_good/screens/suggestions_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:feeling_good/constants.dart';
-import 'package:feeling_good/screens/splash/splash_screen.dart';
-import 'package:feeling_good/screens/home/home_screen.dart';
-import 'package:feeling_good/screens/suggestions/suggestions_screen.dart';
-import 'package:feeling_good/screens/questionnaire/questionnaire_screen.dart';
-import 'package:feeling_good/screens/article/article_screen.dart';
 
 void main() {
   runApp(FeelingGoodApp());

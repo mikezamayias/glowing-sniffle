@@ -1,7 +1,7 @@
-import 'package:feeling_good/main.dart';
-import 'package:feeling_good/widgets/card/suggestions/suggestion_card_widget.dart';
-import 'package:flutter/material.dart';
 import 'package:feeling_good/constants.dart';
+import 'package:feeling_good/main.dart';
+import 'package:feeling_good/widgets/suggestions/suggestion_widget.dart';
+import 'package:flutter/material.dart';
 
 class SuggestionsScreen extends StatefulWidget {
   @override

@@ -1,12 +1,11 @@
-import 'package:flutter/material.dart';
 import 'dart:math';
 
-String randomSplashscreenQuote =
-    splashscreenQuotes[Random().nextInt(splashscreenQuotes.length)];
+import 'package:flutter/material.dart';
+
+String randomSplashscreenQuote = splashscreenQuotes[Random().nextInt(splashscreenQuotes.length)];
 String splashscreenBackground = "assets/images/lowpoly_house.jpg";
 
-String staticQuestionText =
-    'Over the last 2 weeks, how often have you been bothered by any of the following problems?';
+String staticQuestionText = 'Over the last 2 weeks, how often have you been bothered by any of the following problems?';
 
 List<String> questions = [
   'Little interest or pleasure in doing things',
@@ -72,10 +71,8 @@ Map<String, String> articleTitles = {
 
 Map<String, String> articleDescriptions = {
   'article_1': 'How often does a depressed person hear comments such as these?',
-  'article_2':
-      'The misunderstanding occurs because just about everyone has ...',
-  'article_3':
-      'Although the above conditions appear to be biological conditions ...',
+  'article_2': 'The misunderstanding occurs because just about everyone has ...',
+  'article_3': 'Although the above conditions appear to be biological conditions ...',
   'article_4': 'Why does it seem that depression is caused by stress?'
 };
 

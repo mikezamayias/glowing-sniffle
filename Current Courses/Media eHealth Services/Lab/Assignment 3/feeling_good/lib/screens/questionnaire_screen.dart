@@ -1,7 +1,7 @@
 import 'package:feeling_good/constants.dart';
 import 'package:feeling_good/main.dart';
-import 'package:feeling_good/widgets/button/question/question_answer_buttons.dart';
-import 'package:feeling_good/widgets/card/question/question_card_widget.dart';
+import 'package:feeling_good/widgets/questionnaire/question_answer_widget.dart';
+import 'package:feeling_good/widgets/questionnaire/question_widget.dart';
 import 'package:flutter/material.dart';
 
 class QuestionnaireScreen extends StatefulWidget {
@@ -77,8 +77,7 @@ class _QuestionnaireScreenState extends State<QuestionnaireScreen> {
                       backgroundColor: colors['dark purple'],
                       actions: [
                         FlatButton(
-                          onPressed: () =>
-                              navigateTo(context, 'Homescreen', ''),
+                          onPressed: () => navigateTo(context, 'Homescreen', ''),
                           splashColor: colors['light font'],
                           child: Text(
                             'Yes',

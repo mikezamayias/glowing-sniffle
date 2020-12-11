@@ -1,4 +1,4 @@
-import 'package:feeling_good/widgets/button/answer/answer_button.dart';
+import 'package:feeling_good/widgets/questionnaire/answer_widget.dart';
 import 'package:flutter/material.dart';
 
 class QuestionAnswerButtons extends StatelessWidget {

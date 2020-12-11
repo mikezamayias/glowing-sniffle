@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:feeling_good/constants.dart';
+import 'package:feeling_good/screens/home_screen.dart';
 import 'package:feeling_good/widgets/quote/splashscreen_quote_widget.dart';
-import 'package:feeling_good/screens/home/home_screen.dart';
+import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

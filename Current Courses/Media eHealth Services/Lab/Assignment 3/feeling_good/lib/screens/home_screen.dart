@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:feeling_good/main.dart';
 import 'package:feeling_good/constants.dart';
-import 'package:feeling_good/widgets/card/homescreen/homescreen_card_widget.dart';
+import 'package:feeling_good/main.dart';
+import 'package:feeling_good/widgets/homescreen/homescreen_widget.dart';
+import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
