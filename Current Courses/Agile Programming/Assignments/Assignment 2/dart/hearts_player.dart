@@ -1,3 +1,4 @@
+import 'card.dart';
 import 'cards_player.dart';
 import 'hand.dart';
 import 'human.dart';
@@ -27,15 +28,32 @@ class HeartsPlayer extends Human implements CardsPlayer {
     points = 0;
   }
 
-  @override
-  void showHand() {
-    /// Shows player's hand
-  }
-
   Hand get hand => _hand;
 
   set hand(Hand value) {
     _hand = value;
+  }
+
+  @override
+  void showHand() {
+    /// Shows player's hand
+    print(this.userName);
+    for (PlayingCard playingCard in this.hand.playingCards) {
+      print(playingCard.toString());
+    }
+  }
+
+  int countHeartsLastRound() {
+    return this
+        .hand
+        .playingCards
+        .sublist(this.hand.playingCards.length - 5, this.hand.playingCards.length)
+        .where((card) => card.playingCardSuit == 'Hearts')
+        .length;
+  }
+
+  int countHearts() {
+    return this.hand.playingCards.where((card) => card.playingCardSuit == 'Hearts').length;
   }
 
   @override

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'card.dart';
 import 'constants.dart';
 
@@ -20,6 +22,6 @@ class Deck {
   List<PlayingCard> get playingCards => _playingCards;
 
   void shuffle() {
-    _playingCards.shuffle();
+    _playingCards.shuffle(new Random());
   }
 }

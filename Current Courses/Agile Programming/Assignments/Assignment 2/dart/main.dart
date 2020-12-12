@@ -22,7 +22,16 @@ main(List<String> args) {
     'Tony Stark',
   );
 
-  dealer.introduceSelf();
-  player1.introduceSelf();
-  player2.introduceSelf();
+  // dealer.introduceSelf();
+  // player1.introduceSelf();
+  // player2.introduceSelf();
+
+  dealer.shuffleDeck();
+
+  for (int i = 0; i < 5; i++) {
+    dealer.dealToPlayers(player1, player2);
+    dealer.decideRoundWinner(player1, player2, i);
+  }
+
+  dealer.decideWinner(player1, player2);
 }

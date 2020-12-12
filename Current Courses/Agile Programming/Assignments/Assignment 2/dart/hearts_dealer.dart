@@ -1,13 +1,11 @@
-import 'dart:math';
-
 import 'card.dart';
 import 'cards_dealer.dart';
 import 'deck.dart';
+import 'hearts_player.dart';
 import 'human.dart';
 
 class HeartsDealer extends Human implements CardsDealer {
   Deck deck = new Deck();
-  Duration timer_duration;
 
   HeartsDealer(
     String firstName,
@@ -17,9 +15,10 @@ class HeartsDealer extends Human implements CardsDealer {
           firstName,
           lastName,
           age,
-        ) {
-    deck.shuffle();
-    timer_duration = Duration(minutes: 5);
+        );
+
+  void shuffleDeck() {
+    deck.playingCards.shuffle();
   }
 
   @override
@@ -36,12 +35,9 @@ class HeartsDealer extends Human implements CardsDealer {
   }
 
   @override
-  PlayingCard dealRandomCard() {
-    /// Returns a random playing card
-    // Random number in range 0 and deck.playingCards.length
-    int randomDeckIndex = Random().nextInt(deck.playingCards.length);
-    // Choose a random playing card from deck
-    PlayingCard playingCard = deck.playingCards[randomDeckIndex];
+  PlayingCard randomCard() {
+    /// Returns first playing card from shuffled deck
+    PlayingCard playingCard = deck.playingCards.first;
     // Remove this playing card from deck
     deck.playingCards.remove(playingCard);
     // Return the random playing card
@@ -49,12 +45,39 @@ class HeartsDealer extends Human implements CardsDealer {
   }
 
   @override
-  void dealToPlayers() {
-    /// Deals cards to players
+  void dealToPlayers(HeartsPlayer player1, [HeartsPlayer player2]) {
+    /// Deals 10 cards to players
+    for (int i = 0; i < 5; i++) {
+      player1.hand.addPlayingCard(randomCard());
+      player2.hand.addPlayingCard(randomCard());
+    }
+  }
+
+  void decideRoundWinner(HeartsPlayer player1, HeartsPlayer player2, [int round = 0]) {
+    /// Decides who won the round, if any
+    int player1HeartsNumberLastRound = player1.countHeartsLastRound();
+    int player2HeartsNumberLastRound = player2.countHeartsLastRound();
+    int difference = player1HeartsNumberLastRound - player2HeartsNumberLastRound;
+    if (difference != 0) {
+      if (difference > 0) {
+        player1.points += difference * 10;
+      } else {
+        player2.points += -1 * difference * 10;
+      }
+    }
   }
 
   @override
-  void decideWinner() {
-    /// Decides who is the winner, if any
+  void decideWinner(HeartsPlayer player1, HeartsPlayer player2) {
+    /// Decides who won the game, if any
+    if (player1.points == player2.points) {
+      print('It\'s a tie!');
+    } else {
+      if (player1.points > player2.points) {
+        print(player1.userName + ' wins!');
+      } else {
+        print(player2.userName + ' wins!');
+      }
+    }
   }
 }

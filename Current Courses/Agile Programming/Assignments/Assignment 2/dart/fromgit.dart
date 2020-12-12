@@ -1,10 +1,8 @@
-/*
 void main() {
   var deck = new Deck();
   deck.shuffle();
   print(deck.cardsWithSuit('Clubs'));
 }
-*/
 
 class Deck {
   List<Card> cards = [];
