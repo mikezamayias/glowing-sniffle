@@ -8,15 +8,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-  runApp(FeelingGoodApp());
+  runApp(MyApp());
 }
 
-class FeelingGoodApp extends StatefulWidget {
+class MyApp extends StatefulWidget {
   @override
-  _FeelingGoodAppState createState() => _FeelingGoodAppState();
+  _MyAppState createState() => _MyAppState();
 }
 
-class _FeelingGoodAppState extends State<FeelingGoodApp> {
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
