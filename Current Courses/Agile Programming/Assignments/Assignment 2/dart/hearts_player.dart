@@ -30,13 +30,8 @@ class HeartsPlayer extends Human implements CardsPlayer {
 
   Hand get hand => _hand;
 
-  set hand(Hand value) {
-    _hand = value;
-  }
-
   @override
   void showHand() {
-    /// Shows player's hand
     print(this.userName);
     for (PlayingCard playingCard in this.hand.playingCards) {
       print(playingCard.toString());
