@@ -4,7 +4,7 @@ import 'hearts_player.dart';
 abstract class CardsDealer {
   void showDeck();
 
-  PlayingCard randomCard();
+  PlayingCard dealCard();
 
   void dealToPlayers(HeartsPlayer player1, HeartsPlayer player2);
 

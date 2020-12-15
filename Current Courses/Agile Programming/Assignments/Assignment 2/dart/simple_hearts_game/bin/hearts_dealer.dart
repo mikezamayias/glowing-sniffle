@@ -21,6 +21,22 @@ class HeartsDealer extends Human implements CardsDealer {
     deck.playingCards.shuffle();
   }
 
+  void decideRoundWinner(HeartsPlayer player1, HeartsPlayer player2,
+      [int round = 0]) {
+    /// Decides who won the round, if any
+    int player1HeartsNumberLastRound = player1.countHeartsLastRound();
+    int player2HeartsNumberLastRound = player2.countHeartsLastRound();
+    int difference =
+        player1HeartsNumberLastRound - player2HeartsNumberLastRound;
+    if (difference != 0) {
+      if (difference > 0) {
+        player1.points += difference * 10;
+      } else {
+        player2.points += -1 * difference * 10;
+      }
+    }
+  }
+
   @override
   void introduceSelf() {
     print(super.toString());
@@ -35,7 +51,7 @@ class HeartsDealer extends Human implements CardsDealer {
   }
 
   @override
-  PlayingCard randomCard() {
+  PlayingCard dealCard() {
     /// Returns first playing card from shuffled deck
     PlayingCard playingCard = deck.playingCards.first;
     // Remove this playing card from deck
@@ -48,24 +64,8 @@ class HeartsDealer extends Human implements CardsDealer {
   void dealToPlayers(HeartsPlayer player1, [HeartsPlayer player2]) {
     /// Deals 10 cards to players
     for (int i = 0; i < 5; i++) {
-      player1.hand.addPlayingCard(randomCard());
-      player2.hand.addPlayingCard(randomCard());
-    }
-  }
-
-  void decideRoundWinner(HeartsPlayer player1, HeartsPlayer player2,
-      [int round = 0]) {
-    /// Decides who won the round, if any
-    int player1HeartsNumberLastRound = player1.countHeartsLastRound();
-    int player2HeartsNumberLastRound = player2.countHeartsLastRound();
-    int difference =
-        player1HeartsNumberLastRound - player2HeartsNumberLastRound;
-    if (difference != 0) {
-      if (difference > 0) {
-        player1.points += difference * 10;
-      } else {
-        player2.points += -1 * difference * 10;
-      }
+      player1.hand.addPlayingCard(dealCard());
+      player2.hand.addPlayingCard(dealCard());
     }
   }
 

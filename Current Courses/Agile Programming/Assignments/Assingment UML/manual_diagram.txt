@@ -45,6 +45,15 @@ interface CardsPlayer {
   + showHand()
 }
 
-
+class HeartsDealer extends Human implements CardsDealer {
+  - deck: Deck
+  + shuffleDeck()
+  + decideRoundWinner()
+  + introduceSelf()
+  + showDeck()
+  + dealCard()
+  + dealToPlayers()
+  + decideWinner()
+}
 
 @enduml
