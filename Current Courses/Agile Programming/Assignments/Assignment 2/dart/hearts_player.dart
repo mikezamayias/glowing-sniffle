@@ -1,4 +1,4 @@
-import 'card.dart';
+import 'playing_card.dart';
 import 'cards_player.dart';
 import 'hand.dart';
 import 'human.dart';

@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'card.dart';
+import 'playing_card.dart';
 import 'constants.dart';
 
 class Deck {

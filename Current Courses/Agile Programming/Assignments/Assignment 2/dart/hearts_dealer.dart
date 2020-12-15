@@ -1,4 +1,4 @@
-import 'card.dart';
+import 'playing_card.dart';
 import 'cards_dealer.dart';
 import 'deck.dart';
 import 'hearts_player.dart';
@@ -53,11 +53,13 @@ class HeartsDealer extends Human implements CardsDealer {
     }
   }
 
-  void decideRoundWinner(HeartsPlayer player1, HeartsPlayer player2, [int round = 0]) {
+  void decideRoundWinner(HeartsPlayer player1, HeartsPlayer player2,
+      [int round = 0]) {
     /// Decides who won the round, if any
     int player1HeartsNumberLastRound = player1.countHeartsLastRound();
     int player2HeartsNumberLastRound = player2.countHeartsLastRound();
-    int difference = player1HeartsNumberLastRound - player2HeartsNumberLastRound;
+    int difference =
+        player1HeartsNumberLastRound - player2HeartsNumberLastRound;
     if (difference != 0) {
       if (difference > 0) {
         player1.points += difference * 10;

@@ -1,4 +1,4 @@
-import 'card.dart';
+import 'playing_card.dart';
 import 'hearts_player.dart';
 
 abstract class CardsDealer {

@@ -1,4 +1,4 @@
-import 'card.dart';
+import 'playing_card.dart';
 
 class Hand {
   List<PlayingCard> _playingCards = [];
