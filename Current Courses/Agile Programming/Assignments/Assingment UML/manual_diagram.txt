@@ -5,21 +5,33 @@ title Hearts Game - Class Diagram
 class PlayingCard {
   - _playingCardSuit : String
   - _playingCardRank : String
-  + getPlayingCardSuit() : String
-  + getPlayingCardRank() : String
-  + toString() : String
+  + getPlayingCardSuit()
+  + getPlayingCardRank()
+  + toString()
 }
 
 class Deck {
-  - _playingCards : List,
-  + getPlayingCards() : List,
-  + shuffle() : void
+  - _playingCards : List
+  + getPlayingCards()
+  + shuffle()
 }
 
 class Hand {
-  - _playingCards : List,
-  + getPlayingCards() : List,
-  + addPlayingCard() : void
+  - _playingCards : List
+  + getPlayingCards()
+  + addPlayingCard()
 }
+
+abstract class Human {
+  - _firstName : String
+  - _lastName : String
+  - _age : int
+  + getFirstName()
+  + getLastName()
+  + getAge()
+  + toString()
+  + introduceSelf()
+}
+
 
 @enduml
