@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hearts_card_game_sorta/constants.dart';
 import 'package:hearts_card_game_sorta/widgets/human/hearts_dealer_panel.dart';
 import 'package:hearts_card_game_sorta/widgets/human/hearts_player_panel.dart';
+import 'package:hearts_card_game_sorta/widgets/human_label.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -12,40 +14,51 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.white,
+        color: coolors["quick silver"],
         child: Padding(
           padding: EdgeInsets.all(20.0),
-          child: Column(
+          child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Expanded(
-                flex: 2,
-                child: HeartsDealerPanel(
-                  color: "quick silver",
-                  memberKind: 'Dealer',
+                flex: 1,
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    HeartsPlayerPanel(
+                      flex: 1,
+                      backgroundColor: "maya blue",
+                      memberKind: 'Player 1',
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    HeartsDealerPanel(
+                      flex: 2,
+                      backgroundColor: "turquoise",
+                      memberKind: 'Dealer',
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    HeartsPlayerPanel(
+                      flex: 1,
+                      backgroundColor: "middle red",
+                      memberKind: 'Player 2',
+                    ),
+                  ],
                 ),
               ),
               SizedBox(
-                height: 20,
+                width: 20.0,
               ),
-              Expanded(
-                flex: 1,
-                child: HeartsPlayerPanel(
-                  color: "quick silver",
-                  memberKind: 'Player 1',
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Expanded(
-                flex: 1,
-                child: HeartsPlayerPanel(
-                  color: "quick silver",
-                  memberKind: 'Player 2',
-                ),
+              HumanLabel(
+                flex: 4,
+                text: 'Side panel',
               ),
             ],
           ),
