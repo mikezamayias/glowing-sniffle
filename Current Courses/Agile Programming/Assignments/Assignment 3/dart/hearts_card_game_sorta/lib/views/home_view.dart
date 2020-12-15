@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hearts_card_game_sorta/widgets/human_panel.dart';
+import 'package:hearts_card_game_sorta/widgets/humans/hearts_dealer_panel.dart';
+import 'package:hearts_card_game_sorta/widgets/humans/hearts_player_panel.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -11,22 +12,40 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.amber,
+        color: Colors.white,
         child: Padding(
-          padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 20.0),
+          padding: EdgeInsets.all(20.0),
           child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Expanded(
-                flex: 1,
-                child: HumanPanel(),
-              ),
-              Expanded(
                 flex: 2,
-                child: HumanPanel(),
+                child: HeartsDealerPanel(
+                  color: "quick silver",
+                  memberKind: 'Dealer',
+                ),
+              ),
+              SizedBox(
+                height: 20,
               ),
               Expanded(
                 flex: 1,
-                child: HumanPanel(),
+                child: HeartsPlayerPanel(
+                  color: "quick silver",
+                  memberKind: 'Player 1',
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Expanded(
+                flex: 1,
+                child: HeartsPlayerPanel(
+                  color: "quick silver",
+                  memberKind: 'Player 2',
+                ),
               ),
             ],
           ),

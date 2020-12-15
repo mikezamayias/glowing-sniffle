@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hearts_card_game_sorta/constants.dart';
-import 'package:hearts_card_game_sorta/widgets/buttons/human_panel_button.dart';
+import 'package:hearts_card_game_sorta/widgets/buttons/label.dart';
 
 class HeartsPlayerPanel extends StatelessWidget {
   const HeartsPlayerPanel({
@@ -26,49 +26,42 @@ class HeartsPlayerPanel extends StatelessWidget {
           )
         ],
       ),
-      child: Row(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(20.0),
-            child: Container(
-              decoration: BoxDecoration(
-                color: coolors[color],
-                borderRadius: BorderRadius.all(Radius.circular(20.0)),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(20.0),
-                child: Text(
-                  memberKind,
-                  style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    fontSize: 20,
+      child: Expanded(
+        child: Padding(
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: coolors[color],
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: Text(
+                    memberKind,
+                    style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      fontSize: 20,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
-            ),
-          ),
-          Expanded(
-            child: Padding(
-              // padding: EdgeInsets.all(20.0),
-              padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  HumanPanelButton(
-                    color: "turquoise",
-                    text: "data",
-                  ),
-                  HumanPanelButton(
-                    color: "maya blue",
-                    text: "data",
-                  ),
-                ],
+              Label(
+                backgroundColor: "turquoise",
+                text: "data",
               ),
-            ),
+              Label(
+                backgroundColor: "maya blue",
+                text: "data",
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
