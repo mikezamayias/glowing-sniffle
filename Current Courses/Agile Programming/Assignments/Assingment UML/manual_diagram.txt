@@ -16,6 +16,10 @@ class Deck {
   + shuffle() : void
 }
 
-
+class Hand {
+  - _playingCards : List,
+  + getPlayingCards() : List,
+  + addPlayingCard() : void
+}
 
 @enduml
