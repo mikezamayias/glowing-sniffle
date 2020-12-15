@@ -5,68 +5,68 @@ title Simple Hearts Game - Class Diagram
 class PlayingCard {
   - _playingCardSuit : String
   - _playingCardRank : String
-  + getPlayingCardSuit()
-  + getPlayingCardRank()
-  + toString()
+  + getPlayingCardSuit() : String
+  + getPlayingCardRank() : String
+  + toString() : String
 }
 
 
 class Deck {
-  - _playingCards : List
-  + getPlayingCards()
-  + shuffle()
+  - _playingCards : List<PlayingCard>
+  + getPlayingCards() : List<PlayingCard>
+  + shuffle() : void
 }
 
 class Hand {
-  - _playingCards : List
-  + getPlayingCards()
-  + addPlayingCard()
-  + handSize()
+  - _playingCards : List<PlayingCard>
+  + getPlayingCards() : List<PlayingCard>
+  + addPlayingCard() : void
+  + handSize() : int
 }
 
 abstract class Human {
   - _firstName : String
   - _lastName : String
   - _age : int
-  + getFirstName()
-  + getLastName()
-  + getAge()
-  + toString()
-  + introduceSelf()
+  + getFirstName() : String
+  + getLastName() : String
+  + getAge() : int
+  + toString() : String
+  + introduceSelf() : void
 }
 
 interface CardsDealer {
-  + showDeck()
-  + randomCard()
-  + dealToPlayers()
-  + decideWinner()
+  + showDeck() : void
+  + dealCard() : PlayingCard
+  + dealToPlayers() : void
+  + decideWinner() : void
 }
 
 interface CardsPlayer {
-  + showHand()
+  + showHand() : void
 }
 
 class HeartsDealer extends Human implements CardsDealer {
   - deck: Deck
-  + shuffleDeck()
-  + decideRoundWinner()
-  + introduceSelf()
-  + showDeck()
-  + dealCard()
-  + dealToPlayers()
-  + decideWinner()
+  + shuffleDeck() : void
+  + decideRoundWinner() : void
+  + introduceSelf() : void
+  + showDeck() : void
+  + dealCard() : PlayingCard
+  + dealToPlayers() : void
+  + decideWinner() : void
 }
 
 class HeartsPlayer extends Human implements CardsPlayer {
   - _userName : String
   - _hand : Hand
   - points : int
-  + getUsername()
-  + getHand()
-  + countHeartsLastRound()
-  + countHearts()
-  + introduceSelf()
-  + showHand()
+  + getUsername() : String
+  + getHand() : Hand
+  + countHeartsLastRound() : int
+  + countHearts() : int
+  + introduceSelf() : void
+  + showHand() : void
 }
 
 @enduml
