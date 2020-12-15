@@ -2,6 +2,11 @@ class PlayingCard {
   String _playingCardSuit;
   String _playingCardRank;
 
+  PlayingCard(
+    this._playingCardSuit,
+    this._playingCardRank,
+  );
+
   String get playingCardSuit {
     return _playingCardSuit;
   }
@@ -15,11 +20,6 @@ class PlayingCard {
   set playingCardRank(String playingCardRank) {
     _playingCardRank = playingCardRank;
   }
-
-  PlayingCard(
-    this._playingCardSuit,
-    this._playingCardRank,
-  );
 
   @override
   String toString() {

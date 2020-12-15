@@ -1,5 +1,4 @@
-import 'dart:math';
-
+import 'dart:math' show Random;
 import 'playing_card.dart';
 import 'constants.dart';
 

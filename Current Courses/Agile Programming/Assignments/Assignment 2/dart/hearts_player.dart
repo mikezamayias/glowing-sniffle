@@ -47,13 +47,18 @@ class HeartsPlayer extends Human implements CardsPlayer {
     return this
         .hand
         .playingCards
-        .sublist(this.hand.playingCards.length - 5, this.hand.playingCards.length)
+        .sublist(
+            this.hand.playingCards.length - 5, this.hand.playingCards.length)
         .where((card) => card.playingCardSuit == 'Hearts')
         .length;
   }
 
   int countHearts() {
-    return this.hand.playingCards.where((card) => card.playingCardSuit == 'Hearts').length;
+    return this
+        .hand
+        .playingCards
+        .where((card) => card.playingCardSuit == 'Hearts')
+        .length;
   }
 
   @override
