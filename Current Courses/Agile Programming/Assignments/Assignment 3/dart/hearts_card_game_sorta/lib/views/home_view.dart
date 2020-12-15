@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hearts_card_game_sorta/widgets/humans/hearts_dealer_panel.dart';
-import 'package:hearts_card_game_sorta/widgets/humans/hearts_player_panel.dart';
+import 'package:hearts_card_game_sorta/widgets/human/hearts_dealer_panel.dart';
+import 'package:hearts_card_game_sorta/widgets/human/hearts_player_panel.dart';
 
 class HomeView extends StatefulWidget {
   @override
