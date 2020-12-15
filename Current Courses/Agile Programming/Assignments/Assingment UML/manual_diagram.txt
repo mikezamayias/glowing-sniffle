@@ -41,6 +41,10 @@ interface CardsDealer {
   + decideWinner()
 }
 
+interface CardsPlayer {
+  + showHand()
+}
+
 
 
 @enduml
