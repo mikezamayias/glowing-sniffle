@@ -1,0 +1,7 @@
+@startuml
+
+title Hearts Game - Class Diagram
+
+
+
+@enduml
