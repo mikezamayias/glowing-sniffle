@@ -1,6 +1,6 @@
 @startuml
 
-title Hearts Game - Class Diagram
+title Simple Hearts Game - Class Diagram
 
 class PlayingCard {
   - _playingCardSuit : String
@@ -9,6 +9,7 @@ class PlayingCard {
   + getPlayingCardRank()
   + toString()
 }
+
 
 class Deck {
   - _playingCards : List
@@ -32,6 +33,14 @@ abstract class Human {
   + toString()
   + introduceSelf()
 }
+
+interface CardsDealer {
+  + showDeck()
+  + randomCard()
+  + dealToPlayers()
+  + decideWinner()
+}
+
 
 
 @enduml
