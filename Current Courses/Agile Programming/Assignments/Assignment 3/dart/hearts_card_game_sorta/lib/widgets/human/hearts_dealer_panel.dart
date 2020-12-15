@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hearts_card_game_sorta/constants.dart';
-import 'package:hearts_card_game_sorta/widgets/human_label.dart';
-import 'package:hearts_card_game_sorta/widgets/button_label.dart';
+import 'package:hearts_card_game_sorta/labels/human_label.dart';
+import 'package:hearts_card_game_sorta/labels/button_label.dart';
 
 class HeartsDealerPanel extends StatelessWidget {
   const HeartsDealerPanel({

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hearts_card_game_sorta/widgets/base_label.dart';
+import 'package:hearts_card_game_sorta/labels/base_label.dart';
 
-class HumanLabel extends StatelessWidget {
-  const HumanLabel({
+class ButtonLabel extends StatelessWidget {
+  const ButtonLabel({
     Key key,
     @required this.flex,
     @required this.text,
@@ -15,7 +15,7 @@ class HumanLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseLabel(
       flex: flex,
-      backgroundColor: "white",
+      backgroundColor: "beige",
       text: text,
     );
   }
