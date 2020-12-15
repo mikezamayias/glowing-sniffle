@@ -1,3 +1,11 @@
+' to get the diagram as a pdf file, follow the steps:
+' 1.  press F1
+' 2.  select "PlantUML: Export Current Diagram"
+' 3.  select svg
+' 4.  locate teh svg and open a terminal in its direcotry
+' 5.  execute: sudo apt install -y librsvg2-bin
+' 6.  execute: rsvg-convert -f pdf -o "Simple Hearts Game - Class Diagram.pdf" "Simple Hearts Game - Class Diagram.svg"
+
 @startuml
 skinparam handwritten true
 skinparam monochrome true
