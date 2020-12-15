@@ -6,13 +6,6 @@ import 'human.dart';
 class HeartsPlayer extends Human implements CardsPlayer {
   String _userName;
   Hand _hand = new Hand();
-
-  String get userName => _userName;
-
-  set userName(String value) {
-    _userName = value;
-  }
-
   int points;
 
   HeartsPlayer(
@@ -28,22 +21,16 @@ class HeartsPlayer extends Human implements CardsPlayer {
     points = 0;
   }
 
-  Hand get hand => _hand;
+  String get userName => _userName;
 
-  @override
-  void showHand() {
-    print(this.userName);
-    for (PlayingCard playingCard in this.hand.playingCards) {
-      print(playingCard.toString());
-    }
-  }
+  Hand get hand => _hand;
 
   int countHeartsLastRound() {
     return this
         .hand
         .playingCards
         .sublist(
-            this.hand.playingCards.length - 5, this.hand.playingCards.length)
+            this.hand.handSize() - 5, this.hand.handSize())
         .where((card) => card.playingCardSuit == 'Hearts')
         .length;
   }
@@ -59,5 +46,13 @@ class HeartsPlayer extends Human implements CardsPlayer {
   @override
   void introduceSelf() {
     print(super.toString() + ', "$userName"');
+  }
+
+  @override
+  void showHand() {
+    print(this.userName);
+    for (PlayingCard playingCard in this.hand.playingCards) {
+      print(playingCard.toString());
+    }
   }
 }

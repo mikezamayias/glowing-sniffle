@@ -21,6 +21,7 @@ class Hand {
   - _playingCards : List
   + getPlayingCards()
   + addPlayingCard()
+  + handSize()
 }
 
 abstract class Human {
@@ -54,6 +55,18 @@ class HeartsDealer extends Human implements CardsDealer {
   + dealCard()
   + dealToPlayers()
   + decideWinner()
+}
+
+class HeartsPlayer extends Human implements CardsPlayer {
+  - _userName : String
+  - _hand : Hand
+  - points : int
+  + getUsername()
+  + getHand()
+  + countHeartsLastRound()
+  + countHearts()
+  + introduceSelf()
+  + showHand()
 }
 
 @enduml

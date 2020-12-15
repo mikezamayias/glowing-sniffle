@@ -10,4 +10,6 @@ class Hand {
   void addPlayingCard(PlayingCard playingCard) {
     _playingCards.add(playingCard);
   }
+
+  int handSize() => _playingCards.length;
 }
