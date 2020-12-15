@@ -10,8 +10,4 @@ class Hand {
   void addPlayingCard(PlayingCard playingCard) {
     _playingCards.add(playingCard);
   }
-
-  void removePlayingCard(PlayingCard playingCard) {
-    _playingCards.remove(playingCard);
-  }
 }

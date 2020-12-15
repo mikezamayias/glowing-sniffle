@@ -1,14 +1,28 @@
 class PlayingCard {
-  String playingCardSuit;
-  String playingCardRank;
+  String _playingCardSuit;
+  String _playingCardRank;
+
+  String get playingCardSuit {
+    return _playingCardSuit;
+  }
+
+  set playingCardSuit(String playingCardSuit) {
+    _playingCardSuit = playingCardSuit;
+  }
+
+  String get playingCardRank => _playingCardRank;
+
+  set playingCardRank(String playingCardRank) {
+    _playingCardRank = playingCardRank;
+  }
 
   PlayingCard(
-    this.playingCardSuit,
-    this.playingCardRank,
+    this._playingCardSuit,
+    this._playingCardRank,
   );
 
   @override
   String toString() {
-    return '$playingCardRank of $playingCardSuit';
+    return '$_playingCardRank of $_playingCardSuit';
   }
 }
