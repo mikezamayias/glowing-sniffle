@@ -10,4 +10,12 @@ class PlayingCard {
   + toString() : String
 }
 
+class Deck {
+  - _playingCards : List,
+  + getPlayingCards() : List,
+  + shuffle() : void
+}
+
+
+
 @enduml
