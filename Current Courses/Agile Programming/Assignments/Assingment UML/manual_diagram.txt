@@ -2,6 +2,12 @@
 
 title Hearts Game - Class Diagram
 
-
+class PlayingCard {
+  - _playingCardSuit : String
+  - _playingCardRank : String
+  + getPlayingCardSuit() : String
+  + getPlayingCardRank() : String
+  + toString() : String
+}
 
 @enduml

@@ -7,19 +7,9 @@ class PlayingCard {
     this._playingCardRank,
   );
 
-  String get playingCardSuit {
-    return _playingCardSuit;
-  }
-
-  set playingCardSuit(String playingCardSuit) {
-    _playingCardSuit = playingCardSuit;
-  }
+  String get playingCardSuit => _playingCardSuit;
 
   String get playingCardRank => _playingCardRank;
-
-  set playingCardRank(String playingCardRank) {
-    _playingCardRank = playingCardRank;
-  }
 
   @override
   String toString() {
