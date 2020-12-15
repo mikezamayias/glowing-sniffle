@@ -52,10 +52,12 @@ class HeartsPlayerPanel extends StatelessWidget {
                 ),
               ),
               Label(
+                flex: 1,
                 backgroundColor: "turquoise",
                 text: "data",
               ),
               Label(
+                flex: 1,
                 backgroundColor: "maya blue",
                 text: "data",
               ),
