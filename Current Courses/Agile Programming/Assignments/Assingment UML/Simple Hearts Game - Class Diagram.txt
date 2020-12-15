@@ -1,4 +1,7 @@
 @startuml
+skinparam handwritten true
+skinparam monochrome true
+skinparam DefaultFontName xkcd Script
 
 title Simple Hearts Game - Class Diagram
 
