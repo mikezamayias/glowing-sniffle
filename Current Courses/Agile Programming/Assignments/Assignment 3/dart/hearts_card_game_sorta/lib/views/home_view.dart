@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hearts_card_game_sorta/constants.dart';
-import 'package:hearts_card_game_sorta/widgets/human/hearts_dealer_panel.dart';
-import 'package:hearts_card_game_sorta/widgets/human/hearts_player_panel.dart';
-import 'package:hearts_card_game_sorta/widgets/labels/human_label.dart';
+import 'package:hearts_card_game_sorta/panels/hearts_dealer_panel.dart';
+import 'package:hearts_card_game_sorta/panels/hearts_player_panel.dart';
+import 'package:hearts_card_game_sorta/labels/human_label.dart';
 
 class HomeView extends StatefulWidget {
   @override
