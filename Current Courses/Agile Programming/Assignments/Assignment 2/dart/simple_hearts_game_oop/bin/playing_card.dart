@@ -1,7 +1,6 @@
-/// A class to represent the playing card.
+/// A class to represent a playing card.
 ///
-/// The playing card has string variables for its suit
-/// and rank attributes.
+/// Playing card has string attributes for its suit and rank.
 ///
 /// It also has two getters, for the above attributes,
 /// and a method "toString" to return a formatted string
