@@ -2,7 +2,7 @@ import 'playing_card.dart';
 
 /// A class to represent player's hand.
 ///
-/// Player's hand has a list of playing cards attribute.
+/// Player's hand has a playing cards list attribute.
 ///
 /// It also has a getter, for the attribute and two 
 /// methods, addPlayingCard to add a playing card to the
