@@ -4,7 +4,7 @@ import 'deck.dart';
 import 'hearts_player.dart';
 import 'human.dart';
 
-/// A class to represent a hearts dealer
+/// A class to represent a hearts dealer.
 ///
 /// A hearts dealer has first and last name, age and a deck
 /// of cards.
@@ -57,7 +57,7 @@ class HeartsDealer extends Human implements CardsDealer {
 
   @override
   void showDeck() {
-    /// Shows remaining playing cards in deck
+    /// Shows remaining playing cards in deck.
     for (var playingCard in deck.playingCards) {
       print(playingCard.toString());
     }
@@ -66,14 +66,14 @@ class HeartsDealer extends Human implements CardsDealer {
   @override
   PlayingCard dealCard() {
     /// Deals upper most card to player
-    var playingCard = deck.playingCards.first; // This playing card
-    deck.playingCards.remove(playingCard); // Removes this card from deck
+    var playingCard = deck.playingCards.first; // This playing card.
+    deck.playingCards.remove(playingCard); // Removes this card from deck.
     return playingCard; // Returns the card
   }
 
   @override
   void dealToPlayers(HeartsPlayer player1, [HeartsPlayer player2]) {
-    /// Deals 10 cards to players
+    /// Deals 10 cards to players.
     for (var i = 0; i < 5; i++) {
       player1.hand.addPlayingCard(dealCard());
       player2.hand.addPlayingCard(dealCard());
@@ -82,7 +82,7 @@ class HeartsDealer extends Human implements CardsDealer {
 
   @override
   void decideWinner(HeartsPlayer player1, HeartsPlayer player2) {
-    /// Decides the winner of the game
+    /// Decides the winner of the game, if any.
     if (player1.points == player2.points) {
       print('It\'s a tie!');
     } else {
