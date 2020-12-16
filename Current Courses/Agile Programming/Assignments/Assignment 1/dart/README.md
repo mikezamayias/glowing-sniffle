@@ -7,3 +7,6 @@ Or
 
 ## Run program
 Execute `dart main.dart` in a terminal inside this directory.
+
+# Written in
+`Dart SDK version: 2.10.4 (stable) (Unknown timestamp) on "linux_x64"`
