@@ -11,7 +11,8 @@ skinparam handwritten true
 skinparam monochrome true
 skinparam DefaultFontName xkcd Script
 
-title Simple Hearts Game - Class Diagram
+title Simple Hearts Game - Class Diagram\nBased on Assignment 2
+
 
 class PlayingCard {
   - _playingCardSuit : String
