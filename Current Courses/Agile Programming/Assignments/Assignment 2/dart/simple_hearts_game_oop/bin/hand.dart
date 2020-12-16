@@ -5,8 +5,8 @@ import 'playing_card.dart';
 /// Player's hand has a playing cards list attribute.
 ///
 /// It also has a getter two methods,
-/// addPlayingCard to add a playing card to the
-/// hand and handSize to get the hand size.
+/// addPlayingCard adds a playing card to this hand and
+/// handSize gets this hand's size.
 class Hand {
   final List<PlayingCard> _playingCards = []; // Attribute
 
