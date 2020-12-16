@@ -1,6 +1,6 @@
 import 'dart:math';
 
-main(List<String> args) {
+void main(List<String> args) {
   // A set for card's suits
   Set<String> suits = {'Hearts', 'Diamonds', 'Clubs', 'Spades'};
   // A set for card's numbers
