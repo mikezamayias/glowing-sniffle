@@ -4,8 +4,19 @@ import 'deck.dart';
 import 'hearts_player.dart';
 import 'human.dart';
 
+/// A class to represent a hearts dealer
+///
+/// A hearts dealer has first and last name, age and a deck
+/// of cards.
+///
+/// Has 2 mothods of their own,
+/// shuffleDeck, shuffles this deck and
+/// decideRoundWinner, decided who won the round.
+/// 
+/// Also overrides methods in Human abstract class and
+/// CardsDealer interface.
 class HeartsDealer extends Human implements CardsDealer {
-  Deck deck = Deck();
+  Deck deck = Deck(); // Attribute
 
   HeartsDealer(
     String firstName,
@@ -15,15 +26,16 @@ class HeartsDealer extends Human implements CardsDealer {
           firstName,
           lastName,
           age,
-        );
+        ); // Constructor
 
   void shuffleDeck() {
+    /// Shuffles this deck.
     deck.playingCards.shuffle();
   }
 
   void decideRoundWinner(HeartsPlayer player1, HeartsPlayer player2,
       [int round = 0]) {
-    /// Decides who won the round, if any
+    /// Decides who won this round, if any, by giving points to the winner.
     var player1HeartsNumberLastRound = player1.countHeartsLastRound();
     var player2HeartsNumberLastRound = player2.countHeartsLastRound();
     var difference =
@@ -39,6 +51,7 @@ class HeartsDealer extends Human implements CardsDealer {
 
   @override
   void introduceSelf() {
+    /// Introduces dealer.
     print(super.toString());
   }
 
@@ -52,12 +65,10 @@ class HeartsDealer extends Human implements CardsDealer {
 
   @override
   PlayingCard dealCard() {
-    /// Returns first playing card from shuffled deck
-    var playingCard = deck.playingCards.first;
-    // Remove this playing card from deck
-    deck.playingCards.remove(playingCard);
-    // Return the random playing card
-    return playingCard;
+    /// Deals upper most card to player
+    var playingCard = deck.playingCards.first; // This playing card
+    deck.playingCards.remove(playingCard); // Removes this card from deck
+    return playingCard; // Returns the card
   }
 
   @override
@@ -71,7 +82,7 @@ class HeartsDealer extends Human implements CardsDealer {
 
   @override
   void decideWinner(HeartsPlayer player1, HeartsPlayer player2) {
-    /// Decides who won the game, if any
+    /// Decides the winner of the game
     if (player1.points == player2.points) {
       print('It\'s a tie!');
     } else {
