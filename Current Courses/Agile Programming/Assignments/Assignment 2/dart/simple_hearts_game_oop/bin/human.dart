@@ -2,12 +2,12 @@
 /// attributes for human's first and last name and age,
 /// attribute getters,
 /// methods.
-abstract class Constrictor {
+abstract class Human {
   final String _firstName; // Attribute
   final String _lastName; // Attribute
   final int _age; // Attribute
 
-  Constrictor(
+  Human(
     this._firstName,
     this._lastName,
     this._age,
