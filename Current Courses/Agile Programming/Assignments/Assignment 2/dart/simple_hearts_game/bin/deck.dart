@@ -3,12 +3,12 @@ import 'playing_card.dart';
 import 'constants.dart';
 
 class Deck {
-  List<PlayingCard> _playingCards = [];
+  final List<PlayingCard> _playingCards = [];
 
   Deck() {
     PlayingCard playingCard;
-    for (String playingCardSuit in playingCardSuits) {
-      for (String playingCardRank in playingCardRanks) {
+    for (var playingCardSuit in playingCardSuits) {
+      for (var playingCardRank in playingCardRanks) {
         playingCard = PlayingCard(
           playingCardSuit,
           playingCardRank,
@@ -21,6 +21,6 @@ class Deck {
   List<PlayingCard> get playingCards => _playingCards;
 
   void shuffle() {
-    _playingCards.shuffle(new Random());
+    _playingCards.shuffle(Random());
   }
 }

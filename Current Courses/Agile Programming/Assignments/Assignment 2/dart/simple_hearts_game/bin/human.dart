@@ -1,7 +1,7 @@
 abstract class Human {
-  String _firstName;
-  String _lastName;
-  int _age;
+  final String _firstName;
+  final String _lastName;
+  final int _age;
 
   Human(
     this._firstName,

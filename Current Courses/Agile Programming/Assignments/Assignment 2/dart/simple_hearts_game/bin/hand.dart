@@ -1,7 +1,7 @@
 import 'playing_card.dart';
 
 class Hand {
-  List<PlayingCard> _playingCards = [];
+  final List<PlayingCard> _playingCards = [];
 
   Hand();
 

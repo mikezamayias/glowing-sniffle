@@ -1,21 +1,21 @@
 import 'hearts_dealer.dart';
 import 'hearts_player.dart';
 
-main(List<String> args) {
-  HeartsDealer dealer = new HeartsDealer(
+void main(List<String> args) {
+  var dealer = HeartsDealer(
     'Nick',
     'Fury',
     66,
   );
 
-  HeartsPlayer player1 = new HeartsPlayer(
+  var player1 = HeartsPlayer(
     'Captain',
     'America',
     102,
     'Steve Rogers',
   );
 
-  HeartsPlayer player2 = new HeartsPlayer(
+  var player2 = HeartsPlayer(
     'Iron',
     'Man',
     50,
@@ -28,7 +28,7 @@ main(List<String> args) {
 
   dealer.shuffleDeck();
 
-  for (int i = 0; i < 5; i++) {
+  for (var i = 0; i < 5; i++) {
     dealer.dealToPlayers(player1, player2);
     dealer.decideRoundWinner(player1, player2, i);
   }

@@ -5,7 +5,7 @@ import 'hearts_player.dart';
 import 'human.dart';
 
 class HeartsDealer extends Human implements CardsDealer {
-  Deck deck = new Deck();
+  Deck deck = Deck();
 
   HeartsDealer(
     String firstName,
@@ -24,9 +24,9 @@ class HeartsDealer extends Human implements CardsDealer {
   void decideRoundWinner(HeartsPlayer player1, HeartsPlayer player2,
       [int round = 0]) {
     /// Decides who won the round, if any
-    int player1HeartsNumberLastRound = player1.countHeartsLastRound();
-    int player2HeartsNumberLastRound = player2.countHeartsLastRound();
-    int difference =
+    var player1HeartsNumberLastRound = player1.countHeartsLastRound();
+    var player2HeartsNumberLastRound = player2.countHeartsLastRound();
+    var difference =
         player1HeartsNumberLastRound - player2HeartsNumberLastRound;
     if (difference != 0) {
       if (difference > 0) {
@@ -45,7 +45,7 @@ class HeartsDealer extends Human implements CardsDealer {
   @override
   void showDeck() {
     /// Shows remaining playing cards in deck
-    for (PlayingCard playingCard in deck.playingCards) {
+    for (var playingCard in deck.playingCards) {
       print(playingCard.toString());
     }
   }
@@ -53,7 +53,7 @@ class HeartsDealer extends Human implements CardsDealer {
   @override
   PlayingCard dealCard() {
     /// Returns first playing card from shuffled deck
-    PlayingCard playingCard = deck.playingCards.first;
+    var playingCard = deck.playingCards.first;
     // Remove this playing card from deck
     deck.playingCards.remove(playingCard);
     // Return the random playing card
@@ -63,7 +63,7 @@ class HeartsDealer extends Human implements CardsDealer {
   @override
   void dealToPlayers(HeartsPlayer player1, [HeartsPlayer player2]) {
     /// Deals 10 cards to players
-    for (int i = 0; i < 5; i++) {
+    for (var i = 0; i < 5; i++) {
       player1.hand.addPlayingCard(dealCard());
       player2.hand.addPlayingCard(dealCard());
     }

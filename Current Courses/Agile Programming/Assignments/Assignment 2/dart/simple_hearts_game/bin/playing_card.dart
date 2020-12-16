@@ -1,6 +1,6 @@
 class PlayingCard {
-  String _playingCardSuit;
-  String _playingCardRank;
+  final String _playingCardSuit;
+  final String _playingCardRank;
 
   PlayingCard(
     this._playingCardSuit,

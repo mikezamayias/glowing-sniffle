@@ -1,18 +1,17 @@
-import 'playing_card.dart';
 import 'cards_player.dart';
 import 'hand.dart';
 import 'human.dart';
 
 class HeartsPlayer extends Human implements CardsPlayer {
-  String _userName;
-  Hand _hand = new Hand();
+  final String _userName;
+  final Hand _hand = Hand();
   int points;
 
   HeartsPlayer(
     String firstName,
     String lastName,
     int age,
-    String this._userName,
+    this._userName,
   ) : super(
           firstName,
           lastName,
@@ -26,18 +25,14 @@ class HeartsPlayer extends Human implements CardsPlayer {
   Hand get hand => _hand;
 
   int countHeartsLastRound() {
-    return this
-        .hand
-        .playingCards
-        .sublist(
-            this.hand.handSize() - 5, this.hand.handSize())
+    return hand.playingCards
+        .sublist(hand.handSize() - 5, hand.handSize())
         .where((card) => card.playingCardSuit == 'Hearts')
         .length;
   }
 
   int countHearts() {
-    return this
-        .hand
+    return hand
         .playingCards
         .where((card) => card.playingCardSuit == 'Hearts')
         .length;
@@ -50,8 +45,8 @@ class HeartsPlayer extends Human implements CardsPlayer {
 
   @override
   void showHand() {
-    print(this.userName);
-    for (PlayingCard playingCard in this.hand.playingCards) {
+    print(userName);
+    for (var playingCard in hand.playingCards) {
       print(playingCard.toString());
     }
   }
