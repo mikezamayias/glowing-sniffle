@@ -1,3 +1,4 @@
+/// A set of strings representing suits of playing card.
 Set<String> playingCardSuits = {
   'Hearts',
   'Diamonds',
@@ -5,6 +6,7 @@ Set<String> playingCardSuits = {
   'Spades',
 };
 
+/// A set of strings representing ranks of playing card.
 Set<String> playingCardRanks = {
   'Two',
   'Three',
