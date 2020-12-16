@@ -10,3 +10,6 @@ Execute `dart main.dart` in a terminal inside this directory.
 
 # Written in
 `Dart SDK version: 2.10.4 (stable) (Unknown timestamp) on "linux_x64"`
+
+# Why Dart?
+Dart is like Python and Java had a baby, it's nice.
