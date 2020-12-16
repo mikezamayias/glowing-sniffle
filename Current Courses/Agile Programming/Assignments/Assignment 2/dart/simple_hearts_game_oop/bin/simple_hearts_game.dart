@@ -22,10 +22,6 @@ void main(List<String> args) {
     'Tony Stark',
   );
 
-  // dealer.introduceSelf();
-  // player1.introduceSelf();
-  // player2.introduceSelf();
-
   dealer.shuffleDeck();
 
   for (var i = 0; i < 5; i++) {
