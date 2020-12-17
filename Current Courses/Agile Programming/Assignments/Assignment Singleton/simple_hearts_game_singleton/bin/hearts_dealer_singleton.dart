@@ -16,7 +16,7 @@ import 'human.dart';
 /// Also overrides methods in Human abstract class and
 /// CardsDealer interface.
 class HeartsDealerSingleton extends Human implements CardsDealer {
-  static DeckSingleton deck = new DeckSingleton();
+  static DeckSingleton deck = DeckSingleton();
 
   static final HeartsDealerSingleton _singleton =
       HeartsDealerSingleton._internal();
