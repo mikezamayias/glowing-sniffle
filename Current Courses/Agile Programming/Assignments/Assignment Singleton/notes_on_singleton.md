@@ -32,41 +32,6 @@ Singleton
 ## Collaborations
 Clients access a Singleton instance solely through Singleton's Instance operation.
 
-## [Implementation, in Dart](https://en.wikipedia.org/wiki/Singleton_pattern#Dart_implementation)
-```dart
-class Singleton {
-	static Singleton _instance;
-	static Singleton get _instance => _instance ?? Singleton._();
-	Singleton._() => _instance = this;
-}
-```
-
-## [Another Implementation and usage, in Dart](https://stackoverflow.com/a/12649574/13504709)
-```dart
-class Singleton {
-	static final Singleton _singleton = Singleton._internal();
-	factory Singleton() => _singleton;
-	Singleton._internal();
-}
-
-main() {
-	var s1 = Singleton();
-	var s2 = Singleton();
-	print(identical(s1, s2));  // true
-	print(s1 == s2);           // true
-}
-```
-
-## [One more implementation, in Dart](https://dart.academy/creational-design-patterns-for-dart-and-flutter-singleton/)
-```dart
-class Singleton {
-	static Singleton _instance;
-	Singleton._internal() {
-		_instance = this;
-	}
-	factory Singleton() => _instance ?? Singleton._internal();
-}
-```
 ## Downsides
 It's a global variable
 - it makes it harder to reason about code
@@ -81,4 +46,61 @@ It's a global variable
   - Get it from other classes.
   - Get it from something already global.
   - Get it from a Service Locator (another Design Pattern).
+
+## Implementations in Dart
+1. [Wikipedia](https://en.wikipedia.org/wiki/Singleton_pattern#Dart_implementation)
+```dart
+class Singleton {
+	static Singleton _instance;
+	static Singleton get _instance => _instance ?? Singleton._();
+	Singleton._() => _instance = this;
+}
+```
+2. [Stackoverflow](https://stackoverflow.com/a/12649574/13504709)
+```dart
+class Singleton {
+	static final Singleton _singleton = Singleton._internal();
+	factory Singleton() => _singleton;
+	Singleton._internal();
+}
+
+main() {
+	var s1 = Singleton();
+	var s2 = Singleton();
+	print(identical(s1, s2));  // true
+	print(s1 == s2);           // true
+}
+```
+3. [Dart Academy](https://dart.academy/creational-design-patterns-for-dart-and-flutter-singleton/)
+```dart
+class Singleton {
+	static Singleton _instance;
+	Singleton._internal() {
+		_instance = this;
+	}
+	factory Singleton() => _instance ?? Singleton._internal();
+}
+```
+4. [Github gist](https://gist.github.com/theburningmonk/6401183)
+```dart
+class MyClass {
+	static final MyClass _singleton = new MyClass._internal();
+
+	factory MyClass() {
+	return _singleton;
+	}
+
+	MyClass._internal() {
+		... // initialization logic here
+	}
+
+  	// rest of the class
+}
+
+// consuming code
+MyClass myObj = new MyClass(); // get back the singleton
+
+// another piece of consuming code
+MyClass myObj = new MyClass(); // still getting back the singleton
+```
 
