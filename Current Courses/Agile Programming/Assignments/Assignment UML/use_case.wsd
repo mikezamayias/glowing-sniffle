@@ -1,0 +1,36 @@
+@startuml
+
+skinparam handwritten true
+skinparam monochrome true
+' skinparam DefaultFontName Fira Code
+skinparam DefaultFontName xkcd script
+skinparam packageStyle rectangle
+left to right direction
+
+title Hypothetical Use Case Diagram
+
+actor "User" as user
+actor "Server" as server
+' actor "Guest" as guest
+
+rectangle "Controlling a smart room" {
+	usecase "Use smart appliance" as useSmartAppliance
+	usecase "Check appliance state" as checkApplianceState
+	usecase "Oops, something went wrong!" as error
+	usecase "Change appliance state" as changeApplianceState
+	usecase "Log in" as login
+	usecase "Verify log in" as verifyLogIn
+
+	user -- login
+	login -- server
+	user -- useSmartAppliance
+	changeApplianceState -- server
+	checkApplianceState -- server
+	useSmartAppliance .> checkApplianceState : <<include>>
+	changeApplianceState .> checkApplianceState : <<include>>
+	login .> verifyLogIn : <<include>>
+	error .> useSmartAppliance : <<extend>>
+	error .> login : <<extend>>
+}
+
+@enduml

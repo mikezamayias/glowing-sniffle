@@ -2,24 +2,33 @@
 skinparam handwritten true
 skinparam monochrome true
 skinparam DefaultFontName xkcd Script
-
-title Banking app
-
-User --> (Use)
-"Use the application" as (Use)
-
-Admin --> (Main Admin)
-"Admin the application" as (Main Admin)
-
+' skinparam packageStyle rectangle
 left to right direction
-actor "Food Critic" as fc
-rectangle Restaurant {
-  usecase "Eat Food" as UC1
-  usecase "Pay for Food" as UC2
-  usecase "Drink" as UC3
+
+title Testing Use Case Diagram
+
+actor "Food Critic" as foodCritic
+actor "Chef" as chef
+
+rectangle "Reviewing Food" {
+  foodCritic -- (Eat food)
+  foodCritic -- (Drink)
+  foodCritic -- (Review)
+  foodCritic -- (Pay for food)
+  (Cook food) -- chef
+  (Eat food) .> (Cook food) : include
+  (Review) .> (Eat food) : include
+  (Review) .> (Drink) : include
 }
-fc --> UC1
-fc --> UC2
-fc --> UC3
+
+' actor customer
+' actor employee
+' rectangle checkout {
+'   customer -- (checkout)
+'   (checkout) .> (payment) : include
+'   (help) .> (checkout) : extends
+'   (checkout) -- employee
+' }
+
 
 @enduml
