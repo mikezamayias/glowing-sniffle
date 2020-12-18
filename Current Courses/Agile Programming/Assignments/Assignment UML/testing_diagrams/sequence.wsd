@@ -1,0 +1,80 @@
+@startuml
+
+skinparam handwritten true
+skinparam DefaultFontName xkcd script
+skinparam packageStyle rectangle
+
+skinparam sequence{
+	ArrowColor #000000
+	LifeLineBorderColor #6E7B91
+	LifeLineBackgroundColor #96A8C8
+
+	ParticipantBorderColor #96A8C8
+	ParticipantBackgroundColor #6E7B91
+	ParticipantFontSize 18
+	ParticipantFontColor #FFFFFF
+
+	ActorBorderColor #000000
+	ActorBackgroundColor #FFFFFF
+	ActorFontColor #000000
+	ActorFontSize 18
+}
+
+title Testing Sequence Diagram
+
+actor "User" as user
+participant "ATM" as atm
+participant "Bank server" as bankServer
+participant "Bank account" as bankAccount
+
+user -> atm: Insert card
+activate atm
+
+atm -> bankServer: Verify card
+
+activate bankServer
+
+alt [If card is valid]
+	bankServer --> atm: Card verified
+	atm -> user : Request PIN
+else [else]
+	bankServer --> atm: Invlid card
+	atm -> user : Eject card
+end
+
+user --> atm: Pin entered
+atm -> bankServer: Verify PIN
+
+alt [if PIN is valid]
+	bankServer --> atm: PIN verified
+	atm -> user: Request amount
+else [else]
+	bankServer --> atm: PIN invalid
+	atm -> user: Eject card
+end
+
+user --> atm: Amount entered
+atm -> bankServer: Start transaction
+bankServer -> bankAccount: Sufficient funds?
+
+activate bankAccount
+
+alt [if funds are sufficient]
+	bankAccount --> bankServer: Funds OK
+	bankServer -> bankAccount: Withdraw amount
+	bankAccount --> bankServer: Withdraw successful
+	bankServer --> atm: Transaction successful
+	atm -> user: Dispense cash
+else [else]
+	bankAccount --> bankServer: Insufficient funds
+	bankServer --> atm: Transaction unsuccessful
+end
+
+deactivate bankAccount
+deactivate bankServer
+
+atm -> user: Eject card
+
+deactivate atm
+
+@enduml
