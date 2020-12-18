@@ -1,0 +1,73 @@
+@startuml
+
+skinparam handwritten true
+skinparam DefaultFontName xkcd script
+skinparam packageStyle rectangle
+
+skinparam sequence{
+	ArrowColor #000000
+	LifeLineBorderColor #6E7B91
+	LifeLineBackgroundColor #96A8C8
+
+	ParticipantBorderColor #96A8C8
+	ParticipantBackgroundColor #6E7B91
+	ParticipantFontSize 18
+	ParticipantFontColor #FFFFFF
+
+	ActorBorderColor #000000
+	ActorBackgroundColor #FFFFFF
+	ActorFontColor #000000
+	ActorFontSize 18
+}
+
+title Controlling a smart room
+
+actor "User" as user
+participant "Smart device" as smartDevice
+participant "Server" as server
+participant "Smart appliance" as smartAppliance
+
+user -> smartDevice : Log in
+activate smartDevice
+
+smartDevice -> server : Verify user credentials
+activate server
+alt user credentials are valid
+	server --> smartDevice : User connected
+	smartDevice -> user : Request device to interact with
+else else
+	server --> smartDevice : Invalid credentials
+	smartDevice -> user : Throw "invalid credentials" error
+end
+user --> smartDevice : Selected appliance to interact with
+
+smartDevice -> server : Check appliance availability
+alt appliance is available
+	server --> smartDevice : Appliance available
+	smartDevice -> user : Request appliance state to change to
+else else
+	server --> smartDevice : Unavailable appliance
+	smartDevice -> user : Throw "appliance unavailable" error
+end
+user --> smartDevice : Selected appliance state to change to
+
+smartDevice -> server : Selected appliance
+server -> smartAppliance : Check appliance state availability
+activate smartAppliance
+alt appliance state is available
+	smartAppliance --> server : Appliance state available
+	server -> smartAppliance : Changed appliance state
+	smartAppliance --> server : Appliance state changed successfully
+	server --> smartDevice : Successful appliance state change
+	smartDevice --> user : "Changed appliance state" message
+else else
+	smartAppliance --> server : Appliance state change already met
+	server --> smartDevice : Unsuccessful appliance state change
+	smartDevice --> user : "Appliance state was already changed" message
+end
+
+deactivate smartAppliance
+deactivate server
+deactivate smartDevice
+
+@enduml
