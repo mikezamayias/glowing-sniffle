@@ -7,13 +7,12 @@ skinparam DefaultFontName xkcd script
 skinparam packageStyle rectangle
 left to right direction
 
-title Hypothetical Use Case Diagram
+title Controlling a smart room
 
 actor "User" as user
 actor "Server" as server
-' actor "Guest" as guest
 
-rectangle "Controlling a smart room" {
+rectangle {
 	usecase "Use smart appliance" as useSmartAppliance
 	usecase "Check appliance state" as checkApplianceState
 	usecase "Oops, something went wrong!" as error
