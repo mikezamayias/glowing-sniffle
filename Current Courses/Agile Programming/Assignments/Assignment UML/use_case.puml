@@ -25,6 +25,7 @@ rectangle {
 	user -- useSmartAppliance
 	changeApplianceState -- server
 	checkApplianceState -- server
+	
 	useSmartAppliance .> checkApplianceState : <<include>>
 	changeApplianceState .> checkApplianceState : <<include>>
 	login .> verifyLogIn : <<include>>

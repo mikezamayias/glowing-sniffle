@@ -1,0 +1,66 @@
+@startuml
+
+skinparam handwritten true
+skinparam DefaultFontName xkcd script
+skinparam backgroundColor #FFFFFF
+skinparam Dpi 200
+
+skinparam class {
+	BackgroundColor #FFFFFF
+	FontSize 14
+	FontColor #FFFFFF
+	HeaderBackgroundColor #6E7B91
+	BorderColor #96A8C8
+	BorderThickness 2
+	' AttributeFontSize 16
+	ArrowColor #000000
+	ArrowThickness 2
+}
+
+title Class Diagram: Controlling a smart room
+
+class "User" as user {
+	-userId : String
+}
+
+abstract class "Smart Device" as smartDevice{
+	-deviceId : String
+	+void userLogIn(String userId)
+}
+
+class "Server" as server{
+	-serverId : String
+	+void verifyUserCredentials()
+	+void checkApplianceAvailability()
+}
+
+abstract class "Smart Appliance" as smartAppliance{
+	-applianceId : String
+	+void changeState()
+}
+
+class "Phone" as phone extends smartDevice {
+}
+
+class "Computer" as computer extends smartDevice {
+}
+
+class "Smart Shades" as smartShades extends smartAppliance{
+}
+
+class "Smart TV" as smartTV extends smartAppliance{
+}
+
+class "Smart Thermostat" as smartThermostat extends smartAppliance{
+}
+
+class "Smart Lights" as smartLights extends smartAppliance{
+}
+
+class "Smart Speakers" as smartSpeakers extends smartAppliance{
+}
+
+class "Smart Door" as smartDoor extends smartAppliance{
+}
+
+@enduml

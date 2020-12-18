@@ -3,6 +3,8 @@
 skinparam handwritten true
 skinparam DefaultFontName xkcd script
 skinparam packageStyle rectangle
+skinparam Dpi 50
+skinparam backgroundColor #FFFFFF
 
 skinparam sequence{
 	ArrowColor #000000
@@ -20,12 +22,12 @@ skinparam sequence{
 	ActorFontSize 18
 }
 
-title Controlling a smart room
+title Use Case Diagram: Controlling a smart room
 
 actor "User" as user
-participant "Smart device" as smartDevice
+participant "Smart Device" as smartDevice
 participant "Server" as server
-participant "Smart appliance" as smartAppliance
+participant "Smart Appliance" as smartAppliance
 
 user -> smartDevice : Log in
 activate smartDevice
