@@ -7,7 +7,7 @@ skinparam DefaultFontName xkcd script
 skinparam packageStyle rectangle
 left to right direction
 
-title Controlling a smart room
+title Use Case Diagram Controlling a smart room
 
 actor "User" as user
 actor "Server" as server
@@ -25,7 +25,7 @@ rectangle {
 	user -- useSmartAppliance
 	changeApplianceState -- server
 	checkApplianceState -- server
-	
+
 	useSmartAppliance .> checkApplianceState : <<include>>
 	changeApplianceState .> checkApplianceState : <<include>>
 	login .> verifyLogIn : <<include>>

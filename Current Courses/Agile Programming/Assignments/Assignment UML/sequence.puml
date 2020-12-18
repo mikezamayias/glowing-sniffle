@@ -22,7 +22,7 @@ skinparam sequence{
 	ActorFontSize 18
 }
 
-title Use Case Diagram: Controlling a smart room
+title Sequence Diagram: Controlling a smart room
 
 actor "User" as user
 participant "Smart Device" as smartDevice
