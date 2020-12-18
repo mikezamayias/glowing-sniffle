@@ -28,6 +28,7 @@ participant "Bank server" as bankServer
 participant "Bank account" as bankAccount
 
 user -> atm: Insert card
+
 activate atm
 
 atm -> bankServer: Verify card
