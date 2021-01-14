@@ -12,7 +12,7 @@ import 'human.dart';
 /// Has 2 mothods of their own,
 /// shuffleDeck, shuffles this deck and
 /// decideRoundWinner, decided who won the round.
-/// 
+///
 /// Also overrides methods in Human abstract class and
 /// CardsDealer interface.
 class HeartsDealer extends Human implements CardsDealer {
@@ -83,6 +83,8 @@ class HeartsDealer extends Human implements CardsDealer {
   @override
   void decideWinner(HeartsPlayer player1, HeartsPlayer player2) {
     /// Decides the winner of the game, if any.
+    print('${player1.userName}:\t${player1.points}');
+    print('${player2.userName}:\t${player2.points}');
     if (player1.points == player2.points) {
       print('It\'s a tie!');
     } else {

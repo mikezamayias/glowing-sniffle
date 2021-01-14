@@ -33,7 +33,7 @@ void main(List<String> args) {
     dealer.dealToPlayers(player1, player2);
     dealer.decideRoundWinner(player1, player2, i);
   }
-
+// nomizo oti metrao pantous, miso
   /// Decide game winner.
   dealer.decideWinner(player1, player2);
 }
