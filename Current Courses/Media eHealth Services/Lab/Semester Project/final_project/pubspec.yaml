@@ -1,0 +1,32 @@
+name: final_project
+description: A new Flutter project.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: any
+  curved_navigation_bar: any
+  google_fonts: any
+  fl_chart: any
+  jiffy: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/data/account.json
+    - assets/data/heartrate.json
+    - assets/data/sleep.json
+    - assets/data/activity.json
