@@ -17,9 +17,9 @@ import 'human.dart';
 /// Also overrides methods in Human abstract class and
 /// CardsPlayer interface.
 class HeartsPlayer extends Human implements CardsPlayer {
-  final String _userName; // Attribute
-  final Hand _hand = Hand(); // Attribute
-  int points; // Attribute
+  late final String _userName; // Attribute
+  late final Hand _hand = Hand(); // Attribute
+  late int points; // Attribute
 
   HeartsPlayer(
     String firstName,
