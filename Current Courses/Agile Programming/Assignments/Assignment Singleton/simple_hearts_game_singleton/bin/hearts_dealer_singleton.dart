@@ -71,7 +71,7 @@ class HeartsDealerSingleton extends Human implements CardsDealer {
   }
 
   @override
-  void dealToPlayers(HeartsPlayer player1, [HeartsPlayer player2]) {
+  void dealToPlayers(HeartsPlayer player1, HeartsPlayer player2) {
     /// Deals 10 cards to players.
     for (var i = 0; i < 5; i++) {
       player1.hand.addPlayingCard(dealCard());

@@ -4,12 +4,12 @@ import 'constants.dart';
 class DeckSingleton {
   static List<PlayingCard> playingCards = [];
 
-  static DeckSingleton _instance;
-  DeckSingleton._internal() {
-    _instance = this;
+  late final DeckSingleton _instance;
+
+  DeckSingleton() {
+    _instance;
     createDeck();
   }
-  factory DeckSingleton() => _instance ?? DeckSingleton._internal();
 
   void createDeck() {
     for (var playingCardSuit in playingCardSuits) {

@@ -17,25 +17,35 @@ import 'human.dart';
 /// Also overrides methods in Human abstract class and
 /// CardsPlayer interface.
 class HeartsPlayer extends Human implements CardsPlayer {
-  String userName; // Attribute
-  Hand hand = Hand(); // Attribute
-  int points; // Attribute
+  late String _userName; // Attribute
+  late Hand _hand = Hand(); // Attribute
+  late int _points; // Attribute
 
   HeartsPlayer() : super() {
-    points = 0;
+    _points = 0;
   } // Constructor
+
+  String get userName => this._userName; // getter for _userName attribute
+  set userName(String value) =>
+      this._userName = value; // setter for _userName attribute
+
+  Hand get hand => this._hand; // getter for _hand attribute
+  set hand(Hand value) => this._hand = value; // setter for _hand attribute
+
+  int get points => this._points; // getter for _points attribute
+  set points(int value) => this._points = value; // setter for _points attribute
 
   /// Counts Hearts in last round, or in the last 5 cards.
   int countHeartsLastRound() {
-    return hand.playingCards
-        .sublist(hand.handSize() - 5, hand.handSize())
+    return _hand.playingCards
+        .sublist(_hand.handSize() - 5, _hand.handSize())
         .where((card) => card.playingCardSuit == 'Hearts')
         .length;
   }
 
   /// Counts Hearts in this hand.
   int countHearts() {
-    return hand.playingCards
+    return _hand.playingCards
         .where((card) => card.playingCardSuit == 'Hearts')
         .length;
   }
@@ -43,14 +53,14 @@ class HeartsPlayer extends Human implements CardsPlayer {
   /// Introduces this player.
   @override
   void introduceSelf() {
-    print(super.toString() + ', "$userName"');
+    print(super.toString() + ', "$_userName"');
   }
 
   /// Shows this player's hand.
   @override
   void showHand() {
-    print(userName);
-    for (var playingCard in hand.playingCards) {
+    print(_userName);
+    for (var playingCard in _hand.playingCards) {
       print(playingCard.toString());
     }
   }

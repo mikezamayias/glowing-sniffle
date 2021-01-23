@@ -3,16 +3,26 @@
 /// attribute getters,
 /// methods.
 abstract class Human {
-  String firstName; // Attribute
-  String lastName; // Attribute
-  int age; // Attribute
+  late String _firstName; // class attribute
+  late String _lastName; // class attribute
+  late int _age; // class attribute
 
   Human(); // Constructor
+
+  String get firstName => this._firstName; // getter for _firstName
+  set firstName(String value) =>
+      this._firstName = value; // setter for _firstName
+
+  String get lastName => this._lastName; // getter for _lastName
+  set lastName(String value) => this._lastName = value; // setter for _lastName
+
+  int get age => this._age; // getter for _age
+  set age(int value) => this._age = value; // setter for _age
 
   /// Returns a formmated string containing classes attributes.
   @override
   String toString() {
-    return 'Introducing: $firstName $lastName, $age';
+    return 'Introducing: $_firstName $_lastName, $_age';
   }
 
   /// Introduces human.
