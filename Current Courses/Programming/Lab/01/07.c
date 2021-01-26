@@ -12,25 +12,21 @@
 
 #include <stdio.h>
 
-
 int main()
 {
     int nik, nak, atr, gin;
-    
+
     nik = 3;
     nak = 5;
     atr = nik + nak;
     gin = nik * nak;
-    
+
     printf("%s\n", "VALUES");
-    for (int i = 0; i < 5; i++)
-    {
+    for (int i = 0; i < nak; i++)
         printf("*");
-    }
-    for (int i = 0; i < 4; i++)
-    {
+    for (int i = 0; i < nik + 1; i++)
         printf("\n");
-    }
+
     printf("nik = %i\nnak = %i\n", nik, nak);
     printf("Άθροισμα = %5i Γινόμενο = %5i\n", atr, gin);
 

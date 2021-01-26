@@ -6,14 +6,13 @@
 
 #include <stdio.h>
 
-
 int main()
 {
     int age, months = 12;
 
-    age = 20;
+    age = 21;
 
-    printf("You're %i years old, or %i months old.\n", age, age * months);
+    printf("You're %i months old.\n", age * months);
 
     return 0;
 }
