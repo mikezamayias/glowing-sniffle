@@ -14,14 +14,12 @@ float 5 θέσεων, τον pin. Να διαβάσετε τιμές από το
 του πίνακα.
 */
 
-
-
 #include <stdio.h>
 
 int main()
 {
     float pin[5];
-    
+
     for (int i = 0; i < 5; i++)
     {
         printf("Δώσε μία τιμή:\t");
