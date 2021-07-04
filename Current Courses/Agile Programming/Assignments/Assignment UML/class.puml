@@ -7,14 +7,14 @@ skinparam Dpi 200
 
 skinparam class {
 	BackgroundColor #FFFFFF
-	FontSize 14
+	FontSize 12
 	FontColor #FFFFFF
 	HeaderBackgroundColor #6E7B91
 	BorderColor #96A8C8
-	BorderThickness 2
-	' AttributeFontSize 16
+	BorderThickness 1
+	AttributeFontSize 12
 	ArrowColor #000000
-	ArrowThickness 2
+	ArrowThickness 1
 }
 
 title Class Diagram: Controlling a smart room
