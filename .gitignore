@@ -1,5 +1,6 @@
 .vscode/settings.json
 */.idea/*
+**/.DS_Store
 Current Courses/Agile Programming/Lab/Assignment 3/.idea/
 Past Courses/Algorithms/Notes.aux
 Past Courses/Algorithms/Notes.fdb_latexmk
